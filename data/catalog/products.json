@@ -1212,6 +1212,900 @@
       "brand": "Apple",
       "model": "iPhone 13 Pro",
       "variant": "1TB"
+    },
+    {
+      "id": "product_e26c40368cce38286f0b",
+      "brand": "NVIDIA",
+      "model": "RTX 5060",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_8ff1ad7be1969d49183e",
+      "brand": "NVIDIA",
+      "model": "RTX 3080",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_66c0b130f2dacbe4f9cc",
+      "brand": "NVIDIA",
+      "model": "RTX 3080 Ti",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_45bf918b0e36f0d725df",
+      "brand": "NVIDIA",
+      "model": "RTX 5070",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_243a1eef2bbcbaeff50f",
+      "brand": "NVIDIA",
+      "model": "RTX 4080",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_40413bcc68125b1fd85b",
+      "brand": "NVIDIA",
+      "model": "RTX 5080",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_99195a9180b228b2756a",
+      "brand": "NVIDIA",
+      "model": "RTX 3090",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_ba5a3783592dfdcc97b2",
+      "brand": "NVIDIA",
+      "model": "RTX 4090",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_ad9c8296f94ef7705f3d",
+      "brand": "NVIDIA",
+      "model": "RTX 5090",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_4d55c720f18e8a7bbe3c",
+      "brand": "DJI",
+      "model": "Osmo Action 4",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_4e83e5735f7c776237e5",
+      "brand": "DJI",
+      "model": "Osmo Action 5 Pro",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_34a63c6ef79609221db3",
+      "brand": "DJI",
+      "model": "Osmo Action 6",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_fed6a320f1727c818aa9",
+      "brand": "DJI",
+      "model": "Osmo Pocket 3",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_20ac16ee5eb0a0edb243",
+      "brand": "DJI",
+      "model": "Osmo Pocket 4",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_1fb3e89bf1ca2ab6811c",
+      "brand": "DJI",
+      "model": "Osmo Pocket 4P",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_57b440ed57a84f62d4e2",
+      "brand": "Samsung",
+      "model": "Galaxy S25",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_d74bed366ec7adc44902",
+      "brand": "Samsung",
+      "model": "Galaxy S25",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_237788f61c7f8ff2578b",
+      "brand": "Samsung",
+      "model": "Galaxy S25 Edge",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_75ba3e01cdb8fdfac626",
+      "brand": "Samsung",
+      "model": "Galaxy S25 Edge",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_a5da0b7198ec41bf5557",
+      "brand": "Samsung",
+      "model": "Galaxy S25 FE",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_90532516edbc4281e454",
+      "brand": "Samsung",
+      "model": "Galaxy S25 Ultra",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_952f2fbdb7f3c80e4911",
+      "brand": "Samsung",
+      "model": "Galaxy S25 Ultra",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_a4f200cc687e6e516f27",
+      "brand": "Samsung",
+      "model": "Galaxy S25+",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_671bda4cf70918c2b580",
+      "brand": "Samsung",
+      "model": "Galaxy S25+",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_24d182a92c9a18e5d938",
+      "brand": "Samsung",
+      "model": "Galaxy S26",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_3c8e5abccf146a1a9e9c",
+      "brand": "Samsung",
+      "model": "Galaxy S26",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_b5887ccd93a24c06bf5d",
+      "brand": "Samsung",
+      "model": "Galaxy S26 Ultra",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_7bd065745d3ccd699d3c",
+      "brand": "Samsung",
+      "model": "Galaxy S26 Ultra",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_c158f01c70ea87fcdbf6",
+      "brand": "Samsung",
+      "model": "Galaxy S26+",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_6ef987a8bd99aa22b6be",
+      "brand": "Samsung",
+      "model": "Galaxy S26+",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_012f469074e26c6d38ff",
+      "brand": "Samsung",
+      "model": "Galaxy Z Flip7",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_5097d10bebba2bb7a1f5",
+      "brand": "Samsung",
+      "model": "Galaxy Z Flip7",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_67dd0075734b7cb565cb",
+      "brand": "Samsung",
+      "model": "Galaxy Z Fold6",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_00acc927f85b1fa5ddbb",
+      "brand": "Samsung",
+      "model": "Galaxy Z Fold6",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_614e14c569b9a36118e0",
+      "brand": "Samsung",
+      "model": "Galaxy Z Fold7",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_779bb421a5d29ec17a6b",
+      "brand": "Samsung",
+      "model": "Galaxy Z Fold7",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_e484e6a1b8ea74b39748",
+      "brand": "Apple",
+      "model": "iPhone 15 Pro",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_51dda06ad2f61485bf27",
+      "brand": "Apple",
+      "model": "iPhone 15 Pro",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_eb9b79de9bb8cf24979b",
+      "brand": "Apple",
+      "model": "iPhone 16",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_e3896d1dd9629fd719f4",
+      "brand": "Apple",
+      "model": "iPhone 16",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_5b101eba8aae92fb9ec4",
+      "brand": "Apple",
+      "model": "iPhone 16 Plus",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_03fcfd4fc350efe6687b",
+      "brand": "Apple",
+      "model": "iPhone 16 Plus",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_e402336bfd513346748d",
+      "brand": "Apple",
+      "model": "iPhone 16 Pro",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_bb273c7cb468a9e97a26",
+      "brand": "Apple",
+      "model": "iPhone 16 Pro",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_4c5bdc02679f74a45673",
+      "brand": "Apple",
+      "model": "iPhone 17",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_a6073f7776c67db4530f",
+      "brand": "Apple",
+      "model": "iPhone 17",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_0427bdb99ed48311fd51",
+      "brand": "Apple",
+      "model": "iPhone 17 Pro",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_3f7c0880047f26cdf20c",
+      "brand": "Apple",
+      "model": "iPhone 17 Pro",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_4b2709bed9c2b5402845",
+      "brand": "Apple",
+      "model": "iPhone Air",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_44b3424fc926f0cbf2dd",
+      "brand": "Apple",
+      "model": "iPhone Air",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_6ced7c8c3ce9647f9464",
+      "brand": "SONY",
+      "model": "Sony FX3",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_99b2da2099386a6bad09",
+      "brand": "SONY",
+      "model": "Sony a6400",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_283fe27426ae3b70a214",
+      "brand": "SONY",
+      "model": "Sony a6700",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_cc0e7d3395584e9ae780",
+      "brand": "SONY",
+      "model": "Sony a7 III",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_ba2854dd664181c1479f",
+      "brand": "SONY",
+      "model": "Sony a7 IV",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_cbce62b353fe2adc9b03",
+      "brand": "SONY",
+      "model": "Sony a7 V",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_59c9944c1f3020fbe7be",
+      "brand": "SONY",
+      "model": "Sony a7C II",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_5af495947f5aba7bb9a4",
+      "brand": "SONY",
+      "model": "Sony a7CR",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_1e695c6127dc00af4659",
+      "brand": "SONY",
+      "model": "Sony a7R V",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_bfac41c310a36cac71b7",
+      "brand": "SONY",
+      "model": "Sony a7R VI",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_0de6d435ff59684fd01f",
+      "brand": "Panasonic",
+      "model": "Panasonic GH7",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_d16414c0dd3067f730ca",
+      "brand": "Panasonic",
+      "model": "Panasonic S1R II",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_26b005a498b6c7466acc",
+      "brand": "Panasonic",
+      "model": "Panasonic S5 II",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_38be8dd0319389a253f1",
+      "brand": "Panasonic",
+      "model": "Panasonic S5 IIX",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_2059f031212434ec34d1",
+      "brand": "Panasonic",
+      "model": "Panasonic S9",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_0fe9ff826f4a798e7067",
+      "brand": "Insta360",
+      "model": "Insta360 Ace Pro 2",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_1d0ef47577be10fc0ec3",
+      "brand": "Insta360",
+      "model": "Insta360 GO 3S",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_13231c43aafa55eeb6d3",
+      "brand": "Insta360",
+      "model": "Insta360 GO Ultra",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_465238adc4a9386f8027",
+      "brand": "Canon",
+      "model": "Canon PowerShot V1",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_7340dd3f10918e7ee601",
+      "brand": "Canon",
+      "model": "Canon R1",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_a9c4c55ddd4edc94db90",
+      "brand": "Canon",
+      "model": "Canon R10",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_2b9f91d4485cbafece01",
+      "brand": "Canon",
+      "model": "Canon R3",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_74ba2e48fc411e911531",
+      "brand": "Canon",
+      "model": "Canon R5 Mark II",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_047bf0684ca84cfe3e01",
+      "brand": "Canon",
+      "model": "Canon R6 Mark II",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_7a850ffb26c1afb1e785",
+      "brand": "Canon",
+      "model": "Canon R6 Mark III",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_94a52a599219c33ee6bc",
+      "brand": "Canon",
+      "model": "Canon R7",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_f6a284754e5678f9f017",
+      "brand": "Canon",
+      "model": "Canon R8",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_caceff0d9b12e4f52ef7",
+      "brand": "Nikon",
+      "model": "Nikon Zf",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_d90f908675b9004bba26",
+      "brand": "FUJIFILM",
+      "model": "Fujifilm X-E5",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_03463a4a95f0e4c9703f",
+      "brand": "FUJIFILM",
+      "model": "Fujifilm X-H2S",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_5859a62a3306dbd36223",
+      "brand": "FUJIFILM",
+      "model": "Fujifilm X-M5",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_f6b936629ae2aac1cd38",
+      "brand": "FUJIFILM",
+      "model": "Fujifilm X-S20",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_68829369ffd6bf674eab",
+      "brand": "FUJIFILM",
+      "model": "Fujifilm X-T5",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_8642e686fbda4de28a47",
+      "brand": "FUJIFILM",
+      "model": "Fujifilm X-T50",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_44ff1129fef7f94a4617",
+      "brand": "FUJIFILM",
+      "model": "Fujifilm X100V",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_93499f9327a90a717a8a",
+      "brand": "FUJIFILM",
+      "model": "Fujifilm X100VI",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_b2550e0d02aeed595638",
+      "brand": "RICOH",
+      "model": "Ricoh GR III",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_7d78349fc6974ded85a7",
+      "brand": "RICOH",
+      "model": "Ricoh GR IIIx",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_0261ed0ea4e1b4410566",
+      "brand": "Samsung",
+      "model": "Galaxy S22 Ultra",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_bff5e818cf208d2b9622",
+      "brand": "Samsung",
+      "model": "Galaxy S22 Ultra",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_3d59b837b5514ef3fc1c",
+      "brand": "Samsung",
+      "model": "Galaxy S23 Ultra",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_0454a9ad1b4e4b55f6e4",
+      "brand": "Samsung",
+      "model": "Galaxy S23 Ultra",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_34d31d9a9da70064d81e",
+      "brand": "Samsung",
+      "model": "Galaxy S22",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_e57507f1ef4208b3c4d7",
+      "brand": "Samsung",
+      "model": "Galaxy S23",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_02dd582d2d488351b66a",
+      "brand": "Samsung",
+      "model": "Galaxy S23",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_b7ab75ba449f59f6066d",
+      "brand": "Apple",
+      "model": "iPhone 14 Pro",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_5c5df7de7e91156b58c1",
+      "brand": "Apple",
+      "model": "iPhone 14 Pro",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_ba3aac605e95ae7efe90",
+      "brand": "Apple",
+      "model": "iPhone 14 Pro Max",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_9fb579c3c4da1222d543",
+      "brand": "Apple",
+      "model": "iPhone 14 Pro Max",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_614ab8d4522308d96eac",
+      "brand": "Apple",
+      "model": "MacBook Air M4",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_dd4718cbcd6119ca76e3",
+      "brand": "Apple",
+      "model": "MacBook Pro M4 Pro",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_966ae67509b57798c158",
+      "brand": "Apple",
+      "model": "MacBook Pro M4 Max",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_690937f0a69c1231c4d4",
+      "brand": "Apple",
+      "model": "Apple Watch Series 10",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_75db9831f143b2dd1585",
+      "brand": "Apple",
+      "model": "Apple Watch Ultra 2",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_f1f4d7a9161bfbb96624",
+      "brand": "RICOH",
+      "model": "Ricoh GR IV",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_a84f4da12a6bb924efce",
+      "brand": "SONY",
+      "model": "Sony RX100 VII",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_425d1b0839e8e750d0f8",
+      "brand": "Panasonic",
+      "model": "Panasonic TZ99 / ZS99",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_30f7c8fc2918cf547407",
+      "brand": "OM SYSTEM",
+      "model": "OM System TG-7",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_8565e8675619ecd27515",
+      "brand": "GoPro",
+      "model": "GoPro MISSION 1",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_531e8ba2594ed6f9ed88",
+      "brand": "GoPro",
+      "model": "GoPro MISSION 1 PRO",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_0a2d188cf1430d97cf9f",
+      "brand": "GoPro",
+      "model": "GoPro HERO13 Black",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_e2a30519075530277410",
+      "brand": "Insta360",
+      "model": "Insta360 X6",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_018239a4ae25e58c3ec3",
+      "brand": "DJI",
+      "model": "DJI Mini 5 Pro",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_b483c8d29a3a379c2818",
+      "brand": "DJI",
+      "model": "DJI Air 3S",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_e3fe6d0516a9a0add1fa",
+      "brand": "DJI",
+      "model": "DJI Mavic 4 Pro",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_086c7b829991dc09c1b1",
+      "brand": "Samsung",
+      "model": "Galaxy S24",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_833197861e55308783fc",
+      "brand": "Samsung",
+      "model": "Galaxy S24",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_50d22ad4be64ebf56222",
+      "brand": "Samsung",
+      "model": "Galaxy S24+",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_cd3b90934b01e731314c",
+      "brand": "Samsung",
+      "model": "Galaxy S24+",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_9afe9932633ab6e49a38",
+      "brand": "Samsung",
+      "model": "Galaxy S24 Ultra",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_a48b5a2a6c68e721909b",
+      "brand": "Samsung",
+      "model": "Galaxy S24 Ultra",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_5dafdc1e7fa4ebea75c2",
+      "brand": "Samsung",
+      "model": "Galaxy S24 FE",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_c2f9fab6b0f1333ba3fd",
+      "brand": "Samsung",
+      "model": "Galaxy S24 FE",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_aa00a904ff5d664a748a",
+      "brand": "Samsung",
+      "model": "Galaxy S23+",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_2e6c72bbb83c911f194c",
+      "brand": "Samsung",
+      "model": "Galaxy S23+",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_02731dcfe8170d64aebe",
+      "brand": "Samsung",
+      "model": "Galaxy S23 FE",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_9d5fa19df3b55c0c8201",
+      "brand": "Samsung",
+      "model": "Galaxy Z Flip6",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_74b84a1fe4547204aaa7",
+      "brand": "Samsung",
+      "model": "Galaxy Z Flip6",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_a2b4f894fcb101dd1175",
+      "brand": "Samsung",
+      "model": "Galaxy Z Flip7 FE",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_0f4d14c2189db42f1ad0",
+      "brand": "Samsung",
+      "model": "Galaxy Z Flip5",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_33cd39bb80ba7722a97b",
+      "brand": "Samsung",
+      "model": "Galaxy Z Flip5",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_bfac2a139a6ea06d0533",
+      "brand": "Samsung",
+      "model": "Galaxy Z Fold5",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_c9366bf685bf4d8742a2",
+      "brand": "Samsung",
+      "model": "Galaxy Z Fold5",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_d74c0eb0c0c1c2d85711",
+      "brand": "Apple",
+      "model": "iPhone 15 Pro Max",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_fe01be31918aa875fc1c",
+      "brand": "Apple",
+      "model": "iPhone 15 Pro Max",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_bae4e7426c3c4494e051",
+      "brand": "Apple",
+      "model": "iPhone 16 Pro Max",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_74dc178abe9b644ed9c0",
+      "brand": "Apple",
+      "model": "iPhone 16 Pro Max",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_036c1d038620f2c65ef2",
+      "brand": "Apple",
+      "model": "iPhone 17 Pro Max",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_8e01ca7b975c8f92128d",
+      "brand": "Apple",
+      "model": "iPhone 17 Pro Max",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_e365da531bb206850292",
+      "brand": "Apple",
+      "model": "iPhone 15",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_e1bfb005064f77a50b2e",
+      "brand": "Apple",
+      "model": "iPhone 15",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_1f8c8aad3303f5b99e91",
+      "brand": "Apple",
+      "model": "iPhone 15 Plus",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_cdba5772e8ea50ac4bcc",
+      "brand": "Apple",
+      "model": "iPhone 15 Plus",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_27283a69193ad92441ca",
+      "brand": "Apple",
+      "model": "iPhone 16e",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_538cacdcf54ef523cb5e",
+      "brand": "Apple",
+      "model": "iPhone 16e",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_208523b9a51088b00e54",
+      "brand": "Apple",
+      "model": "iPhone 13",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_e52ac2521effa72984f1",
+      "brand": "Apple",
+      "model": "iPhone 13",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_27401397e3b687609314",
+      "brand": "Apple",
+      "model": "iPhone 13 Pro",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_5640dae80e45c4434fad",
+      "brand": "Apple",
+      "model": "iPhone 13 Pro",
+      "variant": "고장·파손"
     }
   ]
 }

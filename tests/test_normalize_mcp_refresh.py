@@ -1,6 +1,9 @@
 import unittest
 
-from scripts.normalize_mcp_refresh import capacity, choose_variant, comparable, model_matches, normalize, normalize_v2
+from scripts.normalize_mcp_refresh import (
+    DEFECT_VARIANT, UNKNOWN_CAPACITY_VARIANT, body_capacity, capacity, choose_variant, classify, comparable,
+    mentions_defect, model_matches, normalize, normalize_v2,
+)
 
 
 class ModelMatchTest(unittest.TestCase):
@@ -218,3 +221,54 @@ class NormalizeV2Test(unittest.TestCase):
             [],
         )
         self.assertEqual(normalize_v2(raw, self.CATALOG)["listings"], [])
+
+
+def phone_products(model, variants):
+    return [{"brand": "Apple", "model": model, "variant": value} for value in variants]
+
+
+class TierTest(unittest.TestCase):
+    def setUp(self):
+        capacities = ["128GB", "256GB", "512GB", UNKNOWN_CAPACITY_VARIANT, DEFECT_VARIANT]
+        self.products = {
+            "iPhone 16": phone_products("iPhone 16", capacities),
+            "iPhone 16 Pro": phone_products("iPhone 16 Pro", capacities[:3] + ["1TB"] + capacities[3:]),
+            "iPhone 16 Pro Max": phone_products("iPhone 16 Pro Max", ["256GB", "512GB", "1TB"] + capacities[3:]),
+        }
+
+    def variant(self, title, description=None, price=700_000, query="iPhone 16"):
+        product = classify(query, title, description, price, self.products)
+        return product and (product["model"], product["variant"])
+
+    def test_other_model_moves_instead_of_dropping(self):
+        self.assertEqual(self.variant("아이폰 16 프로 256GB"), ("iPhone 16 Pro", "256GB"))
+        self.assertEqual(self.variant("아이폰16 프맥 512"), ("iPhone 16 Pro Max", "512GB"))
+        self.assertEqual(self.variant("아이폰 16 프로맥스 1테라"), ("iPhone 16 Pro Max", "1TB"))
+
+    def test_defect_goes_to_its_own_tier(self):
+        self.assertEqual(self.variant("아이폰 16 액정 깨짐 256GB"), ("iPhone 16", DEFECT_VARIANT))
+        self.assertEqual(self.variant("아이폰 16 부품용", price=120_000), ("iPhone 16", DEFECT_VARIANT))
+        self.assertIsNone(self.variant("아이폰 16 부품용", price=90_000))
+        for body in ("뒷판 파손 있어요", "미세 잔상이 있어 저렴하게 판매 합니다", "번인현상이 있네요", "망원 카메라에 실금이 있습니다"):
+            with self.subTest(body=body):
+                self.assertEqual(self.variant("아이폰 16 256GB", body), ("iPhone 16", DEFECT_VARIANT))
+
+    def test_denied_defect_in_body_is_not_defect(self):
+        for body in (
+            "고장 없음", "파손 없이 깨끗합니다", "무잔상 무번인", "잔상X 번인X", "노파손", "침수 이력 없습니다",
+            "무상 A/S는 액정파손/외관훼손 제외", "※ 파손 / 침수 / 사용자과실 및", "분실 도난 침수폰 일절 취급하지 않습니다",
+            "B급 : 액정 약 잔상 있거나 기스 있고", "택배거래시 파손면책 동의하시면 가능", "✅특S급 : [ 찍힘❌ / 잔상❌ ]",
+        ):
+            with self.subTest(body=body):
+                self.assertFalse(mentions_defect(body, body=True))
+                self.assertEqual(self.variant("아이폰 16 256GB", body), ("iPhone 16", "256GB"))
+
+    def test_capacity_from_body_or_unknown(self):
+        self.assertEqual(self.variant("아이폰 16 블랙 S급", "용량은 256GB 입니다"), ("iPhone 16", "256GB"))
+        self.assertEqual(self.variant("아이폰 16 블랙 S급", "128GB 256GB 512GB 재고 있음"), ("iPhone 16", UNKNOWN_CAPACITY_VARIANT))
+        self.assertEqual(self.variant("아이폰 16 블랙 S급"), ("iPhone 16", UNKNOWN_CAPACITY_VARIANT))
+        self.assertIsNone(body_capacity("가격 256,000원"))
+
+    def test_non_listing_words_still_dropped(self):
+        self.assertIsNone(self.variant("아이폰 16 삽니다"))
+        self.assertIsNone(self.variant("아이폰 16 케이스 일괄"))

@@ -6,14 +6,17 @@ import argparse
 import json
 import subprocess
 import sys
+import time
+from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from collect_marketplaces import joongna_safe_trade_count  # noqa: E402
-from normalize_mcp_refresh import CATALOG, normalize  # noqa: E402
+from collect_marketplaces import REQUEST_DELAY_SECONDS, bunjang_description, joongna_description, joongna_safe_trade_count  # noqa: E402
+from normalize_mcp_refresh import CATALOG, DEFECT_VARIANT, UNKNOWN_CAPACITY_VARIANT, normalize  # noqa: E402
 
 KST = timezone(timedelta(hours=9))
 IMPORTS_DIR = ROOT / "data" / "imports"
@@ -25,6 +28,11 @@ KEEP_IMPORT_DAYS = 190
 KEEP_AGGREGATE_FILES = 30
 # 모델·구성마다 싼 중고나라 매물부터 판매자 안전거래 횟수를 확인한다. 안전 판매자를 찾으면 멈춘다.
 SAFETY_CHECKS_PER_PRODUCT = 10
+# 사이트에 보이는 건 최저가라서 칸마다 싼 매물부터 본문을 확인한다(고장 문구, 제목에 없는 용량).
+DETAIL_CHECKS = {"active": 6, "sold": 4}
+DETAIL_CHECKS_UNKNOWN_CAPACITY = 12
+DETAIL_ROUNDS = 3
+DETAIL_WORKERS = 4
 
 
 def attach_joongna_safety(payload: dict) -> None:
@@ -62,6 +70,50 @@ def attach_joongna_safety(payload: dict) -> None:
     ]
     zero = sum(1 for count in counts.values() if count == 0)
     print(f"중고나라 판매자 안전거래 확인: {len(payload['seller_safety_checks'])}명 (0회 {zero}명)")
+
+
+def fetch_description(marketplace: str, external_id: str) -> str:
+    try:
+        if marketplace == "bunjang":
+            return bunjang_description(external_id)
+        return joongna_description(external_id)
+    except Exception as error:
+        print(f"본문 확인 실패: {marketplace} {external_id}: {error}", file=sys.stderr)
+        return ""
+    finally:
+        time.sleep(REQUEST_DELAY_SECONDS)
+
+
+def normalize_with_descriptions(raw: dict, catalog: dict) -> dict:
+    """싼 매물의 본문을 읽고 다시 분류한다. 본문 때문에 칸이 바뀌면 새로 최저가가 된 매물도 읽는다."""
+    descriptions: dict[tuple[str, str], str] = {}
+    payload = normalize(raw, catalog, descriptions)
+    for _ in range(DETAIL_ROUNDS):
+        groups: dict[tuple[str, str, str, str], list[dict]] = {}
+        for listing in payload["listings"]:
+            if listing["variant"] != DEFECT_VARIANT:
+                groups.setdefault((listing["brand"], listing["model"], listing["variant"], listing["state"]), []).append(listing)
+        wanted = []
+        for (_, _, variant, state), listings in groups.items():
+            limit = DETAIL_CHECKS_UNKNOWN_CAPACITY if variant == UNKNOWN_CAPACITY_VARIANT else DETAIL_CHECKS[state]
+            listings.sort(key=lambda listing: listing["price_krw"])
+            wanted += [
+                (listing["marketplace"], listing["external_listing_id"])
+                for listing in listings[:limit]
+                if (listing["marketplace"], listing["external_listing_id"]) not in descriptions
+            ]
+        if not wanted:
+            break
+        keys = list(dict.fromkeys(wanted))
+        with ThreadPoolExecutor(max_workers=DETAIL_WORKERS) as pool:
+            descriptions.update(zip(keys, pool.map(lambda key: fetch_description(*key), keys)))
+        payload = normalize(raw, catalog, descriptions)
+    moved = Counter(listing["variant"] for listing in payload["listings"] if listing["raw"].get("description_checked"))
+    print(
+        f"본문 확인: {len(descriptions)}건 · 고장 {moved.get(DEFECT_VARIANT, 0)}건"
+        f" · 용량 미확인 {moved.get(UNKNOWN_CAPACITY_VARIANT, 0)}건"
+    )
+    return payload
 
 
 def snapshot_date(path: Path, prefix: str) -> date | None:
@@ -107,7 +159,7 @@ def main() -> None:
         "--joongna-pages", str(args.joongna_pages),
         "--bunjang-pages", str(args.bunjang_pages),
     )
-    payload = normalize(json.loads(raw_path.read_text()), json.loads(CATALOG.read_text()))
+    payload = normalize_with_descriptions(json.loads(raw_path.read_text()), json.loads(CATALOG.read_text()))
     attach_joongna_safety(payload)
     import_path = IMPORTS_DIR / f"{run_id}.json"
     import_path.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n")

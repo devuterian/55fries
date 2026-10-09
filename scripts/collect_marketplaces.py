@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 import time
 import urllib.error
@@ -19,6 +20,8 @@ KST = timezone(timedelta(hours=9))
 JOONGNA_SEARCH_URL = "https://search-api.joongna.com/v3/search/all"
 JOONGNA_STORE_URL = "https://main-api.joongna.com/v2/my-store/{store_seq}"
 BUNJANG_SEARCH_URL = "https://api.bunjang.co.kr/api/search/v8/web/search"
+BUNJANG_DETAIL_URL = "https://api.bunjang.co.kr/api/pms/v3/products-detail/{pid}?viewerUid=-1"
+JOONGNA_PRODUCT_URL = "https://web.joongna.com/product/{seq}"
 USER_AGENT = "Mozilla/5.0 (compatible; 55fries-price-guide/1.0; +https://devuterian.github.io/salmanhanga/)"
 JOONGNA_ON_SALE = 0
 JOONGNA_SOLD = 3
@@ -43,6 +46,55 @@ def request_json(url: str, body: dict | None = None, attempts: int = 3) -> dict:
                 raise
             time.sleep(2 ** attempt * 2)
     raise AssertionError("unreachable")
+
+
+def request_text(url: str, attempts: int = 3) -> str:
+    for attempt in range(attempts):
+        try:
+            request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+            with urllib.request.urlopen(request, timeout=20) as response:
+                return response.read().decode("utf-8", "replace")
+        except (urllib.error.URLError, TimeoutError):
+            if attempt == attempts - 1:
+                raise
+            time.sleep(2 ** attempt * 2)
+    raise AssertionError("unreachable")
+
+
+def bunjang_description(pid: str) -> str:
+    payload = request_json(BUNJANG_DETAIL_URL.format(pid=urllib.parse.quote(str(pid))))
+    return (((payload.get("data") or {}).get("product") or {}).get("description")) or ""
+
+
+def joongna_description_from_html(html: str) -> str:
+    """중고나라는 상세 API가 없어 상품 페이지에 실린 Next.js 데이터에서 본문을 꺼낸다."""
+    chunks = []
+    for match in re.finditer(r"self\.__next_f\.push\((\[.*?\])\)</script>", html, re.DOTALL):
+        try:
+            chunk = json.loads(match.group(1))
+        except json.JSONDecodeError:
+            continue
+        if len(chunk) > 1 and isinstance(chunk[1], str):
+            chunks.append(chunk[1])
+    payload = "".join(chunks)
+    found = re.search(r'"productDescription":("(?:[^"\\]|\\.)*")', payload)
+    if not found:
+        return ""
+    value = json.loads(found.group(1))
+    reference = re.fullmatch(r"\$([0-9a-f]+)", value)
+    if not reference:
+        return value
+    # "$41"은 같은 응답 안의 "41:T<바이트 길이 16진수>," 텍스트 조각을 가리킨다.
+    data = payload.encode()
+    header = re.search(rb"(?:^|\n)" + reference.group(1).encode() + rb":T([0-9a-f]+),", data)
+    if not header:
+        return ""
+    start = header.end()
+    return data[start:start + int(header.group(1), 16)].decode("utf-8", "replace")
+
+
+def joongna_description(seq: str) -> str:
+    return joongna_description_from_html(request_text(JOONGNA_PRODUCT_URL.format(seq=urllib.parse.quote(str(seq)))))
 
 
 def joongna_time(value: str) -> datetime:
