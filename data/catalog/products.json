@@ -936,6 +936,282 @@
       "brand": "DJI",
       "model": "DJI Mavic 4 Pro",
       "variant": "플라이 모어"
+    },
+    {
+      "id": "product_72704949dd39e577d2c6",
+      "brand": "Samsung",
+      "model": "Galaxy S24",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_fd1f5a8db7ecbbc54bc1",
+      "brand": "Samsung",
+      "model": "Galaxy S24",
+      "variant": "512GB"
+    },
+    {
+      "id": "product_871beb49c58e4982fbf1",
+      "brand": "Samsung",
+      "model": "Galaxy S24+",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_53944e0530db1ae3fc6d",
+      "brand": "Samsung",
+      "model": "Galaxy S24+",
+      "variant": "512GB"
+    },
+    {
+      "id": "product_48798d459284519f12da",
+      "brand": "Samsung",
+      "model": "Galaxy S24 Ultra",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_51ce79e54de879db6ecf",
+      "brand": "Samsung",
+      "model": "Galaxy S24 Ultra",
+      "variant": "512GB"
+    },
+    {
+      "id": "product_aab2bfc94861ff7582b6",
+      "brand": "Samsung",
+      "model": "Galaxy S24 Ultra",
+      "variant": "1TB"
+    },
+    {
+      "id": "product_1b693699e1d2fcb2dea0",
+      "brand": "Samsung",
+      "model": "Galaxy S24 FE",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_d6b10d7189cca8bc2afa",
+      "brand": "Samsung",
+      "model": "Galaxy S24 FE",
+      "variant": "512GB"
+    },
+    {
+      "id": "product_691b4a70fe48a75d8b41",
+      "brand": "Samsung",
+      "model": "Galaxy S23+",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_b335d6e2c76f1ed81fcf",
+      "brand": "Samsung",
+      "model": "Galaxy S23+",
+      "variant": "512GB"
+    },
+    {
+      "id": "product_66cff403a06a907bc89d",
+      "brand": "Samsung",
+      "model": "Galaxy S23 FE",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_8a504ca2518dbece9347",
+      "brand": "Samsung",
+      "model": "Galaxy Z Flip6",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_696a89bcafd43fb9b9bb",
+      "brand": "Samsung",
+      "model": "Galaxy Z Flip6",
+      "variant": "512GB"
+    },
+    {
+      "id": "product_068688be0ca41083e2a6",
+      "brand": "Samsung",
+      "model": "Galaxy Z Flip7 FE",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_c8c3506ce6f01563cf90",
+      "brand": "Samsung",
+      "model": "Galaxy Z Flip5",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_37c62cb5466835064674",
+      "brand": "Samsung",
+      "model": "Galaxy Z Flip5",
+      "variant": "512GB"
+    },
+    {
+      "id": "product_fb6a7486ff51872eb982",
+      "brand": "Samsung",
+      "model": "Galaxy Z Fold5",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_60950ee04b9b0f10ca43",
+      "brand": "Samsung",
+      "model": "Galaxy Z Fold5",
+      "variant": "512GB"
+    },
+    {
+      "id": "product_3c259e3d9d73aef0184a",
+      "brand": "Samsung",
+      "model": "Galaxy Z Fold5",
+      "variant": "1TB"
+    },
+    {
+      "id": "product_7d19b7dc0b4c55cc16ec",
+      "brand": "Apple",
+      "model": "iPhone 15 Pro Max",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_760c5c4d671dfa5497ad",
+      "brand": "Apple",
+      "model": "iPhone 15 Pro Max",
+      "variant": "512GB"
+    },
+    {
+      "id": "product_57fc56534aaf7d00c713",
+      "brand": "Apple",
+      "model": "iPhone 15 Pro Max",
+      "variant": "1TB"
+    },
+    {
+      "id": "product_3d15f7f0c80cf9a2b76d",
+      "brand": "Apple",
+      "model": "iPhone 16 Pro Max",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_c4a538ed17a458e4da51",
+      "brand": "Apple",
+      "model": "iPhone 16 Pro Max",
+      "variant": "512GB"
+    },
+    {
+      "id": "product_7fa1352f85474d54b30e",
+      "brand": "Apple",
+      "model": "iPhone 16 Pro Max",
+      "variant": "1TB"
+    },
+    {
+      "id": "product_2c7d45e1a93a8efbe917",
+      "brand": "Apple",
+      "model": "iPhone 17 Pro Max",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_9b820f74bcfa380545e9",
+      "brand": "Apple",
+      "model": "iPhone 17 Pro Max",
+      "variant": "512GB"
+    },
+    {
+      "id": "product_f870e8fc1a1f781a6604",
+      "brand": "Apple",
+      "model": "iPhone 17 Pro Max",
+      "variant": "1TB"
+    },
+    {
+      "id": "product_a68c63ef0f8ad8b66340",
+      "brand": "Apple",
+      "model": "iPhone 17 Pro Max",
+      "variant": "2TB"
+    },
+    {
+      "id": "product_2bc5a8c4c1312809460b",
+      "brand": "Apple",
+      "model": "iPhone 15",
+      "variant": "128GB"
+    },
+    {
+      "id": "product_eb1e6955ddf8ed605db9",
+      "brand": "Apple",
+      "model": "iPhone 15",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_5ebb377ac4d2fae2a542",
+      "brand": "Apple",
+      "model": "iPhone 15",
+      "variant": "512GB"
+    },
+    {
+      "id": "product_26e2172e25d8f1c50586",
+      "brand": "Apple",
+      "model": "iPhone 15 Plus",
+      "variant": "128GB"
+    },
+    {
+      "id": "product_f074543c769448cc96e7",
+      "brand": "Apple",
+      "model": "iPhone 15 Plus",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_d1b9e60e175248464819",
+      "brand": "Apple",
+      "model": "iPhone 15 Plus",
+      "variant": "512GB"
+    },
+    {
+      "id": "product_185ae00768319c98fc20",
+      "brand": "Apple",
+      "model": "iPhone 16e",
+      "variant": "128GB"
+    },
+    {
+      "id": "product_d9c5a1f91c99b69376ec",
+      "brand": "Apple",
+      "model": "iPhone 16e",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_2aa60a5d251a2d8c6d00",
+      "brand": "Apple",
+      "model": "iPhone 16e",
+      "variant": "512GB"
+    },
+    {
+      "id": "product_c0a7d656160d4cf01ed2",
+      "brand": "Apple",
+      "model": "iPhone 13",
+      "variant": "128GB"
+    },
+    {
+      "id": "product_07acbd52148c995fdce8",
+      "brand": "Apple",
+      "model": "iPhone 13",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_742935162301eea0187a",
+      "brand": "Apple",
+      "model": "iPhone 13",
+      "variant": "512GB"
+    },
+    {
+      "id": "product_27e9e11fa70b6e4c779e",
+      "brand": "Apple",
+      "model": "iPhone 13 Pro",
+      "variant": "128GB"
+    },
+    {
+      "id": "product_472d868e6645214d9611",
+      "brand": "Apple",
+      "model": "iPhone 13 Pro",
+      "variant": "256GB"
+    },
+    {
+      "id": "product_2c4a04cb5a19d288831e",
+      "brand": "Apple",
+      "model": "iPhone 13 Pro",
+      "variant": "512GB"
+    },
+    {
+      "id": "product_8be399961adf8394cf79",
+      "brand": "Apple",
+      "model": "iPhone 13 Pro",
+      "variant": "1TB"
     }
   ]
 }

@@ -120,6 +120,23 @@ CHART_ONLY_SEARCH_WORDS = {
     "GoPro MISSION 1": "GoPro MISSION 1",
     "GoPro MISSION 1 PRO": "GoPro MISSION 1 PRO",
     "GoPro HERO13 Black": "고프로 히어로13 블랙",
+    "Galaxy S24": "갤럭시 S24",
+    "Galaxy S24+": "갤럭시 S24 플러스",
+    "Galaxy S24 FE": "갤럭시 S24 FE",
+    "Galaxy S23+": "갤럭시 S23 플러스",
+    "Galaxy S23 FE": "갤럭시 S23 FE",
+    "Galaxy Z Flip6": "갤럭시 Z 플립6",
+    "Galaxy Z Flip7 FE": "갤럭시 Z 플립7 FE",
+    "Galaxy Z Flip5": "갤럭시 Z 플립5",
+    "Galaxy Z Fold5": "갤럭시 Z 폴드5",
+    "iPhone 15 Pro Max": "아이폰 15 프로 맥스",
+    "iPhone 16 Pro Max": "아이폰 16 프로 맥스",
+    "iPhone 17 Pro Max": "아이폰 17 프로 맥스",
+    "iPhone 15": "아이폰 15",
+    "iPhone 15 Plus": "아이폰 15 플러스",
+    "iPhone 16e": "아이폰 16e",
+    "iPhone 13": "아이폰 13",
+    "iPhone 13 Pro": "아이폰 13 프로",
 }
 
 

@@ -24,6 +24,8 @@ JOONGNA_ON_SALE = 0
 JOONGNA_SOLD = 3
 REQUEST_DELAY_SECONDS = 0.4
 FAILURE_RATIO_LIMIT = 0.5
+# 케이스·필름 같은 싼 글이 검색 페이지를 채우지 않게 검색 단계에서 10만 원 미만은 받지 않는다.
+SEARCH_MIN_PRICE_KRW = 100_000
 
 
 def request_json(url: str, body: dict | None = None, attempts: int = 3) -> dict:
@@ -69,7 +71,10 @@ def collect_joongna(search_word: str, cutoff: datetime, max_pages: int) -> dict:
     for page in range(max_pages):
         payload = request_json(
             JOONGNA_SEARCH_URL,
-            {"searchWord": search_word, "sort": "RECENT_SORT", "saleYn": "SALE_Y", "page": page},
+            {
+                "searchWord": search_word, "sort": "RECENT_SORT", "saleYn": "SALE_Y", "page": page,
+                "priceFilter": {"minPrice": SEARCH_MIN_PRICE_KRW},
+            },
         )
         data = payload.get("data") or {}
         total = data.get("totalSize", total)
@@ -119,7 +124,10 @@ def collect_bunjang(search_word: str, cutoff: datetime, max_pages: int) -> dict:
     cursor = None
     total = None
     for _ in range(max_pages):
-        params = {"policyKey": "pw.product.keyword", "q": search_word, "sort": "latest", "size": 60}
+        params = {
+            "policyKey": "pw.product.keyword", "q": search_word, "sort": "latest", "size": 60,
+            "minPrice": SEARCH_MIN_PRICE_KRW,
+        }
         if cursor:
             params["cursor"] = cursor
         payload = request_json(BUNJANG_SEARCH_URL + "?" + urllib.parse.urlencode(params))
