@@ -37,6 +37,35 @@ class ModelMatchTest(unittest.TestCase):
             with self.subTest(model=model, title=title):
                 self.assertFalse(model_matches(model, title))
 
+    def test_separates_added_phone_models(self):
+        rejected = [
+            ("iPhone 16", "아이폰 16e 128GB"),
+            ("iPhone 15", "아이폰 15 프로 256GB"),
+            ("iPhone 15", "아이폰15 플러스 128"),
+            ("iPhone 13", "아이폰 13 미니 128GB"),
+            ("iPhone 13 Pro", "아이폰 13 프로맥스 256GB"),
+            ("Galaxy Z Flip7", "갤럭시 Z 플립7 FE 256GB"),
+            ("Galaxy S24", "갤럭시 S24 울트라 256GB"),
+            ("Galaxy S24", "갤럭시 S24 FE 256GB"),
+            ("Galaxy S23", "갤럭시 S23+ 256GB"),
+        ]
+        for model, title in rejected:
+            with self.subTest(model=model, title=title):
+                self.assertFalse(model_matches(model, title))
+        accepted = [
+            ("iPhone 16e", "아이폰 16e 128GB"),
+            ("iPhone 17 Pro Max", "아이폰17 프로맥스 512GB"),
+            ("Galaxy Z Flip7 FE", "갤럭시 Z 플립7 FE 256GB"),
+            ("Galaxy S24+", "갤럭시 S24 플러스 256GB"),
+            ("Galaxy S23 FE", "갤럭시 S23 FE 256GB"),
+        ]
+        for model, title in accepted:
+            with self.subTest(model=model, title=title):
+                self.assertTrue(model_matches(model, title))
+
+    def test_two_terabyte_capacity(self):
+        self.assertEqual(choose_variant("iPhone 17 Pro Max", ["256GB", "512GB", "1TB", "2TB"], "아이폰 17 프로맥스 2TB"), "2TB")
+
     def test_assigns_new_variants(self):
         self.assertEqual(
             choose_variant("DJI Mini 5 Pro", ["스탠다드", "플라이 모어"], "DJI 미니5 프로 플라이 모어 콤보"),

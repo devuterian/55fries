@@ -85,6 +85,18 @@ ALIASES = {
     "MacBook Pro M4 Max": ("macbookprom4max", "맥북프로m4max", "맥북프로m4맥스"),
     "Apple Watch Series 10": ("applewatchseries10", "applewatch10", "애플워치시리즈10", "애플워치10"),
     "Apple Watch Ultra 2": ("applewatchultra2", "애플워치울트라2"),
+    "Galaxy Z Flip6": ("galaxyzflip6", "갤럭시z플립6", "갤럭시플립6", "zflip6"),
+    "Galaxy Z Flip7 FE": ("galaxyzflip7fe", "갤럭시z플립7fe", "갤럭시플립7fe", "zflip7fe", "플립7fe"),
+    "Galaxy Z Flip5": ("galaxyzflip5", "갤럭시z플립5", "갤럭시플립5", "zflip5"),
+    "Galaxy Z Fold5": ("galaxyzfold5", "갤럭시z폴드5", "갤럭시폴드5", "zfold5"),
+    "iPhone 15 Pro Max": ("iphone15promax", "아이폰15프로맥스", "아이폰15promax"),
+    "iPhone 16 Pro Max": ("iphone16promax", "아이폰16프로맥스", "아이폰16promax"),
+    "iPhone 17 Pro Max": ("iphone17promax", "아이폰17프로맥스", "아이폰17promax"),
+    "iPhone 15": ("iphone15", "아이폰15"),
+    "iPhone 15 Plus": ("iphone15plus", "아이폰15플러스", "아이폰15plus"),
+    "iPhone 16e": ("iphone16e", "아이폰16e"),
+    "iPhone 13": ("iphone13", "아이폰13"),
+    "iPhone 13 Pro": ("iphone13pro", "아이폰13프로", "아이폰13pro"),
 }
 
 BLOCKED = re.compile(
@@ -121,7 +133,7 @@ def model_matches(model: str, title: str) -> bool:
         return False
     conflicts = {
         "Osmo Pocket 4": ("pocket4p", "포켓4p"),
-        "iPhone 16": ("iphone16pro", "아이폰16프로", "아이폰16pro", "iphone16plus", "아이폰16플러스", "아이폰16plus"),
+        "iPhone 16": ("iphone16pro", "아이폰16프로", "아이폰16pro", "iphone16plus", "아이폰16플러스", "아이폰16plus", "iphone16e", "아이폰16e"),
         "iPhone 15 Pro": ("iphone15promax", "아이폰15프로맥스", "아이폰15promax"),
         "iPhone 16 Pro": ("iphone16promax", "아이폰16프로맥스", "아이폰16promax"),
         "iPhone 17": ("iphone17pro", "아이폰17프로", "아이폰17pro", "iphone17plus", "아이폰17플러스", "아이폰17plus", "iphone17e", "아이폰17e"),
@@ -144,6 +156,10 @@ def model_matches(model: str, title: str) -> bool:
         "MacBook Pro M4 Pro": ("m4max", "m4맥스"),
         "MacBook Pro M4 Max": ("m4pro", "m4프로"),
         "Apple Watch Series 10": ("ultra", "울트라"),
+        "Galaxy Z Flip7": ("flip7fe", "플립7fe"),
+        "iPhone 15": ("iphone15pro", "아이폰15프로", "아이폰15pro", "iphone15plus", "아이폰15플러스", "아이폰15plus"),
+        "iPhone 13": ("iphone13pro", "아이폰13프로", "아이폰13pro", "iphone13mini", "아이폰13미니", "아이폰13mini"),
+        "iPhone 13 Pro": ("iphone13promax", "아이폰13프로맥스", "아이폰13promax"),
     }
     if model == "Fujifilm X100VI" and re.search(r"x100v(?!i)", text):
         return False
@@ -154,15 +170,15 @@ def model_matches(model: str, title: str) -> bool:
 
 def capacity(title: str) -> str | None:
     text = title.casefold()
-    match = re.search(r"(?<!\d)(1)\s*(?:tb|테라|t)(?![a-z0-9])", text)
+    match = re.search(r"(?<!\d)([12])\s*(?:tb|테라|t)(?![a-z0-9])", text)
     if match:
-        return "1TB"
+        return f"{match.group(1)}TB"
     match = re.search(r"(?<!\d)(128|256|512)\s*(?:gb|기가|g)?(?!\d)", text)
     return f"{match.group(1)}GB" if match else None
 
 
 def choose_variant(model: str, variants: list[str], title: str) -> str | None:
-    if all(value in {"128GB", "256GB", "512GB", "1TB"} for value in variants):
+    if all(value in {"128GB", "256GB", "512GB", "1TB", "2TB"} for value in variants):
         found = capacity(title)
         if found is None and len(variants) == 1:
             return variants[0]

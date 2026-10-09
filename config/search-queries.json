@@ -376,6 +376,78 @@
     {
       "model": "Apple Watch Ultra 2",
       "search_word": "애플워치 울트라2"
+    },
+    {
+      "model": "Galaxy S24",
+      "search_word": "갤럭시 S24"
+    },
+    {
+      "model": "Galaxy S24+",
+      "search_word": "갤럭시 S24 플러스"
+    },
+    {
+      "model": "Galaxy S24 Ultra",
+      "search_word": "갤럭시 S24 울트라"
+    },
+    {
+      "model": "Galaxy S24 FE",
+      "search_word": "갤럭시 S24 FE"
+    },
+    {
+      "model": "Galaxy S23+",
+      "search_word": "갤럭시 S23 플러스"
+    },
+    {
+      "model": "Galaxy S23 FE",
+      "search_word": "갤럭시 S23 FE"
+    },
+    {
+      "model": "Galaxy Z Flip6",
+      "search_word": "갤럭시 Z 플립6"
+    },
+    {
+      "model": "Galaxy Z Flip7 FE",
+      "search_word": "갤럭시 Z 플립7 FE"
+    },
+    {
+      "model": "Galaxy Z Flip5",
+      "search_word": "갤럭시 Z 플립5"
+    },
+    {
+      "model": "Galaxy Z Fold5",
+      "search_word": "갤럭시 Z 폴드5"
+    },
+    {
+      "model": "iPhone 15 Pro Max",
+      "search_word": "아이폰 15 프로 맥스"
+    },
+    {
+      "model": "iPhone 16 Pro Max",
+      "search_word": "아이폰 16 프로 맥스"
+    },
+    {
+      "model": "iPhone 17 Pro Max",
+      "search_word": "아이폰 17 프로 맥스"
+    },
+    {
+      "model": "iPhone 15",
+      "search_word": "아이폰 15"
+    },
+    {
+      "model": "iPhone 15 Plus",
+      "search_word": "아이폰 15 플러스"
+    },
+    {
+      "model": "iPhone 16e",
+      "search_word": "아이폰 16e"
+    },
+    {
+      "model": "iPhone 13",
+      "search_word": "아이폰 13"
+    },
+    {
+      "model": "iPhone 13 Pro",
+      "search_word": "아이폰 13 프로"
     }
   ]
 }
