@@ -2106,6 +2106,408 @@
       "brand": "Apple",
       "model": "iPhone 13 Pro",
       "variant": "고장·파손"
+    },
+    {
+      "id": "product_ce5dd0759d0a01a43a15",
+      "brand": "Apple",
+      "model": "AirPods 4",
+      "variant": "기본"
+    },
+    {
+      "id": "product_cc4cf772349fc2d02562",
+      "brand": "Apple",
+      "model": "AirPods 4",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_4368a150557ae069df2c",
+      "brand": "Apple",
+      "model": "AirPods 4 ANC",
+      "variant": "기본"
+    },
+    {
+      "id": "product_6ef43888334ad737cb01",
+      "brand": "Apple",
+      "model": "AirPods 4 ANC",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_008d055bb997a6e101aa",
+      "brand": "Apple",
+      "model": "AirPods Pro 2",
+      "variant": "기본"
+    },
+    {
+      "id": "product_24124bbe01c0c6d328c8",
+      "brand": "Apple",
+      "model": "AirPods Pro 2",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_5069ce791a061a12827e",
+      "brand": "Apple",
+      "model": "AirPods Pro 3",
+      "variant": "기본"
+    },
+    {
+      "id": "product_c6c3aedfc76fba4c7d81",
+      "brand": "Apple",
+      "model": "AirPods Pro 3",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_cfdd2ab1dd57915fa6de",
+      "brand": "Apple",
+      "model": "AirPods Max",
+      "variant": "기본"
+    },
+    {
+      "id": "product_4dbc729e20ccd36fe8a4",
+      "brand": "Apple",
+      "model": "AirPods Max",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_f629caa5c5032a55c7a2",
+      "brand": "Apple",
+      "model": "iPad Pro M4",
+      "variant": "11인치"
+    },
+    {
+      "id": "product_16d7bb5d0035bdf8871b",
+      "brand": "Apple",
+      "model": "iPad Pro M4",
+      "variant": "13인치"
+    },
+    {
+      "id": "product_8e10c61e8c23081f8c9f",
+      "brand": "Apple",
+      "model": "iPad Pro M4",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_474b10083b26683704bc",
+      "brand": "Apple",
+      "model": "iPad Air M3",
+      "variant": "11인치"
+    },
+    {
+      "id": "product_3d726884fec75105060a",
+      "brand": "Apple",
+      "model": "iPad Air M3",
+      "variant": "13인치"
+    },
+    {
+      "id": "product_0a5b8ff8491b61724713",
+      "brand": "Apple",
+      "model": "iPad Air M3",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_d1c263c92a0b9ccd234d",
+      "brand": "Apple",
+      "model": "iPad mini 7",
+      "variant": "기본"
+    },
+    {
+      "id": "product_315a4850c1a71b31d795",
+      "brand": "Apple",
+      "model": "iPad mini 7",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_5a407e7f3694f46d5953",
+      "brand": "Apple",
+      "model": "Apple Watch Series 11",
+      "variant": "42mm GPS"
+    },
+    {
+      "id": "product_21c0605e3c536c05361c",
+      "brand": "Apple",
+      "model": "Apple Watch Series 11",
+      "variant": "42mm Cellular"
+    },
+    {
+      "id": "product_7011074a2f8dbf425e0b",
+      "brand": "Apple",
+      "model": "Apple Watch Series 11",
+      "variant": "46mm GPS"
+    },
+    {
+      "id": "product_3fab57a851cf3366df4d",
+      "brand": "Apple",
+      "model": "Apple Watch Series 11",
+      "variant": "46mm Cellular"
+    },
+    {
+      "id": "product_35517595ae19981dca02",
+      "brand": "Apple",
+      "model": "Apple Watch Series 11",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_ebe48aa3cc32d7c7f7e5",
+      "brand": "Apple",
+      "model": "Apple Watch Ultra 3",
+      "variant": "49mm"
+    },
+    {
+      "id": "product_b25421b74038f17e1d7c",
+      "brand": "Apple",
+      "model": "Apple Watch Ultra 3",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_ef4363340e8cfbc6db33",
+      "brand": "Apple",
+      "model": "Mac mini M4",
+      "variant": "M4"
+    },
+    {
+      "id": "product_75a60b465937b744d20d",
+      "brand": "Apple",
+      "model": "Mac mini M4",
+      "variant": "M4 Pro"
+    },
+    {
+      "id": "product_117e5d190eede2c50367",
+      "brand": "Apple",
+      "model": "Mac mini M4",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_d19cca0ab2187a04c6a9",
+      "brand": "Samsung",
+      "model": "Galaxy Watch 8",
+      "variant": "기본"
+    },
+    {
+      "id": "product_62906377d43a0c602cb3",
+      "brand": "Samsung",
+      "model": "Galaxy Watch 8",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_92530f19c6bdc4925cd1",
+      "brand": "Samsung",
+      "model": "Galaxy Watch 8 Classic",
+      "variant": "기본"
+    },
+    {
+      "id": "product_9072d73132e7c9f3b68b",
+      "brand": "Samsung",
+      "model": "Galaxy Watch 8 Classic",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_bdf1ceaeda13d34e6043",
+      "brand": "Samsung",
+      "model": "Galaxy Tab S10",
+      "variant": "기본"
+    },
+    {
+      "id": "product_e4a6bad8a3a8f983b425",
+      "brand": "Samsung",
+      "model": "Galaxy Tab S10",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_aa9446d5f83ab9ad33d5",
+      "brand": "Samsung",
+      "model": "Galaxy Tab S10+",
+      "variant": "기본"
+    },
+    {
+      "id": "product_1bd8268327f493aee942",
+      "brand": "Samsung",
+      "model": "Galaxy Tab S10+",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_42fde61786592a8669ce",
+      "brand": "Samsung",
+      "model": "Galaxy Tab S10 Ultra",
+      "variant": "기본"
+    },
+    {
+      "id": "product_ead7f8abccd738b74237",
+      "brand": "Samsung",
+      "model": "Galaxy Tab S10 Ultra",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_9b7569a55e3a2eec6dc8",
+      "brand": "SONY",
+      "model": "Sony WH-1000XM5",
+      "variant": "기본"
+    },
+    {
+      "id": "product_df3b57b008b440bfacbd",
+      "brand": "SONY",
+      "model": "Sony WH-1000XM5",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_585ab9f3a290774939ee",
+      "brand": "SONY",
+      "model": "Sony WH-1000XM6",
+      "variant": "기본"
+    },
+    {
+      "id": "product_0a52c6309a001fa0d81e",
+      "brand": "SONY",
+      "model": "Sony WH-1000XM6",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_424e7f6467472b9054a9",
+      "brand": "SONY",
+      "model": "Sony WF-1000XM5",
+      "variant": "기본"
+    },
+    {
+      "id": "product_c2f6dbb9563b71cd7795",
+      "brand": "SONY",
+      "model": "Sony WF-1000XM5",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_e814d2f554aaac0fb69d",
+      "brand": "Bose",
+      "model": "Bose QC Ultra Headphones",
+      "variant": "기본"
+    },
+    {
+      "id": "product_6069b926315e0d03c878",
+      "brand": "Bose",
+      "model": "Bose QC Ultra Headphones",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_978e91bcb72fe316595b",
+      "brand": "Nintendo",
+      "model": "Nintendo Switch 2",
+      "variant": "기본"
+    },
+    {
+      "id": "product_f623100d3668fc827773",
+      "brand": "Nintendo",
+      "model": "Nintendo Switch 2",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_48fea03ac6c096b5f867",
+      "brand": "SONY",
+      "model": "PlayStation 5",
+      "variant": "디스크"
+    },
+    {
+      "id": "product_64185cba032883c02bb7",
+      "brand": "SONY",
+      "model": "PlayStation 5",
+      "variant": "디지털"
+    },
+    {
+      "id": "product_d1f05c495c3b7f5d32d6",
+      "brand": "SONY",
+      "model": "PlayStation 5",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_fc904a858a8902e33f12",
+      "brand": "SONY",
+      "model": "PlayStation 5 Pro",
+      "variant": "기본"
+    },
+    {
+      "id": "product_23b930d8c8c2fdd2fc22",
+      "brand": "SONY",
+      "model": "PlayStation 5 Pro",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_766f311934fb7c8500ce",
+      "brand": "Valve",
+      "model": "Steam Deck OLED",
+      "variant": "512GB"
+    },
+    {
+      "id": "product_6aa94f936d35c812bc62",
+      "brand": "Valve",
+      "model": "Steam Deck OLED",
+      "variant": "1TB"
+    },
+    {
+      "id": "product_8d70313544fd886cf0a4",
+      "brand": "Valve",
+      "model": "Steam Deck OLED",
+      "variant": "용량 미확인"
+    },
+    {
+      "id": "product_478315d2809731b747fd",
+      "brand": "Valve",
+      "model": "Steam Deck OLED",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_7cd2314ef5931cbc990f",
+      "brand": "Meta",
+      "model": "Meta Quest 3",
+      "variant": "기본"
+    },
+    {
+      "id": "product_44869fab5f4cfec4f6e2",
+      "brand": "Meta",
+      "model": "Meta Quest 3",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_f4d4d4372eebb8ec52a9",
+      "brand": "NVIDIA",
+      "model": "RTX 4070",
+      "variant": "12GB"
+    },
+    {
+      "id": "product_935d454350f924e0e24d",
+      "brand": "NVIDIA",
+      "model": "RTX 4070",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_39e5f5bca0aead348c2a",
+      "brand": "NVIDIA",
+      "model": "RTX 4070 Super",
+      "variant": "12GB"
+    },
+    {
+      "id": "product_dc0ad01356b295953326",
+      "brand": "NVIDIA",
+      "model": "RTX 4070 Super",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_1e8deb1a13905ca8ded4",
+      "brand": "NVIDIA",
+      "model": "RTX 4070 Ti Super",
+      "variant": "16GB"
+    },
+    {
+      "id": "product_ee22efce88bb0d5f5224",
+      "brand": "NVIDIA",
+      "model": "RTX 4070 Ti Super",
+      "variant": "고장·파손"
+    },
+    {
+      "id": "product_5eaa484090125d8ac500",
+      "brand": "NVIDIA",
+      "model": "RTX 5070 Ti",
+      "variant": "16GB"
+    },
+    {
+      "id": "product_59aa24bcbf27408d7953",
+      "brand": "NVIDIA",
+      "model": "RTX 5070 Ti",
+      "variant": "고장·파손"
     }
   ]
 }
