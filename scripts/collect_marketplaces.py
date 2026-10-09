@@ -55,6 +55,11 @@ def request_text(url: str, attempts: int = 3) -> str:
             request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
             with urllib.request.urlopen(request, timeout=20) as response:
                 return response.read().decode("utf-8", "replace")
+        except urllib.error.HTTPError as error:
+            # 403(요청 과다 차단)·404는 바로 다시 불러도 소용없으니 호출한 쪽이 쉬었다가 판단한다.
+            if error.code in (403, 404) or attempt == attempts - 1:
+                raise
+            time.sleep(2 ** attempt * 2)
         except (urllib.error.URLError, TimeoutError):
             if attempt == attempts - 1:
                 raise

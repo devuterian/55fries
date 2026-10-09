@@ -6,7 +6,9 @@ import argparse
 import json
 import subprocess
 import sys
+import threading
 import time
+import urllib.error
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
@@ -32,7 +34,10 @@ SAFETY_CHECKS_PER_PRODUCT = 10
 DETAIL_CHECKS = {"active": 6, "sold": 4}
 DETAIL_CHECKS_UNKNOWN_CAPACITY = 12
 DETAIL_ROUNDS = 3
-DETAIL_WORKERS = 4
+# 중고나라 상품 페이지는 몰아서 부르면 한동안 403으로 막는다. 번개장터 API는 여유가 있다.
+DETAIL_WORKERS = {"bunjang": 4, "joongna": 2}
+BLOCKED_COOLDOWN_SECONDS = 60
+BLOCKED_GIVE_UP = 30
 
 
 def attach_joongna_safety(payload: dict) -> None:
@@ -72,21 +77,64 @@ def attach_joongna_safety(payload: dict) -> None:
     print(f"중고나라 판매자 안전거래 확인: {len(payload['seller_safety_checks'])}명 (0회 {zero}명)")
 
 
-def fetch_description(marketplace: str, external_id: str) -> str:
-    try:
-        if marketplace == "bunjang":
-            return bunjang_description(external_id)
-        return joongna_description(external_id)
-    except Exception as error:
-        print(f"본문 확인 실패: {marketplace} {external_id}: {error}", file=sys.stderr)
-        return ""
-    finally:
-        time.sleep(REQUEST_DELAY_SECONDS)
+class DetailFetcher:
+    """403이 나면 그 마켓 요청을 모두 잠시 멈췄다가 다시 시도한다. 너무 자주 막히면 이번 회차엔 그 마켓을 포기한다."""
+
+    def __init__(self) -> None:
+        self.lock = threading.Lock()
+        self.resume_at = {"bunjang": 0.0, "joongna": 0.0}
+        self.blocked = Counter()
+        self.failed = Counter()
+
+    def wait(self, marketplace: str) -> None:
+        delay = self.resume_at[marketplace] - time.monotonic()
+        if delay > 0:
+            time.sleep(delay)
+
+    def fetch(self, marketplace: str, external_id: str) -> str | None:
+        for attempt in range(2):
+            if self.blocked[marketplace] >= BLOCKED_GIVE_UP:
+                return None
+            self.wait(marketplace)
+            try:
+                if marketplace == "bunjang":
+                    return bunjang_description(external_id)
+                return joongna_description(external_id)
+            except urllib.error.HTTPError as error:
+                if error.code != 403 or attempt == 1:
+                    break
+                with self.lock:
+                    self.blocked[marketplace] += 1
+                    if self.blocked[marketplace] == BLOCKED_GIVE_UP:
+                        print(f"{marketplace} 본문 요청이 계속 막혀 이번 회차엔 그만 읽습니다", file=sys.stderr)
+                    self.resume_at[marketplace] = max(
+                        self.resume_at[marketplace], time.monotonic() + BLOCKED_COOLDOWN_SECONDS
+                    )
+            except Exception:
+                break
+            finally:
+                time.sleep(REQUEST_DELAY_SECONDS)
+        with self.lock:
+            self.failed[marketplace] += 1
+        return None
+
+    def fetch_all(self, keys: list[tuple[str, str]]) -> dict[tuple[str, str], str]:
+        results: dict[tuple[str, str], str] = {}
+        for marketplace, workers in DETAIL_WORKERS.items():
+            wanted = [key for key in keys if key[0] == marketplace]
+            with ThreadPoolExecutor(max_workers=workers) as pool:
+                for key, text in zip(wanted, pool.map(lambda key: self.fetch(*key), wanted)):
+                    # 못 읽은 매물은 기록하지 않는다. 다음 라운드에 다시 시도하고, 끝내 못 읽으면 제목만으로 분류된다.
+                    if text is not None:
+                        results[key] = text
+        return results
 
 
 def normalize_with_descriptions(raw: dict, catalog: dict) -> dict:
     """싼 매물의 본문을 읽고 다시 분류한다. 본문 때문에 칸이 바뀌면 새로 최저가가 된 매물도 읽는다."""
     descriptions: dict[tuple[str, str], str] = {}
+    attempted: set[tuple[str, str]] = set()
+    fetcher = DetailFetcher()
     payload = normalize(raw, catalog, descriptions)
     for _ in range(DETAIL_ROUNDS):
         groups: dict[tuple[str, str, str, str], list[dict]] = {}
@@ -100,18 +148,19 @@ def normalize_with_descriptions(raw: dict, catalog: dict) -> dict:
             wanted += [
                 (listing["marketplace"], listing["external_listing_id"])
                 for listing in listings[:limit]
-                if (listing["marketplace"], listing["external_listing_id"]) not in descriptions
+                if (listing["marketplace"], listing["external_listing_id"]) not in attempted
             ]
         if not wanted:
             break
         keys = list(dict.fromkeys(wanted))
-        with ThreadPoolExecutor(max_workers=DETAIL_WORKERS) as pool:
-            descriptions.update(zip(keys, pool.map(lambda key: fetch_description(*key), keys)))
+        attempted.update(keys)
+        descriptions.update(fetcher.fetch_all(keys))
         payload = normalize(raw, catalog, descriptions)
     moved = Counter(listing["variant"] for listing in payload["listings"] if listing["raw"].get("description_checked"))
     print(
         f"본문 확인: {len(descriptions)}건 · 고장 {moved.get(DEFECT_VARIANT, 0)}건"
         f" · 용량 미확인 {moved.get(UNKNOWN_CAPACITY_VARIANT, 0)}건"
+        f" · 못 읽음 {dict(fetcher.failed)} · 차단 {dict(fetcher.blocked)}"
     )
     return payload
 
