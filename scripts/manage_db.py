@@ -642,8 +642,7 @@ def build_site(connection: sqlite3.Connection, output: Path) -> None:
     if count != 1:
         raise ValueError("사이트 DATA 교체에 실패했습니다")
     rules = json.loads(run["rules_json"])
-    as_of_date = parse_time(run["as_of"]).astimezone(SEOUL).date().isoformat()
-    html = re.sub(r"기준 <strong>[^<]*</strong>", f"기준 <strong>{as_of_date} KST</strong>", html, count=1)
+    html = html.replace("__AS_OF__", run["as_of"])
     html = re.sub(
         r"판매중은 최근 \d+일 이내만",
         f"판매중은 최근 {rules['current_listing_max_age_days']}일 이내만",
