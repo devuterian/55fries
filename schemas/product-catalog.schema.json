@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/devuterian/salmanhanga/schemas/product-catalog.schema.json",
-  "title": "살만한가 상품 카탈로그",
+  "$id": "https://github.com/devuterian/55fries/schemas/product-catalog.schema.json",
+  "title": "55fries 상품 카탈로그",
   "type": "object",
   "required": ["schema_version", "products"],
   "properties": {

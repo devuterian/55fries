@@ -11,7 +11,7 @@ MCP 원본 응답
   → dist/data.json + dist/index.html
 ```
 
-Git에는 SQLite 파일을 넣지 않는다. `db/migrations/`, `config/`, `data/raw/`, `data/imports/`만으로 `var/salmanhanga.sqlite`를 다시 만들 수 있게 관리한다.
+Git에는 SQLite 파일을 넣지 않는다. `db/migrations/`, `config/`, `data/raw/`, `data/imports/`만으로 `var/55fries.sqlite`를 다시 만들 수 있게 관리한다.
 
 ## 테이블 책임
 

@@ -15,7 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SEOUL = timezone(timedelta(hours=9))
-DEFAULT_DB = ROOT / "var" / "salmanhanga.sqlite"
+DEFAULT_DB = ROOT / "var" / "55fries.sqlite"
 RULES_PATH = ROOT / "config" / "pricing-rules.json"
 LEGACY_DATA_PATH = ROOT / "data" / "imports" / "legacy-2026-09-20.json"
 SOURCE_HTML_PATH = ROOT / "src" / "index.html"
@@ -690,7 +690,7 @@ def verify(connection: sqlite3.Connection) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="살만한가 SQLite 및 정적 사이트 관리")
+    parser = argparse.ArgumentParser(description="55fries SQLite 및 정적 사이트 관리")
     parser.add_argument("--db", type=Path, default=DEFAULT_DB)
     subparsers = parser.add_subparsers(dest="command", required=True)
     subparsers.add_parser("init")

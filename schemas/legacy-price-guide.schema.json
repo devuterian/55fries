@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/devuterian/salmanhanga/schemas/legacy-price-guide.schema.json",
+  "$id": "https://github.com/devuterian/55fries/schemas/legacy-price-guide.schema.json",
   "title": "2026-09-20 레거시 가격표",
   "type": "object",
   "required": ["as_of_kst", "status", "rules", "rows"],

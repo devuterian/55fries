@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/devuterian/salmanhanga/schemas/mcp-refresh-raw.schema.json",
-  "title": "살만한가 MCP 원본 수집",
+  "$id": "https://github.com/devuterian/55fries/schemas/mcp-refresh-raw.schema.json",
+  "title": "55fries MCP 원본 수집",
   "type": "object",
   "required": ["schema_version", "run_id", "fetched_at", "queries"],
   "properties": {

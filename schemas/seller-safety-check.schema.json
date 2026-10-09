@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/devuterian/salmanhanga/schemas/seller-safety-check.schema.json",
+  "$id": "https://github.com/devuterian/55fries/schemas/seller-safety-check.schema.json",
   "title": "판매자 안전거래 확인",
   "type": "object",
   "required": ["marketplace", "seller_external_id", "checked_at", "verification_status"],

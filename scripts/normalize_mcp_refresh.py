@@ -634,7 +634,7 @@ def normalize(raw: dict, catalog: dict, descriptions: dict[tuple[str, str], str]
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="MCP 원본을 살만한가 매물 스키마로 정규화")
+    parser = argparse.ArgumentParser(description="MCP 원본을 55fries 매물 스키마로 정규화")
     parser.add_argument("raw", type=Path)
     parser.add_argument("output", type=Path)
     args = parser.parse_args()

@@ -22,7 +22,7 @@ JOONGNA_STORE_URL = "https://main-api.joongna.com/v2/my-store/{store_seq}"
 BUNJANG_SEARCH_URL = "https://api.bunjang.co.kr/api/search/v8/web/search"
 BUNJANG_DETAIL_URL = "https://api.bunjang.co.kr/api/pms/v3/products-detail/{pid}?viewerUid=-1"
 JOONGNA_PRODUCT_URL = "https://web.joongna.com/product/{seq}"
-USER_AGENT = "Mozilla/5.0 (compatible; 55fries-price-guide/1.0; +https://devuterian.github.io/salmanhanga/)"
+USER_AGENT = "Mozilla/5.0 (compatible; 55fries-price-guide/1.0; +https://devuterian.github.io/55fries/)"
 JOONGNA_ON_SALE = 0
 JOONGNA_SOLD = 3
 REQUEST_DELAY_SECONDS = 0.4

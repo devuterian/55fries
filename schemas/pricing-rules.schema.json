@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/devuterian/salmanhanga/schemas/pricing-rules.schema.json",
-  "title": "살만한가 가격 계산 규칙",
+  "$id": "https://github.com/devuterian/55fries/schemas/pricing-rules.schema.json",
+  "title": "55fries 가격 계산 규칙",
   "type": "object",
   "required": [
     "ruleset_id",

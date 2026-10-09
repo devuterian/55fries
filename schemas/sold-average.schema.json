@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/devuterian/salmanhanga/schemas/sold-average.schema.json",
+  "$id": "https://github.com/devuterian/55fries/schemas/sold-average.schema.json",
   "title": "최근 3개월 판매완료 평균",
   "type": "object",
   "required": ["schema_version", "fetched_at", "window_days", "discount_percent", "rows"],

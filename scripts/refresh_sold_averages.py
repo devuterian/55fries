@@ -24,7 +24,7 @@ ROUNDING_KRW = 10_000
 JOONGNA_SEARCH_URL = "https://search-api.joongna.com/v3/search/all"
 LISTING_USER_AGENT = (
     "Mozilla/5.0 (compatible; 55fries-price-guide/1.0; "
-    "+https://devuterian.github.io/salmanhanga/)"
+    "+https://devuterian.github.io/55fries/)"
 )
 LISTING_MAX_PAGES = 8
 LISTING_DELAY_SECONDS = 0.4

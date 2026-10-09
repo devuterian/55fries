@@ -2,7 +2,7 @@
 
 중고 기기의 현재가와 기간 통계를 근거 매물 링크와 함께 관리하는 가격 가이드입니다. 화면에서는 `판매중 최저가 → 6개월 최저 → 3개월 평균`을 보여주고, `판매중-안전` 값과 주의 판정은 JSON·DB에 그대로 보존합니다.
 
-현재 공개 사이트: https://devuterian.github.io/salmanhanga/
+현재 공개 사이트: https://devuterian.github.io/55fries/
 
 **JSON과 JSON Schema가 원본**입니다. SQLite는 JSON 원본을 빠르게 검색하고 가격표를 계산하기 위해 재생성하는 로컬 캐시입니다.
 
@@ -48,7 +48,7 @@ make PYTHON=.venv/bin/python test
 make PYTHON=.venv/bin/python verify
 ```
 
-`make bootstrap`은 마이그레이션과 모든 수집 스냅샷으로 `var/salmanhanga.sqlite`를 다시 만듭니다. DB 파일은 결과물이므로 커밋하지 않습니다.
+`make bootstrap`은 마이그레이션과 모든 수집 스냅샷으로 `var/55fries.sqlite`를 다시 만듭니다. DB 파일은 결과물이므로 커밋하지 않습니다.
 
 ## 매일 자동 갱신
 
