@@ -22,9 +22,9 @@
 ## 저장소 구조
 
 ```text
-config/             JSON으로 관리하는 가격 계산 규칙
+config/             JSON으로 관리하는 가격 계산 규칙과 모델별 검색어
 data/catalog/       JSON 상품 카탈로그
-data/raw/           MCP가 돌려준 원본 JSON
+data/raw/           MCP가 돌려준 원본 JSON(2026-09-20). 자동 수집 원본은 var/raw/
 data/imports/       정규화한 매물·레거시 수집 스냅샷
 db/migrations/      재현 가능한 SQLite 스키마
 docs/               데이터 모델과 판정 기준
@@ -50,7 +50,31 @@ make PYTHON=.venv/bin/python verify
 
 `make bootstrap`은 마이그레이션과 모든 수집 스냅샷으로 `var/salmanhanga.sqlite`를 다시 만듭니다. DB 파일은 결과물이므로 커밋하지 않습니다.
 
-## 새 MCP 수집 반영
+## 매일 자동 갱신
+
+`.github/workflows/refresh.yml`이 매일 06:00 KST에 돌면서 사람 손 없이 갱신합니다.
+
+1. `scripts/collect_marketplaces.py`가 `config/search-queries.json`의 모델별 검색어로 중고나라·번개장터 공개 검색 API를 직접 부릅니다. 최근 25일 안의 매물만 모읍니다.
+   - 중고나라는 `판매완료 포함` 검색이라 판매중과 판매완료 매물을 원문 링크와 함께 따로 받습니다.
+   - 번개장터는 최신순 판매중 매물만 받습니다.
+   - 중고나라 판매자 안전거래 횟수는 상점 API(`main-api.joongna.com/v2/my-store/{상점번호}`)의 `safeTradeCount`로 받습니다. 구성마다 싼 매물부터 최대 10명을 확인하고, 0회면 `주의 · 안전거래 0회`로 표시합니다.
+2. `scripts/daily_refresh.py`가 원본을 정규화해 `data/imports/auto-YYYY-MM-DD.json`으로 저장합니다. 이어서 90일 평균(`data/aggregates/sold-averages-YYYY-MM-DD.json`)을 갱신합니다. 원본은 커밋하지 않고 Actions 아티팩트로 30일만 보관합니다.
+3. `make build test verify`를 통과한 경우에만 `data/`와 `dist/`를 커밋하고 Pages 배포를 부릅니다.
+
+판매완료 기록은 매일 쌓이므로 6개월 최저가가 날마다 두꺼워집니다. 190일이 지난 자동 스냅샷은 지웁니다. 판매중 최저가는 그날 수집에서 다시 확인된 매물만 씁니다. 그래서 이미 팔려 내려간 매물이 남지 않습니다.
+
+- 수동 실행: Actions → `daily-refresh` → Run workflow
+- 판매완료 기록을 다시 채울 때: `days`에 `180` 입력
+- 새 기기 추가: `data/catalog/products.json`에 구성을 넣고 `config/search-queries.json`에 검색어를 넣습니다. 필요하면 `normalize_mcp_refresh.py`의 `ALIASES`도 함께 넣습니다.
+
+로컬에서 같은 과정을 돌리려면 다음을 실행합니다.
+
+```bash
+.venv/bin/python scripts/daily_refresh.py
+make PYTHON=.venv/bin/python build test verify
+```
+
+## 예전 MCP 수집 반영
 
 중고나라·번개장터 원격 MCP로 모델마다 판매중 매물을 한 번씩 받아 `data/raw/`에 모읍니다.
 

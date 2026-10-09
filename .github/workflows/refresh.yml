@@ -1,0 +1,79 @@
+name: daily-refresh
+
+on:
+  schedule:
+    - cron: "0 21 * * *" # 매일 06:00 KST
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "수집 기간(일). 판매완료 기록을 다시 채울 때만 180"
+        default: "25"
+  pull_request:
+    paths:
+      - scripts/collect_marketplaces.py
+      - scripts/daily_refresh.py
+      - .github/workflows/refresh.yml
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: daily-refresh
+  cancel-in-progress: false
+
+jobs:
+  smoke:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: GitHub 러너에서 두 마켓 API가 열리는지 확인
+        run: |
+          python3 scripts/collect_marketplaces.py /tmp/smoke.json --run-id smoke \
+            --models "Ricoh GR III" "RTX 5060" --joongna-pages 1 --bunjang-pages 1
+          python3 scripts/normalize_mcp_refresh.py /tmp/smoke.json /tmp/smoke-import.json
+
+  refresh:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 -m pip install -r requirements-dev.txt
+      - name: 수집과 정규화
+        run: python3 scripts/daily_refresh.py --days "${{ inputs.days || '25' }}"
+      - name: DB 재생성과 사이트 빌드
+        run: |
+          make build
+          make test
+          make verify
+      - name: 원본 보관
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: raw-${{ github.run_id }}
+          path: var/raw/
+          retention-days: 30
+          if-no-files-found: ignore
+      - name: 커밋하고 배포
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add data dist
+          if git diff --cached --quiet; then
+            echo "바뀐 데이터가 없습니다"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "data: 자동 갱신 $(TZ=Asia/Seoul date +%F)"
+          git push
+          # GITHUB_TOKEN으로 한 push는 다른 워크플로를 깨우지 않으므로 배포를 직접 부른다
+          gh workflow run pages.yml --ref "${GITHUB_REF_NAME}"

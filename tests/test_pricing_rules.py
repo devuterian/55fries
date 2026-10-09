@@ -155,6 +155,29 @@ class PricingRulesTest(unittest.TestCase):
         row = next(row for row in display_rows(self.connection, run_id) if row["model"] == "Sold Camera")
         self.assertEqual(row["low6"], 1000)
 
+    def test_sold_listings_from_earlier_days_accumulate(self):
+        earlier = self.as_of - timedelta(days=5)
+        ingest_payload(
+            self.connection,
+            {
+                "run_id": "fixture-sold-earlier", "fetched_at": earlier.isoformat(),
+                "listings": [self.listing("sold-earlier", 70, 30, None, model="Daily Sold", state="sold", sold_age_days=30)],
+                "seller_safety_checks": [],
+            },
+        )
+        ingest_payload(
+            self.connection,
+            {
+                "run_id": "fixture-sold-today", "fetched_at": self.as_of.isoformat(),
+                "listings": [self.listing("sold-today", 80, 1, None, model="Daily Sold", state="sold", sold_age_days=1)],
+                "seller_safety_checks": [],
+            },
+        )
+        run_id = compute_price_guide(self.connection, self.as_of.isoformat(), "test-sold-accumulate")
+        row = next(row for row in display_rows(self.connection, run_id) if row["model"] == "Daily Sold")
+        self.assertEqual(row["low6"], 70)
+        self.assertEqual(row["low6Url"], "https://web.joongna.com/product/sold-earlier")
+
     def test_exactly_25_days_is_included(self):
         exact = self.listing("exact-25", 100, 25, "safe-seller", model="Boundary")
         too_old = self.listing("older-than-25", 50, 25, "safe-seller", model="Boundary")
