@@ -2,9 +2,12 @@
 from __future__ import annotations
 
 import argparse
+import re
+import time
 import json
 import sys
 import statistics
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -18,6 +21,52 @@ API_URL = "https://search-api.joongna.com/v4/analysis/product-price/scatter-plot
 WINDOW_DAYS = 90
 DISCOUNT_PERCENT = 15
 ROUNDING_KRW = 10_000
+JOONGNA_SEARCH_URL = "https://search-api.joongna.com/v3/search/all"
+LISTING_USER_AGENT = (
+    "Mozilla/5.0 (compatible; 55fries-price-guide/1.0; "
+    "+https://devuterian.github.io/salmanhanga/)"
+)
+LISTING_MAX_PAGES = 8
+LISTING_DELAY_SECONDS = 0.4
+
+# 기본형 검색에는 변형(울트라/플러스/프로/프로맥스/엣지/FE 등)과 악세서리가 섞여
+# 평균이 부풀려진다. 제목에 아래 말이 들어간 매물은 평균 표본에서 뺀다.
+ACCESSORY_EXCLUDE = [
+    "케이스", "필름", "강화", "거치", "커버", "스트랩", "밴드", "젠더", "충전기", "충전",
+    "부품", "파손", "액정", "보호", "수리", "글라스", "하드쉘", "범퍼", "그립",
+    "삽니다", "구합니다", "구해요", "매입", "교환",
+]
+
+
+def _build_model_exclude() -> dict[str, list[str]]:
+    table: dict[str, list[str]] = {}
+    # 갤럭시 S 기본형: 울트라/플러스/엣지/FE 변형을 뺀다.
+    for base in ("Galaxy S22", "Galaxy S23", "Galaxy S24", "Galaxy S25", "Galaxy S26"):
+        table[base] = ["울트라", "플러스", "엣지", "ultra", "plus", "edge", "fe"]
+    # 아이폰 기본형: 프로/플러스/프로맥스/미니/{n}e 변형을 뺀다.
+    for n in (13, 14, 15, 16, 17):
+        table[f"iPhone {n}"] = [
+            "프로", "플러스", "맥스", "미니", "pro", "plus", "max", "mini", f"{n}e",
+        ]
+    # 아이폰 프로: 프로맥스를 뺀다.
+    for pro in ("iPhone 14 Pro", "iPhone 15 Pro", "iPhone 16 Pro", "iPhone 17 Pro"):
+        table[pro] = ["맥스", "max", "프로맥스"]
+    return table
+
+
+MODEL_EXCLUDE = _build_model_exclude()
+
+
+def _normalize(text: str) -> str:
+    return re.sub(r"\s+", "", text).lower()
+
+
+def model_excludes(model: str) -> list[str] | None:
+    """제목 필터로 평균을 낼 모델이면 제외어 목록, 아니면 None(=차트 사용)."""
+    terms = MODEL_EXCLUDE.get(model)
+    if terms is None:
+        return None
+    return terms + ACCESSORY_EXCLUDE
 
 SPECS = [
     ("Galaxy S22 Ultra", "갤럭시 S22 울트라", 150_000, ["갤럭시 s22 울트라"]),
@@ -205,6 +254,69 @@ def fetch_prices(search_word: str) -> list[int]:
     return prices
 
 
+def fetch_listing_prices(search_word: str, minimum: int, excludes: list[str]) -> list[int]:
+    """매물 검색(제목 포함)에서 제외어가 없는 매물만 모아 가격 리스트를 만든다."""
+    cutoff = datetime.now(KST) - timedelta(days=WINDOW_DAYS)
+    blocked = [_normalize(term) for term in excludes if term]
+    needle = _normalize(search_word)
+    prices: list[int] = []
+    seen: set[int] = set()
+    for page in range(LISTING_MAX_PAGES):
+        body = json.dumps(
+            {
+                "searchWord": search_word,
+                "sort": "RECENT_SORT",
+                "saleYn": "SALE_Y",
+                "page": page,
+                "priceFilter": {"minPrice": minimum},
+            }
+        ).encode()
+        request = urllib.request.Request(
+            JOONGNA_SEARCH_URL,
+            data=body,
+            headers={"Content-Type": "application/json", "User-Agent": LISTING_USER_AGENT},
+        )
+        try:
+            with urllib.request.urlopen(request, timeout=20) as response:
+                payload = json.load(response)
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError):
+            break
+        items = [
+            item
+            for item in (payload.get("data") or {}).get("items") or []
+            if item.get("seq") and item.get("sortDate")
+        ]
+        if not items:
+            break
+        reached_cutoff = False
+        for item in items:
+            try:
+                sorted_at = datetime.strptime(item["sortDate"], "%Y-%m-%d %H:%M:%S").replace(
+                    tzinfo=KST
+                )
+            except (KeyError, ValueError):
+                continue
+            if sorted_at < cutoff:
+                reached_cutoff = True
+                continue
+            if item["seq"] in seen:
+                continue
+            seen.add(item["seq"])
+            price = int(item.get("price") or 0)
+            if price < minimum:
+                continue
+            title = _normalize(item.get("title") or "")
+            if needle not in title:
+                continue
+            if any(term in title for term in blocked):
+                continue
+            prices.append(price)
+        if reached_cutoff:
+            break
+        time.sleep(LISTING_DELAY_SECONDS)
+    return prices
+
+
 def comparable_prices(prices: list[int], minimum: int) -> list[int]:
     candidates = [price for price in prices if price >= minimum]
     if not candidates:
@@ -231,7 +343,11 @@ def main() -> None:
     output = AGGREGATES / f"sold-averages-{fetched_at.astimezone(KST).date().isoformat()}.json"
     rows = []
     for model, search_word, minimum, alert_keywords in specs:
-        raw = fetch_prices(search_word)
+        excludes = model_excludes(model)
+        if excludes is not None:
+            raw = fetch_listing_prices(search_word, minimum, excludes)
+        else:
+            raw = fetch_prices(search_word)
         samples = comparable_prices(raw, minimum)
         average = round(sum(samples) / len(samples)) if samples else None
         rows.append(
