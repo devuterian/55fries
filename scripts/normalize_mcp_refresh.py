@@ -291,7 +291,113 @@ def record(product: dict, marketplace: str, item: dict, state: str, fetched_at: 
     return result
 
 
+def kst_source_date(value: str | None) -> str | None:
+    if not value:
+        return None
+    return datetime.strptime(value, "%Y-%m-%d %H:%M:%S").replace(tzinfo=KST).isoformat(timespec="seconds")
+
+
+def record_v2(product: dict, item: dict, fetched_at: str, state: str = "active") -> dict:
+    if item["marketplace"] == "joongna":
+        updated_at = item.get("updated_at") or kst_source_date((item.get("source_dates") or {}).get("sortDate"))
+    else:
+        updated_at = item.get("updated_at")
+    return {
+        "marketplace": item["marketplace"],
+        "external_listing_id": str(item["listing_id"]),
+        "brand": product["brand"],
+        "model": product["model"],
+        "variant": product["variant"],
+        "seller_external_id": str(item["seller_id"]) if item.get("seller_id") is not None else None,
+        "seller_name": item.get("seller_name"),
+        "title": item["title"],
+        "listing_url": item["listing_url"],
+        "price_krw": int(item["price_krw"]),
+        "state": state,
+        "listed_at": None,
+        # 판매완료는 판매 시각을 따로 주지 않아 마지막 수정(등록) 시각으로 근사한다.
+        "updated_at": updated_at if state == "active" else None,
+        "sold_at": updated_at if state == "sold" else None,
+        "is_comparable": True,
+        "exclusion_reason": None,
+        "raw": {"source_fetched_at": fetched_at, "source_item": item},
+    }
+
+
+def safety_v2(item: dict, listing_url: str, fetched_at: str) -> dict:
+    evidence = item.get("seller_evidence") or {}
+    count = evidence.get("safe_trade_count") or {}
+    verified = evidence.get("status") == "available" and count.get("status") == "available" and count.get("value") is not None
+    if verified:
+        raw = {"source_metrics": evidence.get("source_metrics"), "source_field": count.get("source_field")}
+    elif item["marketplace"] == "bunjang":
+        raw = {"reason": "번개장터 MCP는 판매 횟수만 주고 안전거래 횟수와 같다고 보장하지 않음", "source_metrics": evidence.get("source_metrics")}
+    else:
+        raw = {"reason": "MCP 응답에 판매자의 안전거래 횟수가 없음", "seller_error": item.get("seller_error")}
+    return {
+        "marketplace": item["marketplace"],
+        "seller_external_id": str(item["seller_id"]),
+        "checked_at": evidence.get("checked_at") or item.get("seller_checked_at") or fetched_at,
+        "verification_status": "verified" if verified else "unavailable",
+        "safe_trade_count": int(count["value"]) if verified else None,
+        "source_url": listing_url,
+        "raw": raw,
+    }
+
+
+def normalize_v2(raw: dict, catalog: dict) -> dict:
+    products_by_model: dict[str, list[dict]] = {}
+    for product in catalog["products"]:
+        products_by_model.setdefault(product["model"], []).append(product)
+    output: dict[tuple[str, str], dict] = {}
+    safety: dict[tuple[str, str], dict] = {}
+    for query in raw["queries"]:
+        products = products_by_model[query["model"]]
+        variants = [product["variant"] for product in products]
+        for marketplace in ("joongna", "bunjang"):
+            response = query[marketplace]["response"]
+            fetched_at = response.get("page_observed_at") or raw["fetched_at"]
+            for item in response.get("listings") or []:
+                if item.get("status") != "on_sale":
+                    continue
+                title = item.get("title") or ""
+                if not model_matches(query["model"], title):
+                    continue
+                variant = choose_variant(query["model"], variants, title)
+                product = next((value for value in products if value["variant"] == variant), None)
+                if not product or not comparable(product, title, item.get("description"), int(item.get("price_krw") or 0)):
+                    continue
+                normalized = record_v2(product, item, fetched_at)
+                key = (marketplace, normalized["external_listing_id"])
+                output.setdefault(key, normalized)
+                if normalized["seller_external_id"]:
+                    safety[(marketplace, normalized["seller_external_id"])] = safety_v2(item, normalized["listing_url"], fetched_at)
+            sold_response = ((query.get("sold") or {}).get(marketplace) or {}).get("response") or {}
+            for item in sold_response.get("listings") or []:
+                if item.get("status") != "sold":
+                    continue
+                title = item.get("title") or ""
+                if not model_matches(query["model"], title):
+                    continue
+                variant = choose_variant(query["model"], variants, title)
+                product = next((value for value in products if value["variant"] == variant), None)
+                if not product or not comparable(product, title, item.get("description"), int(item.get("price_krw") or 0)):
+                    continue
+                normalized = record_v2(product, item, sold_response.get("page_observed_at") or raw["fetched_at"], "sold")
+                if normalized["sold_at"]:
+                    output.setdefault((marketplace, normalized["external_listing_id"]), normalized)
+    return {
+        "run_id": raw["run_id"],
+        "fetched_at": datetime.fromisoformat(raw["fetched_at"].replace("Z", "+00:00")).astimezone(KST).isoformat(timespec="seconds"),
+        "listings": sorted(output.values(), key=lambda item: (item["brand"], item["model"], item["variant"], item["marketplace"], item["external_listing_id"])),
+        "seller_safety_checks": sorted(safety.values(), key=lambda item: (item["marketplace"], item["seller_external_id"])),
+        "quality_issues": [],
+    }
+
+
 def normalize(raw: dict, catalog: dict) -> dict:
+    if raw.get("schema_version") == 2:
+        return normalize_v2(raw, catalog)
     normalized_fetched_at = datetime.fromisoformat(raw["fetched_at"].replace("Z", "+00:00")).astimezone(KST).isoformat(timespec="seconds")
     products_by_model: dict[str, list[dict]] = {}
     for product in catalog["products"]:

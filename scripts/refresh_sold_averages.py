@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import argparse
 import json
+import sys
 import statistics
 import urllib.parse
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "data" / "aggregates" / "sold-averages-2026-09-20.json"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+AGGREGATES = ROOT / "data" / "aggregates"
+KST = timezone(timedelta(hours=9))
 API_URL = "https://search-api.joongna.com/v4/analysis/product-price/scatter-plot"
 WINDOW_DAYS = 90
 DISCOUNT_PERCENT = 15
@@ -64,6 +68,76 @@ SPECS = [
 ]
 
 
+# SPECS에 없는 모델은 알림 대상이 아니므로 판매완료 평균만 계산한다(alert_keywords 없음).
+CHART_ONLY_SEARCH_WORDS = {
+    "RTX 5060": "RTX 5060",
+    "RTX 3080": "RTX 3080",
+    "RTX 3080 Ti": "RTX 3080 Ti",
+    "RTX 5070": "RTX 5070",
+    "RTX 4080": "RTX 4080",
+    "RTX 5080": "RTX 5080",
+    "RTX 3090": "RTX 3090",
+    "RTX 4090": "RTX 4090",
+    "RTX 5090": "RTX 5090",
+    "Osmo Action 4": "오즈모 액션4",
+    "Osmo Action 5 Pro": "오즈모 액션5 프로",
+    "Osmo Action 6": "오즈모 액션6",
+    "Osmo Pocket 3": "Osmo Pocket 3",
+    "Osmo Pocket 4": "오즈모 포켓4",
+    "Osmo Pocket 4P": "오즈모 포켓4p",
+    "Galaxy S25 FE": "Galaxy S25 FE",
+    "iPhone 17 Plus": "iPhone 17 Plus",
+    "Sony FX3": "Sony FX3",
+    "Sony a7 III": "소니 a7m3",
+    "Sony a7 V": "소니 a7m5",
+    "Sony a7CR": "Sony a7CR",
+    "Sony a7R V": "소니 a7r5",
+    "Sony a7R VI": "Sony a7R VI",
+    "Panasonic GH7": "Panasonic GH7",
+    "Panasonic S1R II": "Panasonic S1R II",
+    "Panasonic S5 II": "Panasonic S5 II",
+    "Panasonic S5 IIX": "Panasonic S5 IIX",
+    "Panasonic S9": "Panasonic S9",
+    "Insta360 Ace Pro 2": "Insta360 Ace Pro 2",
+    "Insta360 GO 3S": "Insta360 GO 3S",
+    "Insta360 GO Ultra": "Insta360 GO Ultra",
+    "Canon PowerShot V1": "캐논 파워샷 v1",
+    "Canon R1": "Canon R1",
+    "Canon R10": "Canon R10",
+    "Canon R3": "Canon R3",
+    "Canon R5 Mark II": "Canon R5 Mark II",
+    "Canon R6 Mark III": "Canon R6 Mark III",
+    "Canon R7": "Canon R7",
+    "Canon R8": "Canon R8",
+    "Nikon Zf": "니콘 zf",
+    "Fujifilm X-E5": "Fujifilm X-E5",
+    "Fujifilm X-H2S": "Fujifilm X-H2S",
+    "Fujifilm X-M5": "Fujifilm X-M5",
+    "Fujifilm X-S20": "Fujifilm X-S20",
+    "Fujifilm X-T5": "Fujifilm X-T5",
+    "Fujifilm X-T50": "x-t50",
+    "OM System TG-7": "OM SYSTEM TG-7",
+    "GoPro MISSION 1": "GoPro MISSION 1",
+    "GoPro MISSION 1 PRO": "GoPro MISSION 1 PRO",
+    "GoPro HERO13 Black": "고프로 히어로13 블랙",
+}
+
+
+def chart_only_specs() -> list[tuple[str, str, int, list[str]]]:
+    from normalize_mcp_refresh import minimum_price
+
+    catalog = json.loads((ROOT / "data" / "catalog" / "products.json").read_text())["products"]
+    first_product = {}
+    for product in catalog:
+        first_product.setdefault(product["model"], product)
+    known = {spec[0] for spec in SPECS}
+    return [
+        (model, word, minimum_price(first_product[model]), [])
+        for model, word in CHART_ONLY_SEARCH_WORDS.items()
+        if model not in known
+    ]
+
+
 def fetch_prices(search_word: str) -> list[int]:
     body = json.dumps(
         {
@@ -99,8 +173,18 @@ def alert_max_price(average: int) -> int:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="중고나라 판매가 차트로 최근 3개월 평균 갱신")
+    parser.add_argument("--model", action="append", help="갱신할 모델. 생략하면 전체")
+    args = parser.parse_args()
+    all_specs = SPECS + chart_only_specs()
+    specs = [spec for spec in all_specs if not args.model or spec[0] in args.model]
+    unknown = set(args.model or []) - {spec[0] for spec in all_specs}
+    if unknown:
+        raise SystemExit(f"알 수 없는 모델: {', '.join(sorted(unknown))}")
+    fetched_at = datetime.now(timezone.utc)
+    output = AGGREGATES / f"sold-averages-{fetched_at.astimezone(KST).date().isoformat()}.json"
     rows = []
-    for model, search_word, minimum, alert_keywords in SPECS:
+    for model, search_word, minimum, alert_keywords in specs:
         raw = fetch_prices(search_word)
         samples = comparable_prices(raw, minimum)
         average = round(sum(samples) / len(samples)) if samples else None
@@ -114,20 +198,20 @@ def main() -> None:
                 "raw_sample_size": len(raw),
                 "sample_size": len(samples),
                 "average_price_krw": average,
-                "alert_max_price_krw": alert_max_price(average) if average else None,
+                "alert_max_price_krw": alert_max_price(average) if average and alert_keywords else None,
                 "alert_keywords": alert_keywords,
             }
         )
     payload = {
         "schema_version": 1,
-        "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "fetched_at": fetched_at.isoformat(timespec="seconds"),
         "window_days": WINDOW_DAYS,
         "discount_percent": DISCOUNT_PERCENT,
         "rows": rows,
     }
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
-    print(f"wrote {OUTPUT.relative_to(ROOT)} ({len(rows)} models)")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
+    print(f"wrote {output.relative_to(ROOT)} ({len(rows)} models)")
 
 
 if __name__ == "__main__":

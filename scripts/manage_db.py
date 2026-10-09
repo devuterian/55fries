@@ -7,6 +7,7 @@ import json
 import re
 import shutil
 import sqlite3
+import statistics
 import sys
 import tempfile
 from datetime import datetime, timedelta, timezone
@@ -462,9 +463,10 @@ def compute_price_guide(
           SELECT MAX(o2.observed_at)
           FROM listing_observations o2
           WHERE o2.listing_id = l.id AND o2.observed_at <= ?
+            AND substr(o2.observed_at, 1, 10) = substr(?, 1, 10)
         )
         """,
-        (as_of_text,),
+        (as_of_text, as_of_text),
     ).fetchall()
     by_product: dict[str, list[sqlite3.Row]] = {}
     for row in observations:
@@ -475,11 +477,8 @@ def compute_price_guide(
     avg3_cutoff = as_of_dt - timedelta(days=90)
     sold_average_files = sorted(SOLD_AVERAGES_DIR.glob("sold-averages-*.json"))
     sold_averages = {}
-    if sold_average_files:
-        sold_averages = {
-            row["model"]: row
-            for row in json.loads(sold_average_files[-1].read_text())["rows"]
-        }
+    for path in sold_average_files:
+        sold_averages.update({row["model"]: row for row in json.loads(path.read_text())["rows"]})
     for order, product in enumerate(products):
         items = by_product.get(product["id"], [])
         active: list[sqlite3.Row] = []
@@ -496,6 +495,11 @@ def compute_price_guide(
                 sold6.append(item)
                 if avg3_cutoff <= sold_at:
                     sold3.append(item)
+        if len(sold6) >= 3:
+            # 액세서리·묶음 판매가 섞이므로 판매완료 중앙값의 0.5~1.75배 밖은 제외한다(3개월 평균과 같은 규칙).
+            median = statistics.median(row["price_krw"] for row in sold6)
+            sold6 = [row for row in sold6 if median * 0.5 <= row["price_krw"] <= median * 1.75]
+            sold3 = [row for row in sold3 if median * 0.5 <= row["price_krw"] <= median * 1.75]
         active.sort(key=lambda row: (row["price_krw"], row["listing_url"]))
         current = active[0] if active else None
         safe = None
@@ -506,6 +510,7 @@ def compute_price_guide(
                 break
         sold6.sort(key=lambda row: (row["price_krw"], row["listing_url"]))
         low6 = sold6[0] if sold6 else None
+        low6_from_listings = low6 is not None
         low6_listing_id = low6["id"] if low6 else None
         low6_price = low6["price_krw"] if low6 else None
         low6_url = low6["listing_url"] if low6 else None
@@ -538,8 +543,10 @@ def compute_price_guide(
         if aggregate and aggregate["average_price_krw"] is not None:
             avg3 = aggregate["average_price_krw"]
             avg3_sample_size = aggregate["sample_size"]
-            aggregate_note = "3개월 평균은 중고나라 판매가 시계열의 모델 전체 구성 기준."
+            aggregate_note = "3개월 평균은 중고나라 판매가 차트 기준(모델 전체 구성 혼합, 개별 매물 링크 없음)."
             note = f"{note} {aggregate_note}".strip()
+        if low6_from_listings or (avg3 is not None and not aggregate and sold3):
+            note = f"{note} 판매완료는 검색 첫 페이지(최근순)만 봤고 판매 시각은 마지막 수정 시각으로 근사.".strip()
         missing_history = []
         if low6_price is None:
             missing_history.append("6개월 판매완료 최저가")

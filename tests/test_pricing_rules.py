@@ -119,6 +119,42 @@ class PricingRulesTest(unittest.TestCase):
         row = display_rows(self.connection, run_id)[0]
         self.assertIsNone(row["current"])
 
+    def test_earlier_day_observations_are_not_reused(self):
+        earlier = self.as_of - timedelta(days=3)
+        ingest_payload(
+            self.connection,
+            {
+                "run_id": "fixture-earlier", "fetched_at": earlier.isoformat(),
+                "listings": [self.listing("gone-since", 60, 3, "seller", model="Stale Phone")],
+                "seller_safety_checks": [],
+            },
+        )
+        ingest_payload(
+            self.connection,
+            {
+                "run_id": "fixture-today", "fetched_at": self.as_of.isoformat(),
+                "listings": [self.listing("still-here", 90, 1, "seller", model="Stale Phone")],
+                "seller_safety_checks": [],
+            },
+        )
+        run_id = compute_price_guide(self.connection, self.as_of.isoformat(), "test-same-day")
+        row = next(row for row in display_rows(self.connection, run_id) if row["model"] == "Stale Phone")
+        self.assertEqual(row["current"], 90)
+        self.assertEqual(row["currentUrl"], "https://web.joongna.com/product/still-here")
+
+    def test_sold_outliers_are_excluded_from_low6(self):
+        sold = [
+            self.listing(f"sold-{n}", price, 10 + n, "seller", model="Sold Camera", state="sold", sold_age_days=10 + n)
+            for n, price in enumerate([150, 1000, 1100, 1200, 1500])
+        ]
+        ingest_payload(
+            self.connection,
+            {"run_id": "fixture-sold", "fetched_at": self.as_of.isoformat(), "listings": sold, "seller_safety_checks": []},
+        )
+        run_id = compute_price_guide(self.connection, self.as_of.isoformat(), "test-sold-outlier")
+        row = next(row for row in display_rows(self.connection, run_id) if row["model"] == "Sold Camera")
+        self.assertEqual(row["low6"], 1000)
+
     def test_exactly_25_days_is_included(self):
         exact = self.listing("exact-25", 100, 25, "safe-seller", model="Boundary")
         too_old = self.listing("older-than-25", 50, 25, "safe-seller", model="Boundary")

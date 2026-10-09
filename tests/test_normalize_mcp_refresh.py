@@ -1,6 +1,6 @@
 import unittest
 
-from scripts.normalize_mcp_refresh import capacity, choose_variant, comparable, model_matches, normalize
+from scripts.normalize_mcp_refresh import capacity, choose_variant, comparable, model_matches, normalize, normalize_v2
 
 
 class ModelMatchTest(unittest.TestCase):
@@ -131,3 +131,61 @@ class ModelMatchTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class NormalizeV2Test(unittest.TestCase):
+    CATALOG = {"products": [{"brand": "Sony", "model": "Sony a7 IV", "variant": "바디"}]}
+
+    def raw(self, joongna_items, bunjang_items):
+        def response(items):
+            return {"page_observed_at": "2026-10-09T06:00:00.000Z", "listings": items}
+
+        return {
+            "schema_version": 2, "run_id": "v2-fixture", "fetched_at": "2026-10-09T06:00:00.000Z",
+            "queries": [{
+                "model": "Sony a7 IV",
+                "joongna": {"response": response(joongna_items)},
+                "bunjang": {"response": response(bunjang_items)},
+            }],
+        }
+
+    def item(self, marketplace, listing_id, title, price, seller, **extra):
+        return {
+            "marketplace": marketplace, "listing_id": listing_id, "title": title, "price_krw": price,
+            "status": "on_sale", "seller_id": seller, "description": None,
+            "listing_url": f"https://example.test/{marketplace}/{listing_id}", **extra,
+        }
+
+    def test_seller_safety_comes_from_joongna_evidence_only(self):
+        evidence = {
+            "status": "available", "checked_at": "2026-10-09T06:00:01.000Z",
+            "source_metrics": {"safeTradeCount": 3},
+            "safe_trade_count": {"value": 3, "status": "available", "source_field": "safeTradeCount"},
+        }
+        bunjang_evidence = {
+            "status": "available", "source_metrics": {"salesCount": 52},
+            "safe_trade_count": {"value": None, "status": "unavailable", "reason": "equivalence_unverified"},
+        }
+        raw = self.raw(
+            [self.item("joongna", "1", "소니 a7m4 바디", 1_700_000, "10", source_dates={"sortDate": "2026-10-09 14:00:00"}, seller_evidence=evidence)],
+            [self.item("bunjang", "2", "소니 A7M4 바디", 1_650_000, "20", updated_at="2026-10-08T01:00:00Z", seller_evidence=bunjang_evidence)],
+        )
+        result = normalize_v2(raw, self.CATALOG)
+        listings = {item["marketplace"]: item for item in result["listings"]}
+        self.assertEqual(listings["joongna"]["updated_at"], "2026-10-09T14:00:00+09:00")
+        checks = {item["marketplace"]: item for item in result["seller_safety_checks"]}
+        self.assertEqual(checks["joongna"]["verification_status"], "verified")
+        self.assertEqual(checks["joongna"]["safe_trade_count"], 3)
+        self.assertEqual(checks["bunjang"]["verification_status"], "unavailable")
+        self.assertIsNone(checks["bunjang"]["safe_trade_count"])
+
+    def test_v2_drops_non_active_accessories_and_cheap_listings(self):
+        raw = self.raw(
+            [
+                self.item("joongna", "3", "소니 a7m4 바디", 2_000, "10", source_dates={"sortDate": "2026-10-09 14:00:00"}),
+                self.item("joongna", "4", "소니 a7m4 케이스", 50_000, "10", source_dates={"sortDate": "2026-10-09 14:00:00"}),
+                {**self.item("joongna", "5", "소니 a7m4 바디", 1_700_000, "10"), "status": "sold"},
+            ],
+            [],
+        )
+        self.assertEqual(normalize_v2(raw, self.CATALOG)["listings"], [])
