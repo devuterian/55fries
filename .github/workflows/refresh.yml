@@ -73,7 +73,35 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "data: 자동 갱신 $(TZ=Asia/Seoul date +%F)"
-          git push
+          message="data: 자동 갱신 $(TZ=Asia/Seoul date +%F)"
+          git commit -m "$message"
+          # 수집하는 동안 main에 다른 커밋이 들어오면 push가 거절된다.
+          # dist는 합칠 수 없으니 최신 main 위에 수집 결과(imports·aggregates)만 다시 얹고 새로 빌드한다.
+          for attempt in 1 2 3; do
+            if git push; then
+              pushed=1
+              break
+            fi
+            echo "push 거절됨(${attempt}회): 최신 main 위에 다시 빌드합니다"
+            rm -rf /tmp/collected && mkdir -p /tmp/collected
+            cp -R data/imports data/aggregates /tmp/collected/
+            git fetch origin "${GITHUB_REF_NAME}"
+            git reset --hard "origin/${GITHUB_REF_NAME}"
+            rm -rf data/imports data/aggregates
+            cp -R /tmp/collected/imports /tmp/collected/aggregates data/
+            make build
+            make test
+            make verify
+            git add -A data dist
+            if git diff --cached --quiet; then
+              echo "다시 빌드해 보니 바뀐 데이터가 없습니다"
+              exit 0
+            fi
+            git commit -m "$message"
+          done
+          if [ -z "${pushed:-}" ]; then
+            echo "push 3회 실패" >&2
+            exit 1
+          fi
           # GITHUB_TOKEN으로 한 push는 다른 워크플로를 깨우지 않으므로 배포를 직접 부른다
           gh workflow run pages.yml --ref "${GITHUB_REF_NAME}"
