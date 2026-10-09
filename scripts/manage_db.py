@@ -463,10 +463,9 @@ def compute_price_guide(
           SELECT MAX(o2.observed_at)
           FROM listing_observations o2
           WHERE o2.listing_id = l.id AND o2.observed_at <= ?
-            AND substr(o2.observed_at, 1, 10) = substr(?, 1, 10)
         )
         """,
-        (as_of_text, as_of_text),
+        (as_of_text,),
     ).fetchall()
     by_product: dict[str, list[sqlite3.Row]] = {}
     for row in observations:
@@ -488,7 +487,9 @@ def compute_price_guide(
             if not item["is_comparable"]:
                 continue
             freshness = parse_time(item["updated_at"] or item["listed_at"])
-            if item["state"] == "active" and freshness and cutoff <= freshness <= as_of_dt:
+            # 판매중은 기준일 당일 관측분만 쓴다. 판매완료는 지난 수집분도 누적해서 쓴다.
+            seen_today = item["observed_at"][:10] == as_of_text[:10]
+            if item["state"] == "active" and seen_today and freshness and cutoff <= freshness <= as_of_dt:
                 active.append(item)
             sold_at = parse_time(item["sold_at"])
             if item["state"] == "sold" and sold_at and low6_cutoff <= sold_at <= as_of_dt:
@@ -546,7 +547,7 @@ def compute_price_guide(
             aggregate_note = "3개월 평균은 중고나라 판매가 차트 기준(모델 전체 구성 혼합, 개별 매물 링크 없음)."
             note = f"{note} {aggregate_note}".strip()
         if low6_from_listings or (avg3 is not None and not aggregate and sold3):
-            note = f"{note} 판매완료는 검색 첫 페이지(최근순)만 봤고 판매 시각은 마지막 수정 시각으로 근사.".strip()
+            note = f"{note} 판매완료 판매 시각은 마지막 수정 시각으로 근사.".strip()
         missing_history = []
         if low6_price is None:
             missing_history.append("6개월 판매완료 최저가")
@@ -641,6 +642,8 @@ def build_site(connection: sqlite3.Connection, output: Path) -> None:
     if count != 1:
         raise ValueError("사이트 DATA 교체에 실패했습니다")
     rules = json.loads(run["rules_json"])
+    as_of_date = parse_time(run["as_of"]).astimezone(SEOUL).date().isoformat()
+    html = re.sub(r"기준 <strong>[^<]*</strong>", f"기준 <strong>{as_of_date} KST</strong>", html, count=1)
     html = re.sub(
         r"판매중은 최근 \d+일 이내만",
         f"판매중은 최근 {rules['current_listing_max_age_days']}일 이내만",

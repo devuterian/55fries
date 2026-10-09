@@ -1,0 +1,381 @@
+{
+  "schema_version": 1,
+  "queries": [
+    {
+      "model": "RTX 5060",
+      "search_word": "RTX 5060"
+    },
+    {
+      "model": "RTX 3080",
+      "search_word": "RTX 3080"
+    },
+    {
+      "model": "RTX 3080 Ti",
+      "search_word": "RTX 3080 Ti"
+    },
+    {
+      "model": "RTX 5070",
+      "search_word": "RTX 5070"
+    },
+    {
+      "model": "RTX 4080",
+      "search_word": "RTX 4080"
+    },
+    {
+      "model": "RTX 5080",
+      "search_word": "RTX 5080"
+    },
+    {
+      "model": "RTX 3090",
+      "search_word": "RTX 3090"
+    },
+    {
+      "model": "RTX 4090",
+      "search_word": "RTX 4090"
+    },
+    {
+      "model": "RTX 5090",
+      "search_word": "RTX 5090"
+    },
+    {
+      "model": "Osmo Action 4",
+      "search_word": "Osmo Action 4"
+    },
+    {
+      "model": "Osmo Action 5 Pro",
+      "search_word": "Osmo Action 5 Pro"
+    },
+    {
+      "model": "Osmo Action 6",
+      "search_word": "Osmo Action 6"
+    },
+    {
+      "model": "Osmo Pocket 3",
+      "search_word": "Osmo Pocket 3"
+    },
+    {
+      "model": "Osmo Pocket 4",
+      "search_word": "Osmo Pocket 4"
+    },
+    {
+      "model": "Osmo Pocket 4P",
+      "search_word": "Osmo Pocket 4P"
+    },
+    {
+      "model": "Galaxy S25",
+      "search_word": "갤럭시 S25"
+    },
+    {
+      "model": "Galaxy S25 Edge",
+      "search_word": "갤럭시 S25 엣지"
+    },
+    {
+      "model": "Galaxy S25 FE",
+      "search_word": "Galaxy S25 FE"
+    },
+    {
+      "model": "Galaxy S25 Ultra",
+      "search_word": "갤럭시 S25 울트라"
+    },
+    {
+      "model": "Galaxy S25+",
+      "search_word": "갤럭시 S25 플러스"
+    },
+    {
+      "model": "Galaxy S26",
+      "search_word": "갤럭시 S26"
+    },
+    {
+      "model": "Galaxy S26 Ultra",
+      "search_word": "갤럭시 S26 울트라"
+    },
+    {
+      "model": "Galaxy S26+",
+      "search_word": "갤럭시 S26 플러스"
+    },
+    {
+      "model": "Galaxy Z Flip7",
+      "search_word": "갤럭시 Z 플립7"
+    },
+    {
+      "model": "Galaxy Z Fold6",
+      "search_word": "갤럭시 Z 폴드6"
+    },
+    {
+      "model": "Galaxy Z Fold7",
+      "search_word": "갤럭시 Z 폴드7"
+    },
+    {
+      "model": "iPhone 15 Pro",
+      "search_word": "아이폰 15 프로"
+    },
+    {
+      "model": "iPhone 16",
+      "search_word": "아이폰 16"
+    },
+    {
+      "model": "iPhone 16 Plus",
+      "search_word": "아이폰 16 플러스"
+    },
+    {
+      "model": "iPhone 16 Pro",
+      "search_word": "아이폰 16 프로"
+    },
+    {
+      "model": "iPhone 17",
+      "search_word": "아이폰 17"
+    },
+    {
+      "model": "iPhone 17 Plus",
+      "search_word": "iPhone 17 Plus"
+    },
+    {
+      "model": "iPhone 17 Pro",
+      "search_word": "아이폰 17 프로"
+    },
+    {
+      "model": "iPhone Air",
+      "search_word": "아이폰 에어"
+    },
+    {
+      "model": "Sony FX3",
+      "search_word": "Sony FX3"
+    },
+    {
+      "model": "Sony a6400",
+      "search_word": "소니 a6400"
+    },
+    {
+      "model": "Sony a6700",
+      "search_word": "소니 a6700"
+    },
+    {
+      "model": "Sony a7 III",
+      "search_word": "Sony a7 III"
+    },
+    {
+      "model": "Sony a7 IV",
+      "search_word": "소니 a7m4"
+    },
+    {
+      "model": "Sony a7 V",
+      "search_word": "Sony a7 V"
+    },
+    {
+      "model": "Sony a7C II",
+      "search_word": "소니 a7c2"
+    },
+    {
+      "model": "Sony a7CR",
+      "search_word": "Sony a7CR"
+    },
+    {
+      "model": "Sony a7R V",
+      "search_word": "Sony a7R V"
+    },
+    {
+      "model": "Sony a7R VI",
+      "search_word": "Sony a7R VI"
+    },
+    {
+      "model": "Panasonic GH7",
+      "search_word": "Panasonic GH7"
+    },
+    {
+      "model": "Panasonic S1R II",
+      "search_word": "Panasonic S1R II"
+    },
+    {
+      "model": "Panasonic S5 II",
+      "search_word": "Panasonic S5 II"
+    },
+    {
+      "model": "Panasonic S5 IIX",
+      "search_word": "Panasonic S5 IIX"
+    },
+    {
+      "model": "Panasonic S9",
+      "search_word": "Panasonic S9"
+    },
+    {
+      "model": "Insta360 Ace Pro 2",
+      "search_word": "Insta360 Ace Pro 2"
+    },
+    {
+      "model": "Insta360 GO 3S",
+      "search_word": "Insta360 GO 3S"
+    },
+    {
+      "model": "Insta360 GO Ultra",
+      "search_word": "Insta360 GO Ultra"
+    },
+    {
+      "model": "Canon PowerShot V1",
+      "search_word": "Canon PowerShot V1"
+    },
+    {
+      "model": "Canon R1",
+      "search_word": "Canon R1"
+    },
+    {
+      "model": "Canon R10",
+      "search_word": "Canon R10"
+    },
+    {
+      "model": "Canon R3",
+      "search_word": "Canon R3"
+    },
+    {
+      "model": "Canon R5 Mark II",
+      "search_word": "Canon R5 Mark II"
+    },
+    {
+      "model": "Canon R6 Mark II",
+      "search_word": "캐논 r6m2"
+    },
+    {
+      "model": "Canon R6 Mark III",
+      "search_word": "Canon R6 Mark III"
+    },
+    {
+      "model": "Canon R7",
+      "search_word": "Canon R7"
+    },
+    {
+      "model": "Canon R8",
+      "search_word": "Canon R8"
+    },
+    {
+      "model": "Nikon Zf",
+      "search_word": "Nikon Zf"
+    },
+    {
+      "model": "Fujifilm X-E5",
+      "search_word": "Fujifilm X-E5"
+    },
+    {
+      "model": "Fujifilm X-H2S",
+      "search_word": "Fujifilm X-H2S"
+    },
+    {
+      "model": "Fujifilm X-M5",
+      "search_word": "Fujifilm X-M5"
+    },
+    {
+      "model": "Fujifilm X-S20",
+      "search_word": "Fujifilm X-S20"
+    },
+    {
+      "model": "Fujifilm X-T5",
+      "search_word": "Fujifilm X-T5"
+    },
+    {
+      "model": "Fujifilm X-T50",
+      "search_word": "Fujifilm X-T50"
+    },
+    {
+      "model": "Fujifilm X100V",
+      "search_word": "후지필름 X100V"
+    },
+    {
+      "model": "Fujifilm X100VI",
+      "search_word": "후지 x100vi"
+    },
+    {
+      "model": "Ricoh GR III",
+      "search_word": "리코 gr3"
+    },
+    {
+      "model": "Ricoh GR IIIx",
+      "search_word": "리코 gr3x"
+    },
+    {
+      "model": "Galaxy S22 Ultra",
+      "search_word": "갤럭시 S22 울트라"
+    },
+    {
+      "model": "Galaxy S23 Ultra",
+      "search_word": "갤럭시 S23 울트라"
+    },
+    {
+      "model": "Galaxy S22",
+      "search_word": "갤럭시 S22"
+    },
+    {
+      "model": "Galaxy S23",
+      "search_word": "갤럭시 S23"
+    },
+    {
+      "model": "iPhone 14 Pro",
+      "search_word": "아이폰 14 프로"
+    },
+    {
+      "model": "iPhone 14 Pro Max",
+      "search_word": "아이폰 14 프로 맥스"
+    },
+    {
+      "model": "Ricoh GR IV",
+      "search_word": "리코 GR4"
+    },
+    {
+      "model": "Sony RX100 VII",
+      "search_word": "소니 RX100M7"
+    },
+    {
+      "model": "Panasonic TZ99 / ZS99",
+      "search_word": "파나소닉 TZ99"
+    },
+    {
+      "model": "OM System TG-7",
+      "search_word": "올림푸스 TG-7"
+    },
+    {
+      "model": "GoPro MISSION 1",
+      "search_word": "고프로 Mission 1"
+    },
+    {
+      "model": "GoPro MISSION 1 PRO",
+      "search_word": "고프로 Mission 1 Pro"
+    },
+    {
+      "model": "Insta360 X6",
+      "search_word": "인스타360 X6"
+    },
+    {
+      "model": "GoPro HERO13 Black",
+      "search_word": "고프로 히어로13 블랙"
+    },
+    {
+      "model": "DJI Mini 5 Pro",
+      "search_word": "DJI 미니 5 프로"
+    },
+    {
+      "model": "DJI Air 3S",
+      "search_word": "DJI 에어 3S"
+    },
+    {
+      "model": "DJI Mavic 4 Pro",
+      "search_word": "DJI 매빅 4 프로"
+    },
+    {
+      "model": "MacBook Air M4",
+      "search_word": "맥북 에어 M4"
+    },
+    {
+      "model": "MacBook Pro M4 Pro",
+      "search_word": "맥북 프로 M4 프로"
+    },
+    {
+      "model": "MacBook Pro M4 Max",
+      "search_word": "맥북프로 M4 MAX"
+    },
+    {
+      "model": "Apple Watch Series 10",
+      "search_word": "애플워치10"
+    },
+    {
+      "model": "Apple Watch Ultra 2",
+      "search_word": "애플워치 울트라2"
+    }
+  ]
+}
