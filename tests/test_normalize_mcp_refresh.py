@@ -272,3 +272,58 @@ class TierTest(unittest.TestCase):
     def test_non_listing_words_still_dropped(self):
         self.assertIsNone(self.variant("아이폰 16 삽니다"))
         self.assertIsNone(self.variant("아이폰 16 케이스 일괄"))
+
+
+class AddedGadgetTest(unittest.TestCase):
+    def test_separates_nearby_gadgets(self):
+        rejected = [
+            ("AirPods 4", "에어팟4 노이즈캔슬링 미개봉"),
+            ("AirPods 4", "에어팟 4 ANC"),
+            ("Galaxy Tab S10", "갤럭시탭 S10 울트라 256"),
+            ("Galaxy Tab S10", "갤럭시탭 S10+ 와이파이"),
+            ("Galaxy Watch 8", "갤럭시워치8 클래식 46mm"),
+            ("PlayStation 5", "플스5 프로 2TB"),
+            ("Meta Quest 3", "메타 퀘스트3S 128"),
+            ("RTX 4070", "RTX 4070 SUPER 12GB"),
+            ("RTX 4070 Super", "RTX 4070 Ti SUPER 16GB"),
+            ("Sony WH-1000XM5", "소니 WF-1000XM5 이어폰"),
+            ("Mac mini M4", "맥미니 M4 Pro 24GB"),
+            ("Galaxy Tab S10", "갤럭시 탭 S10 Lite 128GB"),
+            ("iPhone 17", "아이폰 17에어 256기가"),
+        ]
+        for model, title in rejected:
+            with self.subTest(model=model, title=title):
+                self.assertFalse(model_matches(model, title))
+        accepted = [
+            ("AirPods 4 ANC", "에어팟4 노이즈캔슬링 미개봉"),
+            ("AirPods Pro 2", "에어팟 프로2 C타입"),
+            ("Galaxy Tab S10 Ultra", "갤럭시탭 S10 울트라 256"),
+            ("RTX 4070 Super", "RTX 4070 슈퍼 12GB"),
+            ("RTX 4070 Ti Super", "RTX 4070 Ti SUPER 16GB"),
+            ("Nintendo Switch 2", "닌텐도 스위치2 마리오카트 세트"),
+        ]
+        for model, title in accepted:
+            with self.subTest(model=model, title=title):
+                self.assertTrue(model_matches(model, title))
+
+    def test_gadget_variants(self):
+        self.assertEqual(choose_variant("iPad Pro M4", ["11인치", "13인치"], "아이패드 프로 M4 13인치 256 셀룰러"), "13인치")
+        self.assertEqual(choose_variant("iPad Air M3", ["11인치", "13인치"], "아이패드에어 m3 11 와이파이"), "11인치")
+        self.assertEqual(choose_variant("PlayStation 5", ["디스크", "디지털"], "플스5 슬림 디지털 에디션"), "디지털")
+        self.assertEqual(choose_variant("Mac mini M4", ["M4", "M4 Pro"], "맥미니 M4 프로 24GB"), "M4 Pro")
+
+    def test_airpods_single_side_dropped(self):
+        product = {"brand": "Apple", "model": "AirPods Pro 2", "variant": "기본"}
+        self.assertTrue(comparable(product, "에어팟 프로2 C타입 풀박스", None, 120_000))
+        self.assertTrue(comparable(product, "에어팟 프로2", None, 60_000))
+        for title in ("에어팟 프로2 왼쪽 유닛", "에어팟프로2 오른쪽", "에어팟 프로2 충전케이스 단품", "에어팟 프로2 본체만"):
+            with self.subTest(title=title):
+                self.assertFalse(comparable(product, title, None, 80_000))
+        self.assertFalse(comparable(product, "에어팟 프로2", None, 40_000))
+
+    def test_wanted_ads_and_game_editions_dropped(self):
+        quest = {"brand": "Meta", "model": "Meta Quest 3", "variant": "기본"}
+        self.assertFalse(comparable(quest, "메타 퀘스트 3 VR 구매글", None, 500_000))
+        ps5 = {"brand": "SONY", "model": "PlayStation 5", "variant": "디스크"}
+        self.assertFalse(comparable(ps5, "PS5 파이널판타지 레조넌스 컬렉터스 한정판", None, 330_000))
+        self.assertTrue(comparable(ps5, "PS5 슬림 디스크 풀박스", None, 450_000))

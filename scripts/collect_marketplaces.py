@@ -28,6 +28,7 @@ JOONGNA_SOLD = 3
 REQUEST_DELAY_SECONDS = 0.4
 FAILURE_RATIO_LIMIT = 0.5
 # 케이스·필름 같은 싼 글이 검색 페이지를 채우지 않게 검색 단계에서 10만 원 미만은 받지 않는다.
+# 에어팟처럼 중고가가 낮은 모델은 config/search-queries.json의 min_price_krw로 낮춘다.
 SEARCH_MIN_PRICE_KRW = 100_000
 
 
@@ -114,7 +115,7 @@ def joongna_item(item: dict) -> dict:
     }
 
 
-def collect_joongna(search_word: str, cutoff: datetime, max_pages: int) -> dict:
+def collect_joongna(search_word: str, cutoff: datetime, max_pages: int, min_price: int = SEARCH_MIN_PRICE_KRW) -> dict:
     fetched_at = datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z")
     available: list[dict] = []
     sold: list[dict] = []
@@ -125,7 +126,7 @@ def collect_joongna(search_word: str, cutoff: datetime, max_pages: int) -> dict:
             JOONGNA_SEARCH_URL,
             {
                 "searchWord": search_word, "sort": "RECENT_SORT", "saleYn": "SALE_Y", "page": page,
-                "priceFilter": {"minPrice": SEARCH_MIN_PRICE_KRW},
+                "priceFilter": {"minPrice": min_price},
             },
         )
         data = payload.get("data") or {}
@@ -169,7 +170,7 @@ def bunjang_time(value: str) -> datetime:
     return datetime.fromisoformat(value.replace("Z", "+00:00"))
 
 
-def collect_bunjang(search_word: str, cutoff: datetime, max_pages: int) -> dict:
+def collect_bunjang(search_word: str, cutoff: datetime, max_pages: int, min_price: int = SEARCH_MIN_PRICE_KRW) -> dict:
     fetched_at = datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z")
     listings: list[dict] = []
     seen: set[int] = set()
@@ -178,7 +179,7 @@ def collect_bunjang(search_word: str, cutoff: datetime, max_pages: int) -> dict:
     for _ in range(max_pages):
         params = {
             "policyKey": "pw.product.keyword", "q": search_word, "sort": "latest", "size": 60,
-            "minPrice": SEARCH_MIN_PRICE_KRW,
+            "minPrice": min_price,
         }
         if cursor:
             params["cursor"] = cursor
@@ -235,7 +236,7 @@ def collect(
             ("bunjang", collect_bunjang, bunjang_pages),
         ):
             try:
-                entry[marketplace] = collector(word, cutoff, pages)
+                entry[marketplace] = collector(word, cutoff, pages, query.get("min_price_krw", SEARCH_MIN_PRICE_KRW))
             except Exception as error:  # 한 모델 실패가 전체 수집을 멈추지 않게 기록만 한다
                 failures.append(f"{model} / {marketplace}: {error}")
                 entry[marketplace] = {"search_word": word, "error": str(error)}

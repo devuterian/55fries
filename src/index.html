@@ -95,7 +95,7 @@ ul{list-style:none;margin:0;padding:0}
 const ASOF="__AS_OF__";
 const DATA=[];
 const won=v=>v==null?'-':new Intl.NumberFormat('ko-KR').format(v)+'원';
-const CATS=['전체','폰','카메라','GPU','액션캠·드론','노트북','워치'];
+const CATS=['전체','폰','태블릿','오디오','워치','카메라','게임·VR','GPU','액션캠·드론','노트북·PC'];
 let cat='전체',openKey=null,all=false,broken=false;
 const BROKEN='고장·파손',isBroken=x=>x.variant===BROKEN;
 const scopeText=document.querySelector('#scope-text'),scopeBtn=document.querySelector('#scope-btn');
@@ -103,8 +103,8 @@ const q=document.querySelector('#q'),out=document.querySelector('#out'),chipBox=
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 const icon=n=>`<svg aria-hidden="true"><use href="#i-${n}"/></svg>`;
 function short(v){if(v==null)return'-';if(v<10000)return new Intl.NumberFormat('ko-KR').format(v)+'원';const m=Math.round(v/1000)/10;return String(m).replace(/\.0$/,'')+'만'}
-function catOf(x){const m=x.model;if(x.brand==='NVIDIA')return'GPU';if(/^Apple Watch/.test(m))return'워치';if(/^MacBook/.test(m))return'노트북';if(/^(iPhone|Galaxy)/.test(m))return'폰';if(/^Osmo|^(DJI|GoPro|Insta360)/i.test(m)||/^(DJI|GoPro|Insta360)$/i.test(x.brand))return'액션캠·드론';return'카메라'}
-function searchKey(value){return String(value??'').toLowerCase().replace(/\s+/g,'').replaceAll('아이폰','iphone').replaceAll('갤럭시','galaxy').replaceAll('소니','sony').replaceAll('리코','ricoh').replaceAll('캐논','canon').replaceAll('니콘','nikon')}
+function catOf(x){const m=x.model;if(x.brand==='NVIDIA')return'GPU';if(/^(Apple Watch|Galaxy Watch)/.test(m))return'워치';if(/^(MacBook|Mac mini)/.test(m))return'노트북·PC';if(/^(iPad|Galaxy Tab)/.test(m))return'태블릿';if(/^(AirPods|Sony W[HF]-|Bose)/.test(m))return'오디오';if(/^(Nintendo|PlayStation|Steam Deck|Meta Quest)/.test(m))return'게임·VR';if(/^(iPhone|Galaxy)/.test(m))return'폰';if(/^Osmo|^(DJI|GoPro|Insta360)/i.test(m)||/^(DJI|GoPro|Insta360)$/i.test(x.brand))return'액션캠·드론';return'카메라'}
+function searchKey(value){return String(value??'').toLowerCase().replace(/\s+/g,'').replaceAll('아이폰','iphone').replaceAll('에어팟','airpods').replaceAll('아이패드','ipad').replaceAll('맥미니','macmini').replaceAll('애플워치','applewatch').replaceAll('워치','watch').replaceAll('갤탭','galaxytab').replaceAll('탭','tab').replaceAll('플스','playstation').replaceAll('ps5','playstation5').replaceAll('닌텐도','nintendo').replaceAll('스위치','switch').replaceAll('스팀덱','steamdeck').replaceAll('퀘스트','quest').replaceAll('보스','bose').replaceAll('헤드폰','headphones').replaceAll('갤럭시','galaxy').replaceAll('소니','sony').replaceAll('리코','ricoh').replaceAll('캐논','canon').replaceAll('니콘','nikon')}
 // 기본은 안전거래 이력이 있는 판매자의 최저가(safe), 전체 보기에서는 이력과 상관없는 최저가(current)
 function eff(x){return all?{p:x.current,u:x.currentUrl,safe:(x.safety||'').includes('확인됨')}:{p:x.safe,u:x.safeUrl,safe:true}}
 function judge(x){

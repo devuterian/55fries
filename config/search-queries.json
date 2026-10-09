@@ -448,6 +448,127 @@
     {
       "model": "iPhone 13 Pro",
       "search_word": "아이폰 13 프로"
+    },
+    {
+      "model": "AirPods 4",
+      "search_word": "에어팟 4",
+      "min_price_krw": 50000
+    },
+    {
+      "model": "AirPods 4 ANC",
+      "search_word": "에어팟 4 노이즈캔슬링",
+      "min_price_krw": 50000
+    },
+    {
+      "model": "AirPods Pro 2",
+      "search_word": "에어팟 프로 2",
+      "min_price_krw": 50000
+    },
+    {
+      "model": "AirPods Pro 3",
+      "search_word": "에어팟 프로 3",
+      "min_price_krw": 50000
+    },
+    {
+      "model": "AirPods Max",
+      "search_word": "에어팟 맥스",
+      "min_price_krw": 50000
+    },
+    {
+      "model": "iPad Pro M4",
+      "search_word": "아이패드 프로 M4"
+    },
+    {
+      "model": "iPad Air M3",
+      "search_word": "아이패드 에어 M3"
+    },
+    {
+      "model": "iPad mini 7",
+      "search_word": "아이패드 미니 7"
+    },
+    {
+      "model": "Apple Watch Series 11",
+      "search_word": "애플워치 11"
+    },
+    {
+      "model": "Apple Watch Ultra 3",
+      "search_word": "애플워치 울트라 3"
+    },
+    {
+      "model": "Mac mini M4",
+      "search_word": "맥미니 M4"
+    },
+    {
+      "model": "Galaxy Watch 8",
+      "search_word": "갤럭시 워치8"
+    },
+    {
+      "model": "Galaxy Watch 8 Classic",
+      "search_word": "갤럭시 워치8 클래식"
+    },
+    {
+      "model": "Galaxy Tab S10",
+      "search_word": "갤럭시 탭 S10"
+    },
+    {
+      "model": "Galaxy Tab S10+",
+      "search_word": "갤럭시 탭 S10 플러스"
+    },
+    {
+      "model": "Galaxy Tab S10 Ultra",
+      "search_word": "갤럭시 탭 S10 울트라"
+    },
+    {
+      "model": "Sony WH-1000XM5",
+      "search_word": "소니 WH-1000XM5"
+    },
+    {
+      "model": "Sony WH-1000XM6",
+      "search_word": "소니 WH-1000XM6"
+    },
+    {
+      "model": "Sony WF-1000XM5",
+      "search_word": "소니 WF-1000XM5"
+    },
+    {
+      "model": "Bose QC Ultra Headphones",
+      "search_word": "보스 QC 울트라 헤드폰"
+    },
+    {
+      "model": "Nintendo Switch 2",
+      "search_word": "닌텐도 스위치 2"
+    },
+    {
+      "model": "PlayStation 5",
+      "search_word": "플스5"
+    },
+    {
+      "model": "PlayStation 5 Pro",
+      "search_word": "플스5 프로"
+    },
+    {
+      "model": "Steam Deck OLED",
+      "search_word": "스팀덱 OLED"
+    },
+    {
+      "model": "Meta Quest 3",
+      "search_word": "메타 퀘스트3"
+    },
+    {
+      "model": "RTX 4070",
+      "search_word": "RTX 4070"
+    },
+    {
+      "model": "RTX 4070 Super",
+      "search_word": "RTX 4070 SUPER"
+    },
+    {
+      "model": "RTX 4070 Ti Super",
+      "search_word": "RTX 4070 Ti SUPER"
+    },
+    {
+      "model": "RTX 5070 Ti",
+      "search_word": "RTX 5070 Ti"
     }
   ]
 }

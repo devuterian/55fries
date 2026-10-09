@@ -28,7 +28,7 @@ ALIASES = {
     "iPhone 17": ("iphone17", "아이폰17"),
     "iPhone 17 Plus": ("iphone17plus", "아이폰17플러스"),
     "iPhone 17 Pro": ("iphone17pro", "아이폰17프로"),
-    "iPhone Air": ("iphoneair", "아이폰에어"),
+    "iPhone Air": ("iphoneair", "아이폰에어", "아이폰17에어", "iphone17air"),
     "Sony FX3": ("sonyfx3", "소니fx3"),
     "Sony a6400": ("sonya6400", "소니a6400", "a6400"),
     "Sony a6700": ("sonya6700", "소니a6700", "a6700"),
@@ -85,6 +85,31 @@ ALIASES = {
     "MacBook Pro M4 Max": ("macbookprom4max", "맥북프로m4max", "맥북프로m4맥스"),
     "Apple Watch Series 10": ("applewatchseries10", "applewatch10", "애플워치시리즈10", "애플워치10"),
     "Apple Watch Ultra 2": ("applewatchultra2", "애플워치울트라2"),
+    "AirPods 4": ("airpods4", "에어팟4"),
+    "AirPods Pro 2": ("airpodspro2", "에어팟프로2", "에어팟pro2"),
+    "AirPods Pro 3": ("airpodspro3", "에어팟프로3", "에어팟pro3"),
+    "AirPods Max": ("airpodsmax", "에어팟맥스"),
+    "iPad Pro M4": ("ipadprom4", "아이패드프로m4", "아이패드prom4", "아이패드프로7세대"),
+    "iPad Air M3": ("ipadairm3", "아이패드에어m3", "아이패드에어7세대"),
+    "iPad mini 7": ("ipadmini7", "아이패드미니7"),
+    "Apple Watch Series 11": ("applewatchseries11", "applewatch11", "애플워치시리즈11", "애플워치11"),
+    "Apple Watch Ultra 3": ("applewatchultra3", "애플워치울트라3"),
+    "Mac mini M4": ("macminim4", "맥미니m4"),
+    "Galaxy Watch 8": ("galaxywatch8", "갤럭시워치8"),
+    "Galaxy Watch 8 Classic": ("galaxywatch8classic", "갤럭시워치8클래식", "워치8클래식"),
+    "Galaxy Tab S10": ("galaxytabs10", "갤럭시탭s10", "탭s10"),
+    "Galaxy Tab S10+": ("galaxytabs10+", "galaxytabs10plus", "갤럭시탭s10+", "갤럭시탭s10플러스", "탭s10+", "탭s10플러스", "탭s10plus"),
+    "Galaxy Tab S10 Ultra": ("galaxytabs10ultra", "갤럭시탭s10울트라", "탭s10울트라", "탭s10ultra"),
+    "Sony WH-1000XM5": ("wh1000xm5",),
+    "Sony WH-1000XM6": ("wh1000xm6",),
+    "Sony WF-1000XM5": ("wf1000xm5",),
+    "Bose QC Ultra Headphones": ("qc울트라헤드폰", "qcultraheadphones", "qc울트라헤드셋", "quietcomfortultraheadphones", "콰이어트컴포트울트라헤드폰"),
+    "Nintendo Switch 2": ("switch2", "스위치2", "닌텐도스위치2"),
+    "PlayStation 5": ("ps5", "플스5", "플레이스테이션5"),
+    "PlayStation 5 Pro": ("ps5pro", "ps5프로", "플스5프로", "플스5pro", "플레이스테이션5프로", "플레이스테이션5pro"),
+    "Steam Deck OLED": ("steamdeckoled", "스팀덱oled"),
+    "Meta Quest 3": ("metaquest3", "메타퀘스트3", "퀘스트3", "quest3"),
+    "AirPods 4 ANC": ("airpods4anc", "에어팟4anc", "에어팟4노이즈캔슬링", "에어팟4노캔", "에어팟4액티브노이즈캔슬링"),
     "Galaxy Z Flip6": ("galaxyzflip6", "갤럭시z플립6", "갤럭시플립6", "zflip6"),
     "Galaxy Z Flip7 FE": ("galaxyzflip7fe", "갤럭시z플립7fe", "갤럭시플립7fe", "zflip7fe", "플립7fe"),
     "Galaxy Z Flip5": ("galaxyzflip5", "갤럭시z플립5", "갤럭시플립5", "zflip5"),
@@ -101,7 +126,7 @@ ALIASES = {
 
 # 고장 계열(DEFECT)은 버리지 않고 모델마다 "고장·파손" 칸으로 모은다. 여기는 매물이 아니거나 본체가 아닌 글이다.
 BLOCKED = re.compile(
-    r"삽니다|구매합니다|구해요|매입|최고가|대여|렌탈|교환원함|"
+    r"삽니다|구매합니다|구매\s*글|구입\s*원|구해|구함|구합니다|매입|최고가|대여|렌탈|교환원함|"
     r"박스만|박스\s*단품|케이스|필름|보호유리|"
     r"배터리\s*(단품|만)|충전기\s*(단품|만)|스트랩|마운트|커버|모형|목업|"
     r"완본체|데스크탑|게이밍\s*(컴퓨터|pc)|조립\s*pc|교환|"
@@ -113,6 +138,10 @@ DEFECT_VARIANT = "고장·파손"
 UNKNOWN_CAPACITY_VARIANT = "용량 미확인"
 CAPACITIES = {"128GB", "256GB", "512GB", "1TB", "2TB"}
 DEFECT_MIN_PRICE_KRW = 100_000
+# 에어팟은 중고가가 낮아 5만 원부터 본다(검색어 설정의 min_price_krw와 같다).
+AIRPODS_MIN_PRICE_KRW = 50_000
+# 이어폰은 한쪽 유닛·케이스만 파는 글이 많다.
+EARBUD_PART = re.compile(r"왼쪽|오른쪽|좌측|우측|한쪽|유닛|본체\s*만|케이스\s*만|충전\s*케이스\s*(?:단품|만)|(?<![a-z])[lr]\s*(?:단품|만)|이어팁", re.IGNORECASE)
 DEFECT = re.compile(
     r"부품용|수리용|고장|파손|액정\s*(?:불량|깨짐|깨졌)|화면\s*깨|(?<!무)번인|(?<!무)잔상|"
     r"터치\s*(?:불가|불량|안\s*됨)|침수|페이스\s*아이디\s*(?:불량|불가|안\s*됨)|lcd\s*멍|액정\s*멍",
@@ -160,6 +189,8 @@ def model_matches(model: str, title: str) -> bool:
         number = re.search(r"\d{4}", model).group()
         if f"rtx{number}" not in text:
             return False
+        if ("super" in model.casefold()) != ("super" in text or "슈퍼" in text):
+            return False
         return ("ti" in model.casefold()) == ("ti" in text)
     if model.startswith("Galaxy S"):
         number = re.search(r"s\d+", model.casefold()).group()
@@ -182,7 +213,7 @@ def model_matches(model: str, title: str) -> bool:
         "iPhone 16": ("iphone16pro", "아이폰16프로", "아이폰16pro", "iphone16plus", "아이폰16플러스", "아이폰16plus", "iphone16e", "아이폰16e"),
         "iPhone 15 Pro": ("iphone15promax", "아이폰15프로맥스", "아이폰15promax", "15프맥", "15pm"),
         "iPhone 16 Pro": ("iphone16promax", "아이폰16프로맥스", "아이폰16promax", "16프맥", "16pm"),
-        "iPhone 17": ("iphone17pro", "아이폰17프로", "아이폰17pro", "iphone17plus", "아이폰17플러스", "아이폰17plus", "iphone17e", "아이폰17e"),
+        "iPhone 17": ("17에어", "17air", "iphone17pro", "아이폰17프로", "아이폰17pro", "iphone17plus", "아이폰17플러스", "아이폰17plus", "iphone17e", "아이폰17e"),
         "iPhone 17 Pro": ("iphone17promax", "아이폰17프로맥스", "아이폰17promax", "17프맥", "17pm"),
         "Canon PowerShot V1": ("powershotv10", "파워샷v10"),
         "Canon R1": ("canonr10", "캐논r10"),
@@ -203,6 +234,15 @@ def model_matches(model: str, title: str) -> bool:
         "MacBook Pro M4 Max": ("m4pro", "m4프로"),
         "Apple Watch Series 10": ("ultra", "울트라"),
         "Galaxy Z Flip7": ("flip7fe", "플립7fe"),
+        "AirPods 4": ("anc", "노이즈캔슬링", "노캔", "액티브"),
+        "Apple Watch Series 11": ("ultra", "울트라"),
+        "Galaxy Watch 8": ("classic", "클래식"),
+        "Galaxy Tab S10": ("s10lite", "s10라이트", "s10+", "s10plus", "s10플러스", "s10울트라", "s10ultra", "s10fe"),
+        "Bose QC Ultra Headphones": ("이어버드", "earbuds"),
+        "Nintendo Switch 2": ("스위치2개",),
+        "PlayStation 5": ("ps5pro", "ps5프로", "플스5프로", "플스5pro", "플레이스테이션5프로", "플레이스테이션5pro"),
+        "Meta Quest 3": ("퀘스트3s", "quest3s"),
+        "Mac mini M4": ("m4pro", "m4프로"),
         "iPhone 15": ("iphone15pro", "아이폰15프로", "아이폰15pro", "iphone15plus", "아이폰15플러스", "아이폰15plus"),
         "iPhone 13": ("iphone13pro", "아이폰13프로", "아이폰13pro", "iphone13mini", "아이폰13미니", "아이폰13mini"),
         "iPhone 13 Pro": ("iphone13promax", "아이폰13프로맥스", "아이폰13promax", "13프맥", "13pm"),
@@ -253,13 +293,25 @@ def choose_variant(model: str, variants: list[str], title: str) -> str | None:
         return "스탠다드"
     if model.startswith("DJI ") and set(variants) == {"스탠다드", "플라이 모어"}:
         return "플라이 모어" if re.search(r"플라이\s*모어|fly\s*more|콤보|combo", title, re.IGNORECASE) else "스탠다드"
+    if model.startswith("iPad"):
+        # "11인치", "13형"처럼 단위가 붙은 크기를 먼저 보고, 없으면 모델명을 뺀 제목에서 11·13을 찾는다.
+        found = set(re.findall(r"(?<!\d)(11|13)\s*(?:인치|형|in|\")", title, re.IGNORECASE))
+        if not found:
+            rest = compact(title).replace("m4", "").replace("m3", "")
+            found = {value for value in ("11", "13") if value in rest}
+        size = f"{found.pop()}인치" if len(found) == 1 else None
+        return size if size in variants else None
+    if model == "Mac mini M4":
+        return "M4 Pro" if re.search(r"m4\s*(?:pro|프로)", title, re.IGNORECASE) else "M4"
+    if model.startswith("PlayStation 5") and set(variants) == {"디스크", "디지털"}:
+        return "디지털" if re.search(r"디지털|digital", title, re.IGNORECASE) else "디스크"
     if model.startswith("MacBook"):
         text = compact(title)
         for size in ("13", "14", "15", "16"):
             if size in text and f"{size}인치" in variants:
                 return f"{size}인치"
         return None
-    if model == "Apple Watch Series 10":
+    if model.startswith("Apple Watch Series"):
         text = compact(title)
         size = next((value for value in ("42", "46") if value in text), None)
         if not size:
@@ -271,14 +323,23 @@ def choose_variant(model: str, variants: list[str], title: str) -> str | None:
 
 
 def minimum_price(product: dict) -> int:
+    model = product["model"]
+    if model.startswith("AirPods"):
+        return AIRPODS_MIN_PRICE_KRW
     if product["variant"] == DEFECT_VARIANT:
         return DEFECT_MIN_PRICE_KRW
-    model = product["model"]
+    if model in {"Nintendo Switch 2", "PlayStation 5", "Steam Deck OLED", "Mac mini M4"}:
+        return 300_000
+    if model == "PlayStation 5 Pro":
+        return 500_000
+    if model in {"Sony WF-1000XM5", "Meta Quest 3"}:
+        return 100_000
     if model.startswith("RTX "):
         return {
             "RTX 3080": 300_000, "RTX 3080 Ti": 400_000, "RTX 3090": 500_000,
             "RTX 4080": 800_000, "RTX 4090": 1_500_000, "RTX 5060": 300_000,
             "RTX 5070": 600_000, "RTX 5080": 1_200_000, "RTX 5090": 2_000_000,
+            "RTX 4070": 400_000, "RTX 4070 Super": 500_000, "RTX 4070 Ti Super": 650_000, "RTX 5070 Ti": 800_000,
         }[model]
     if model.startswith("MacBook"):
         return 700_000
@@ -319,6 +380,13 @@ def comparable(product: dict, title: str, description: str | None, price: int) -
         }
         if expected and mentioned and int(expected.group(1)) not in mentioned:
             return False
+    if product["model"].startswith(("AirPods", "Sony WF")) and product["model"] != "AirPods Max" and EARBUD_PART.search(title):
+        return False
+    # 게임기 검색에는 게임 한정판·타이틀·아미보 글이 섞인다.
+    if product["model"].startswith(("Nintendo", "PlayStation")) and re.search(
+        r"컬렉터|타이틀|게임\s*(?:팩|cd|칩)|아미보|칩\s*(?:만|단품)", title, re.IGNORECASE
+    ):
+        return False
     if product["model"] == "Ricoh GR III" and "hdf" in title.casefold():
         return False
     if product["brand"] == "Insta360" and re.search(r"렌즈|그립", title) and not re.search(r"본체|카메라", title):
