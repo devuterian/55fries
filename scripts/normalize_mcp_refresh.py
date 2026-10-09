@@ -79,7 +79,7 @@ ALIASES = {
     "DJI Air 3S": ("djiair3s", "dji에어3s", "에어3s"),
     "DJI Mavic 4 Pro": ("djimavic4pro", "dji매빅4프로", "매빅4프로"),
     "iPhone 14 Pro": ("iphone14pro", "아이폰14프로"),
-    "iPhone 14 Pro Max": ("iphone14promax", "아이폰14프로맥스"),
+    "iPhone 14 Pro Max": ("iphone14promax", "아이폰14프맥", "아이폰14pm", "아이폰14프로맥스"),
     "MacBook Air M4": ("macbookairm4", "맥북에어m4"),
     "MacBook Pro M4 Pro": ("macbookprom4pro", "맥북프로m4pro", "맥북프로m4프로"),
     "MacBook Pro M4 Max": ("macbookprom4max", "맥북프로m4max", "맥북프로m4맥스"),
@@ -89,9 +89,9 @@ ALIASES = {
     "Galaxy Z Flip7 FE": ("galaxyzflip7fe", "갤럭시z플립7fe", "갤럭시플립7fe", "zflip7fe", "플립7fe"),
     "Galaxy Z Flip5": ("galaxyzflip5", "갤럭시z플립5", "갤럭시플립5", "zflip5"),
     "Galaxy Z Fold5": ("galaxyzfold5", "갤럭시z폴드5", "갤럭시폴드5", "zfold5"),
-    "iPhone 15 Pro Max": ("iphone15promax", "아이폰15프로맥스", "아이폰15promax"),
-    "iPhone 16 Pro Max": ("iphone16promax", "아이폰16프로맥스", "아이폰16promax"),
-    "iPhone 17 Pro Max": ("iphone17promax", "아이폰17프로맥스", "아이폰17promax"),
+    "iPhone 15 Pro Max": ("iphone15promax", "아이폰15프맥", "아이폰15pm", "아이폰15프로맥스", "아이폰15promax"),
+    "iPhone 16 Pro Max": ("iphone16promax", "아이폰16프맥", "아이폰16pm", "아이폰16프로맥스", "아이폰16promax"),
+    "iPhone 17 Pro Max": ("iphone17promax", "아이폰17프맥", "아이폰17pm", "아이폰17프로맥스", "아이폰17promax"),
     "iPhone 15": ("iphone15", "아이폰15"),
     "iPhone 15 Plus": ("iphone15plus", "아이폰15플러스", "아이폰15plus"),
     "iPhone 16e": ("iphone16e", "아이폰16e"),
@@ -99,14 +99,55 @@ ALIASES = {
     "iPhone 13 Pro": ("iphone13pro", "아이폰13프로", "아이폰13pro"),
 }
 
+# 고장 계열(DEFECT)은 버리지 않고 모델마다 "고장·파손" 칸으로 모은다. 여기는 매물이 아니거나 본체가 아닌 글이다.
 BLOCKED = re.compile(
-    r"삽니다|구매합니다|구해요|매입|최고가|대여|렌탈|교환원함|부품용|수리용|고장|파손|"
-    r"액정\s*(불량|깨짐)|(?<!무)번인|(?<!무)잔상|터치\s*불가|박스만|박스\s*단품|케이스|필름|보호유리|"
+    r"삽니다|구매합니다|구해요|매입|최고가|대여|렌탈|교환원함|"
+    r"박스만|박스\s*단품|케이스|필름|보호유리|"
     r"배터리\s*(단품|만)|충전기\s*(단품|만)|스트랩|마운트|커버|모형|목업|"
     r"완본체|데스크탑|게이밍\s*(컴퓨터|pc)|조립\s*pc|교환|"
     r"케이지|뷰파인더|메인보드|lcd\s*멍|액정\s*멍|레노버|리전\d|레이저\s*블레이드",
     re.IGNORECASE,
 )
+
+DEFECT_VARIANT = "고장·파손"
+UNKNOWN_CAPACITY_VARIANT = "용량 미확인"
+CAPACITIES = {"128GB", "256GB", "512GB", "1TB", "2TB"}
+DEFECT_MIN_PRICE_KRW = 100_000
+DEFECT = re.compile(
+    r"부품용|수리용|고장|파손|액정\s*(?:불량|깨짐|깨졌)|화면\s*깨|(?<!무)번인|(?<!무)잔상|"
+    r"터치\s*(?:불가|불량|안\s*됨)|침수|페이스\s*아이디\s*(?:불량|불가|안\s*됨)|lcd\s*멍|액정\s*멍",
+    re.IGNORECASE,
+)
+# 본문은 업자 안내문("파손 시 환불 불가", "침수폰 취급 안 함")과 부정("잔상 없음", "무잔상")이 흔하다.
+# 문장 단위로 보고, 안내·조건·부정 표현이 섞인 문장은 이 매물의 상태로 보지 않는다.
+BODY_DEFECT = re.compile(
+    r"부품용|수리용|(?<!잔)고장|파손|깨짐|깨져|깨졌|실금|(?<!무)잔상|(?<!무)번인|침수|"
+    r"터치\s*(?:불가|불량|안\s*됨)|페이스\s*아이디\s*(?:불량|불가|안\s*됨)|lcd\s*멍|액정\s*멍",
+    re.IGNORECASE,
+)
+BODY_NOT_ABOUT_ITEM = re.compile(
+    r"a/?s|면책|환불|반품|교환|보상|보증|과실|부주의|매입|구매|취급|않|없|無|❌|일절|전혀|테스트|등급|"
+    r"급\s*[:：]|있거나|이력|여부|경우|※|[^a-z]x(?![a-z])|노\s*(?:잔상|번인|파손)|픽셀|[:：]\s*무",
+    re.IGNORECASE,
+)
+BODY_SENTENCE = re.compile(r"[\n.!?]|\s{2,}")
+BODY_CAPACITY = re.compile(r"(?<!\d)(?:128|256|512)\s*(?:gb|기가|g)(?![a-z0-9])|(?<!\d)[12]\s*(?:tb|테라)(?![a-z0-9])", re.IGNORECASE)
+
+
+def mentions_defect(text: str, body: bool = False) -> bool:
+    if not body:
+        return bool(DEFECT.search(text))
+    return any(
+        BODY_DEFECT.search(sentence) and not BODY_NOT_ABOUT_ITEM.search(sentence)
+        for sentence in BODY_SENTENCE.split(text)
+    )
+
+
+def body_capacity(description: str) -> str | None:
+    """본문에 용량이 한 가지만 적혀 있을 때만 믿는다. 여러 개면 업자 재고 목록일 수 있다."""
+    found = {capacity(match.group(0)) for match in BODY_CAPACITY.finditer(description)}
+    found.discard(None)
+    return found.pop() if len(found) == 1 else None
 
 
 def compact(value: str) -> str:
@@ -128,16 +169,21 @@ def model_matches(model: str, title: str) -> bool:
         wanted = next((key for key in suffixes if key in model), None)
         present = next((key for key, words in suffixes.items() if any(word in text for word in words)), None)
         return wanted == present
+    if model.startswith("iPhone ") and "Pro Max" not in model:
+        number = re.search(r"\d+", model)
+        # "아이폰16 프맥", "16pm"은 Pro Max 약칭이다.
+        if number and re.search(rf"(?<!\d){number.group()}(?:프맥|pm(?![a-z]))", text):
+            return False
     aliases = ALIASES.get(model, (compact(model),))
     if not any(alias in text for alias in aliases):
         return False
     conflicts = {
         "Osmo Pocket 4": ("pocket4p", "포켓4p"),
         "iPhone 16": ("iphone16pro", "아이폰16프로", "아이폰16pro", "iphone16plus", "아이폰16플러스", "아이폰16plus", "iphone16e", "아이폰16e"),
-        "iPhone 15 Pro": ("iphone15promax", "아이폰15프로맥스", "아이폰15promax"),
-        "iPhone 16 Pro": ("iphone16promax", "아이폰16프로맥스", "아이폰16promax"),
+        "iPhone 15 Pro": ("iphone15promax", "아이폰15프로맥스", "아이폰15promax", "15프맥", "15pm"),
+        "iPhone 16 Pro": ("iphone16promax", "아이폰16프로맥스", "아이폰16promax", "16프맥", "16pm"),
         "iPhone 17": ("iphone17pro", "아이폰17프로", "아이폰17pro", "iphone17plus", "아이폰17플러스", "아이폰17plus", "iphone17e", "아이폰17e"),
-        "iPhone 17 Pro": ("iphone17promax", "아이폰17프로맥스", "아이폰17promax"),
+        "iPhone 17 Pro": ("iphone17promax", "아이폰17프로맥스", "아이폰17promax", "17프맥", "17pm"),
         "Canon PowerShot V1": ("powershotv10", "파워샷v10"),
         "Canon R1": ("canonr10", "캐논r10"),
         "Nikon Zf": ("nikonzfc", "니콘zfc"),
@@ -151,7 +197,7 @@ def model_matches(model: str, title: str) -> bool:
         "Ricoh GR III": ("griiix", "gr3x"),
         "Ricoh GR IV": ("grivhdf", "gr4hdf", "grii", "gr3"),
         "GoPro MISSION 1": ("mission1pro",),
-        "iPhone 14 Pro": ("iphone14promax", "아이폰14프로맥스", "아이폰14promax"),
+        "iPhone 14 Pro": ("iphone14promax", "아이폰14프로맥스", "아이폰14promax", "14프맥", "14pm"),
         "MacBook Air M4": ("macbookprom4", "맥북프로m4"),
         "MacBook Pro M4 Pro": ("m4max", "m4맥스"),
         "MacBook Pro M4 Max": ("m4pro", "m4프로"),
@@ -159,7 +205,7 @@ def model_matches(model: str, title: str) -> bool:
         "Galaxy Z Flip7": ("flip7fe", "플립7fe"),
         "iPhone 15": ("iphone15pro", "아이폰15프로", "아이폰15pro", "iphone15plus", "아이폰15플러스", "아이폰15plus"),
         "iPhone 13": ("iphone13pro", "아이폰13프로", "아이폰13pro", "iphone13mini", "아이폰13미니", "아이폰13mini"),
-        "iPhone 13 Pro": ("iphone13promax", "아이폰13프로맥스", "아이폰13promax"),
+        "iPhone 13 Pro": ("iphone13promax", "아이폰13프로맥스", "아이폰13promax", "13프맥", "13pm"),
     }
     if model == "Fujifilm X100VI" and re.search(r"x100v(?!i)", text):
         return False
@@ -225,6 +271,8 @@ def choose_variant(model: str, variants: list[str], title: str) -> str | None:
 
 
 def minimum_price(product: dict) -> int:
+    if product["variant"] == DEFECT_VARIANT:
+        return DEFECT_MIN_PRICE_KRW
     model = product["model"]
     if model.startswith("RTX "):
         return {
@@ -280,6 +328,39 @@ def comparable(product: dict, title: str, description: str | None, price: int) -
     ):
         return False
     return True
+
+
+
+def title_model(title: str, models: list[str]) -> str | None:
+    """검색어와 다른 모델 글(예: "아이폰 16" 검색에 나온 16 프로)은 버리지 않고 맞는 모델로 옮긴다."""
+    hits = sorted((model for model in models if model_matches(model, title)), key=len, reverse=True)
+    if not hits or (len(hits) > 1 and len(hits[0]) == len(hits[1])):
+        return None
+    return hits[0]
+
+
+def classify(
+    query_model: str, title: str, description: str | None, price: int,
+    products_by_model: dict[str, list[dict]],
+) -> dict | None:
+    model = query_model if model_matches(query_model, title) else title_model(title, list(products_by_model))
+    if model is None or BLOCKED.search(title):
+        return None
+    by_variant = {product["variant"]: product for product in products_by_model[model]}
+    if mentions_defect(title) or (description and mentions_defect(description, body=True)):
+        product = by_variant.get(DEFECT_VARIANT)
+    else:
+        variants = [value for value in by_variant if value not in {DEFECT_VARIANT, UNKNOWN_CAPACITY_VARIANT}]
+        variant = choose_variant(model, variants, title)
+        if variant is None and description and all(value in CAPACITIES for value in variants):
+            found = body_capacity(description)
+            variant = found if found in variants else None
+        if variant is None and UNKNOWN_CAPACITY_VARIANT in by_variant:
+            variant = UNKNOWN_CAPACITY_VARIANT
+        product = by_variant.get(variant)
+    if product is None or not comparable(product, title, description, price):
+        return None
+    return product
 
 
 def record(product: dict, marketplace: str, item: dict, state: str, fetched_at: str) -> dict:
@@ -411,7 +492,7 @@ def normalize_v2(raw: dict, catalog: dict) -> dict:
     }
 
 
-def normalize(raw: dict, catalog: dict) -> dict:
+def normalize(raw: dict, catalog: dict, descriptions: dict[tuple[str, str], str] | None = None) -> dict:
     if raw.get("schema_version") == 2:
         return normalize_v2(raw, catalog)
     normalized_fetched_at = datetime.fromisoformat(raw["fetched_at"].replace("Z", "+00:00")).astimezone(KST).isoformat(timespec="seconds")
@@ -422,8 +503,6 @@ def normalize(raw: dict, catalog: dict) -> dict:
     safety: dict[tuple[str, str], dict] = {}
     quality_issues: list[dict] = []
     for query in raw["queries"]:
-        products = products_by_model[query["model"]]
-        variants = [product["variant"] for product in products]
         available = query["joongna"].get("available_listings") or []
         sold = (query["joongna"].get("sold_price_history") or {}).get("listings") or []
         active_ids = {str(item["sequence"]) for item in available if item.get("sequence") is not None}
@@ -453,13 +532,16 @@ def normalize(raw: dict, catalog: dict) -> dict:
         for marketplace, state, items, source_fetched_at in datasets:
             for item in items:
                 title = item.get("title") or ""
-                if not model_matches(query["model"], title):
-                    continue
-                variant = choose_variant(query["model"], variants, title)
-                product = next((value for value in products if value["variant"] == variant), None)
-                if not product or not comparable(product, title, item.get("description"), int(item.get("price_krw") or 0)):
+                external_id = str(item.get("product_id") if marketplace == "bunjang" else item.get("sequence"))
+                description = descriptions.get((marketplace, external_id)) if descriptions else None
+                product = classify(
+                    query["model"], title, description or item.get("description"),
+                    int(item.get("price_krw") or 0), products_by_model,
+                )
+                if not product:
                     continue
                 normalized = record(product, marketplace, item, state, source_fetched_at or raw["fetched_at"])
+                normalized["raw"]["description_checked"] = description is not None
                 key = (marketplace, normalized["external_listing_id"])
                 if key not in output:
                     output[key] = normalized

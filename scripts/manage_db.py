@@ -540,7 +540,8 @@ def compute_price_guide(
                 avg3 = preserved["avg3_price_krw"]
                 avg3_sample_size = preserved["avg3_sample_size"]
         note = preserved["note"] if preserved is not None else ""
-        aggregate = sold_averages.get(product["model"])
+        # 고장 칸은 정상품이 섞인 모델 평균과 비교하면 늘 "너무 쌈"이 되므로 차트 평균을 쓰지 않는다.
+        aggregate = None if product["variant"] == "고장·파손" else sold_averages.get(product["model"])
         if aggregate and aggregate["average_price_krw"] is not None:
             avg3 = aggregate["average_price_krw"]
             avg3_sample_size = aggregate["sample_size"]

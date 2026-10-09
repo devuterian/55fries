@@ -1,3 +1,4 @@
+import json
 import unittest
 from datetime import datetime, timezone
 from unittest import mock
@@ -77,3 +78,22 @@ class SearchQueryConfigTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class JoongnaDescriptionTest(unittest.TestCase):
+    def test_reads_referenced_text_chunk(self):
+        from scripts.collect_marketplaces import joongna_description_from_html
+        body = "용량 256GB\n잔상 없음 😀"
+        size = format(len(body.encode()), "x")
+        chunks = [
+            [1, f'6:["$","x",null,{{"productTitle":"아이폰","productDescription":"$41"}}]\n'],
+            [1, f"41:T{size},{body}"],
+        ]
+        html = "".join(f"<script>self.__next_f.push({json.dumps(chunk, ensure_ascii=False)})</script>" for chunk in chunks)
+        self.assertEqual(joongna_description_from_html(html), body)
+
+    def test_inline_description(self):
+        from scripts.collect_marketplaces import joongna_description_from_html
+        chunk = [1, '6:{"productDescription":"바로 적힌 본문"}']
+        html = f"<script>self.__next_f.push({json.dumps(chunk, ensure_ascii=False)})</script>"
+        self.assertEqual(joongna_description_from_html(html), "바로 적힌 본문")
