@@ -49,6 +49,8 @@ jobs:
       - run: python3 -m pip install -r requirements-dev.txt
       - name: 수집과 정규화
         run: python3 scripts/daily_refresh.py --days "${{ inputs.days || '25' }}"
+      - name: 수집 결과가 직전보다 확 줄지 않았는지 점검
+        run: python3 scripts/check_refresh_sanity.py
       - name: DB 재생성과 사이트 빌드
         run: |
           make build

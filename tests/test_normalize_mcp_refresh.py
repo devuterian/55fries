@@ -263,6 +263,33 @@ class TierTest(unittest.TestCase):
                 self.assertFalse(mentions_defect(body, body=True))
                 self.assertEqual(self.variant("아이폰 16 256GB", body), ("iPhone 16", "256GB"))
 
+    def test_extra_defect_words_in_title(self):
+        for title in (
+            "아이폰 16 256GB 부품용", "갤럭시 S24 부품 기기", "아이폰 15 작동 불가", "갤럭시 S23 전원 안 켜짐",
+            "맥북 부팅 불가", "아이패드 먹통", "갤럭시 S24 울트라 작은 불량화소", "아이폰 14 액정 크랙",
+        ):
+            with self.subTest(title=title):
+                self.assertTrue(mentions_defect(title))
+
+    def test_extra_defect_words_keep_normal_titles(self):
+        for title in (
+            "아이폰 16 256GB 불량 없음", "갤럭시 S24 무불량", "아이폰 16프로맥스 정상해지 불량확인완료",
+            "아이폰 15 크랙 없음", "갤럭시 S24 초기불량 교환 가능", "아이폰 16 풀박스 S급", "전원 안정적인 정상 작동",
+        ):
+            with self.subTest(title=title):
+                self.assertFalse(mentions_defect(title))
+
+    def test_extra_defect_words_in_body(self):
+        self.assertTrue(mentions_defect("전원이 안 켜지고 작동 불가 상태입니다", body=True))
+        self.assertTrue(mentions_defect("부팅 불가라서 부품 기기로 판매합니다", body=True))
+        for body in ("최신 부품만 사용합니다", "초기불량 수령 후 7일 이내 접수 가능", "불량이면 어떻게 하나요", "작동 불가 시 환불 가능"):
+            with self.subTest(body=body):
+                self.assertFalse(mentions_defect(body, body=True))
+
+    def test_box_only_listing_is_dropped(self):
+        self.assertIsNone(self.variant("아이폰 16 256GB 박스 만"))
+        self.assertIsNone(self.variant("아이폰 16 256GB 빈 박스"))
+
     def test_capacity_from_body_or_unknown(self):
         self.assertEqual(self.variant("아이폰 16 블랙 S급", "용량은 256GB 입니다"), ("iPhone 16", "256GB"))
         self.assertEqual(self.variant("아이폰 16 블랙 S급", "128GB 256GB 512GB 재고 있음"), ("iPhone 16", UNKNOWN_CAPACITY_VARIANT))
