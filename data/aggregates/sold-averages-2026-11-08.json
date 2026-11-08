@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "fetched_at": "2026-10-09T14:54:39+00:00",
+  "fetched_at": "2026-11-08T01:01:24+00:00",
   "window_days": 90,
   "discount_percent": 15,
   "rows": [
@@ -9,9 +9,9 @@
       "search_word": "갤럭시 S22 울트라",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20S22%20%EC%9A%B8%ED%8A%B8%EB%9D%BC",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 68,
-      "sample_size": 68,
-      "average_price_krw": 324529,
+      "raw_sample_size": 56,
+      "sample_size": 56,
+      "average_price_krw": 326571,
       "alert_max_price_krw": 270000,
       "alert_keywords": [
         "갤럭시 s22 울트라"
@@ -22,10 +22,10 @@
       "search_word": "갤럭시 S23 울트라",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20S23%20%EC%9A%B8%ED%8A%B8%EB%9D%BC",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 97,
-      "sample_size": 97,
-      "average_price_krw": 472112,
-      "alert_max_price_krw": 400000,
+      "raw_sample_size": 93,
+      "sample_size": 93,
+      "average_price_krw": 468209,
+      "alert_max_price_krw": 390000,
       "alert_keywords": [
         "갤럭시 s23 울트라"
       ]
@@ -35,9 +35,9 @@
       "search_word": "갤럭시 S22",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20S22",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 11,
-      "sample_size": 11,
-      "average_price_krw": 231000,
+      "raw_sample_size": 58,
+      "sample_size": 58,
+      "average_price_krw": 230741,
       "alert_max_price_krw": 190000,
       "alert_keywords": [
         "갤럭시 s22"
@@ -48,10 +48,10 @@
       "search_word": "갤럭시 S23",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20S23",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 15,
-      "sample_size": 15,
-      "average_price_krw": 346400,
-      "alert_max_price_krw": 290000,
+      "raw_sample_size": 49,
+      "sample_size": 48,
+      "average_price_krw": 353771,
+      "alert_max_price_krw": 300000,
       "alert_keywords": [
         "갤럭시 s23"
       ]
@@ -61,10 +61,10 @@
       "search_word": "아이폰 14 프로",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8F%B0%2014%20%ED%94%84%EB%A1%9C",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 14,
-      "sample_size": 14,
-      "average_price_krw": 497429,
-      "alert_max_price_krw": 420000,
+      "raw_sample_size": 25,
+      "sample_size": 25,
+      "average_price_krw": 534276,
+      "alert_max_price_krw": 450000,
       "alert_keywords": [
         "아이폰 14 프로"
       ]
@@ -74,10 +74,10 @@
       "search_word": "아이폰 14 프로 맥스",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8F%B0%2014%20%ED%94%84%EB%A1%9C%20%EB%A7%A5%EC%8A%A4",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 69,
-      "sample_size": 69,
-      "average_price_krw": 672957,
-      "alert_max_price_krw": 570000,
+      "raw_sample_size": 73,
+      "sample_size": 70,
+      "average_price_krw": 663486,
+      "alert_max_price_krw": 560000,
       "alert_keywords": [
         "아이폰 14 프로 맥스"
       ]
@@ -87,10 +87,10 @@
       "search_word": "리코 GR4",
       "source_url": "https://web.joongna.com/search-price/%EB%A6%AC%EC%BD%94%20GR4",
       "minimum_comparable_price_krw": 500000,
-      "raw_sample_size": 75,
-      "sample_size": 75,
-      "average_price_krw": 2403533,
-      "alert_max_price_krw": 2040000,
+      "raw_sample_size": 68,
+      "sample_size": 68,
+      "average_price_krw": 2366324,
+      "alert_max_price_krw": 2010000,
       "alert_keywords": [
         "리코 gr4"
       ]
@@ -100,9 +100,9 @@
       "search_word": "소니 RX100M7",
       "source_url": "https://web.joongna.com/search-price/%EC%86%8C%EB%8B%88%20RX100M7",
       "minimum_comparable_price_krw": 500000,
-      "raw_sample_size": 25,
-      "sample_size": 25,
-      "average_price_krw": 1339400,
+      "raw_sample_size": 26,
+      "sample_size": 26,
+      "average_price_krw": 1332885,
       "alert_max_price_krw": 1130000,
       "alert_keywords": [
         "소니 RX100 VII"
@@ -115,8 +115,8 @@
       "minimum_comparable_price_krw": 300000,
       "raw_sample_size": 16,
       "sample_size": 16,
-      "average_price_krw": 510625,
-      "alert_max_price_krw": 430000,
+      "average_price_krw": 500938,
+      "alert_max_price_krw": 420000,
       "alert_keywords": [
         "파나소닉 TZ99"
       ]
@@ -139,10 +139,10 @@
       "search_word": "DJI 미니 5 프로",
       "source_url": "https://web.joongna.com/search-price/DJI%20%EB%AF%B8%EB%8B%88%205%20%ED%94%84%EB%A1%9C",
       "minimum_comparable_price_krw": 500000,
-      "raw_sample_size": 36,
-      "sample_size": 36,
-      "average_price_krw": 1161944,
-      "alert_max_price_krw": 980000,
+      "raw_sample_size": 32,
+      "sample_size": 32,
+      "average_price_krw": 1129375,
+      "alert_max_price_krw": 950000,
       "alert_keywords": [
         "DJI 미니 5 프로"
       ]
@@ -152,10 +152,10 @@
       "search_word": "DJI 에어 3S",
       "source_url": "https://web.joongna.com/search-price/DJI%20%EC%97%90%EC%96%B4%203S",
       "minimum_comparable_price_krw": 700000,
-      "raw_sample_size": 25,
-      "sample_size": 25,
-      "average_price_krw": 1367200,
-      "alert_max_price_krw": 1160000,
+      "raw_sample_size": 26,
+      "sample_size": 26,
+      "average_price_krw": 1338846,
+      "alert_max_price_krw": 1130000,
       "alert_keywords": [
         "dji 에어 3s"
       ]
@@ -166,9 +166,9 @@
       "source_url": "https://web.joongna.com/search-price/DJI%20%EB%A7%A4%EB%B9%85%204%20%ED%94%84%EB%A1%9C",
       "minimum_comparable_price_krw": 1500000,
       "raw_sample_size": 15,
-      "sample_size": 11,
-      "average_price_krw": 3061818,
-      "alert_max_price_krw": 2600000,
+      "sample_size": 10,
+      "average_price_krw": 2943000,
+      "alert_max_price_krw": 2500000,
       "alert_keywords": [
         "dji 매빅 4 프로"
       ]
@@ -178,10 +178,10 @@
       "search_word": "맥북 에어 M4",
       "source_url": "https://web.joongna.com/search-price/%EB%A7%A5%EB%B6%81%20%EC%97%90%EC%96%B4%20M4",
       "minimum_comparable_price_krw": 700000,
-      "raw_sample_size": 83,
-      "sample_size": 83,
-      "average_price_krw": 1424488,
-      "alert_max_price_krw": 1210000,
+      "raw_sample_size": 80,
+      "sample_size": 80,
+      "average_price_krw": 1404569,
+      "alert_max_price_krw": 1190000,
       "alert_keywords": [
         "맥북 에어 m4"
       ]
@@ -191,10 +191,10 @@
       "search_word": "맥북 프로 M4 프로",
       "source_url": "https://web.joongna.com/search-price/%EB%A7%A5%EB%B6%81%20%ED%94%84%EB%A1%9C%20M4%20%ED%94%84%EB%A1%9C",
       "minimum_comparable_price_krw": 700000,
-      "raw_sample_size": 62,
-      "sample_size": 62,
-      "average_price_krw": 2490323,
-      "alert_max_price_krw": 2110000,
+      "raw_sample_size": 49,
+      "sample_size": 49,
+      "average_price_krw": 2551429,
+      "alert_max_price_krw": 2160000,
       "alert_keywords": [
         "맥북 프로 M4 프로"
       ]
@@ -217,10 +217,10 @@
       "search_word": "애플워치10",
       "source_url": "https://web.joongna.com/search-price/%EC%95%A0%ED%94%8C%EC%9B%8C%EC%B9%9810",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 132,
-      "sample_size": 127,
-      "average_price_krw": 384795,
-      "alert_max_price_krw": 320000,
+      "raw_sample_size": 131,
+      "sample_size": 129,
+      "average_price_krw": 363535,
+      "alert_max_price_krw": 300000,
       "alert_keywords": [
         "애플워치 시리즈10"
       ]
@@ -230,10 +230,10 @@
       "search_word": "애플워치 울트라2",
       "source_url": "https://web.joongna.com/search-price/%EC%95%A0%ED%94%8C%EC%9B%8C%EC%B9%98%20%EC%9A%B8%ED%8A%B8%EB%9D%BC2",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 111,
-      "sample_size": 111,
-      "average_price_krw": 522604,
-      "alert_max_price_krw": 440000,
+      "raw_sample_size": 105,
+      "sample_size": 105,
+      "average_price_krw": 499010,
+      "alert_max_price_krw": 420000,
       "alert_keywords": [
         "애플워치 울트라2"
       ]
@@ -243,10 +243,10 @@
       "search_word": "갤럭시 S24 울트라",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20S24%20%EC%9A%B8%ED%8A%B8%EB%9D%BC",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 157,
-      "sample_size": 157,
-      "average_price_krw": 682478,
-      "alert_max_price_krw": 580000,
+      "raw_sample_size": 140,
+      "sample_size": 140,
+      "average_price_krw": 665764,
+      "alert_max_price_krw": 560000,
       "alert_keywords": [
         "갤럭시 s24 울트라"
       ]
@@ -256,9 +256,9 @@
       "search_word": "갤럭시 S25",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20S25",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 4,
-      "sample_size": 4,
-      "average_price_krw": 600000,
+      "raw_sample_size": 47,
+      "sample_size": 47,
+      "average_price_krw": 608717,
       "alert_max_price_krw": 510000,
       "alert_keywords": [
         "갤럭시 s25"
@@ -269,10 +269,10 @@
       "search_word": "갤럭시 S25 울트라",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20S25%20%EC%9A%B8%ED%8A%B8%EB%9D%BC",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 216,
-      "sample_size": 216,
-      "average_price_krw": 916181,
-      "alert_max_price_krw": 770000,
+      "raw_sample_size": 222,
+      "sample_size": 222,
+      "average_price_krw": 888856,
+      "alert_max_price_krw": 750000,
       "alert_keywords": [
         "갤럭시 s25 울트라"
       ]
@@ -282,10 +282,10 @@
       "search_word": "갤럭시 S25 플러스",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20S25%20%ED%94%8C%EB%9F%AC%EC%8A%A4",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 76,
-      "sample_size": 76,
-      "average_price_krw": 688118,
-      "alert_max_price_krw": 580000,
+      "raw_sample_size": 71,
+      "sample_size": 71,
+      "average_price_krw": 666620,
+      "alert_max_price_krw": 560000,
       "alert_keywords": [
         "갤럭시 s25 플러스"
       ]
@@ -295,10 +295,10 @@
       "search_word": "갤럭시 S25 엣지",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20S25%20%EC%97%A3%EC%A7%80",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 126,
-      "sample_size": 126,
-      "average_price_krw": 652282,
-      "alert_max_price_krw": 550000,
+      "raw_sample_size": 113,
+      "sample_size": 113,
+      "average_price_krw": 632712,
+      "alert_max_price_krw": 530000,
       "alert_keywords": [
         "갤럭시 s25 엣지"
       ]
@@ -308,10 +308,10 @@
       "search_word": "갤럭시 S26",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20S26",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 6,
-      "sample_size": 6,
-      "average_price_krw": 866667,
-      "alert_max_price_krw": 730000,
+      "raw_sample_size": 35,
+      "sample_size": 35,
+      "average_price_krw": 890714,
+      "alert_max_price_krw": 750000,
       "alert_keywords": [
         "갤럭시 s26"
       ]
@@ -321,10 +321,10 @@
       "search_word": "갤럭시 S26 울트라",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20S26%20%EC%9A%B8%ED%8A%B8%EB%9D%BC",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 228,
-      "sample_size": 228,
-      "average_price_krw": 1254569,
-      "alert_max_price_krw": 1060000,
+      "raw_sample_size": 195,
+      "sample_size": 195,
+      "average_price_krw": 1200144,
+      "alert_max_price_krw": 1020000,
       "alert_keywords": [
         "갤럭시 s26 울트라"
       ]
@@ -334,10 +334,10 @@
       "search_word": "갤럭시 S26 플러스",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20S26%20%ED%94%8C%EB%9F%AC%EC%8A%A4",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 36,
-      "sample_size": 36,
-      "average_price_krw": 989417,
-      "alert_max_price_krw": 840000,
+      "raw_sample_size": 27,
+      "sample_size": 27,
+      "average_price_krw": 968519,
+      "alert_max_price_krw": 820000,
       "alert_keywords": [
         "갤럭시 s26 플러스"
       ]
@@ -347,10 +347,10 @@
       "search_word": "갤럭시 Z 플립7",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20Z%20%ED%94%8C%EB%A6%BD7",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 88,
-      "sample_size": 88,
-      "average_price_krw": 628085,
-      "alert_max_price_krw": 530000,
+      "raw_sample_size": 81,
+      "sample_size": 81,
+      "average_price_krw": 613204,
+      "alert_max_price_krw": 520000,
       "alert_keywords": [
         "갤럭시 z 플립7"
       ]
@@ -360,10 +360,10 @@
       "search_word": "갤럭시 Z 폴드6",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20Z%20%ED%8F%B4%EB%93%9C6",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 87,
-      "sample_size": 87,
-      "average_price_krw": 714540,
-      "alert_max_price_krw": 600000,
+      "raw_sample_size": 82,
+      "sample_size": 82,
+      "average_price_krw": 688707,
+      "alert_max_price_krw": 580000,
       "alert_keywords": [
         "갤럭시 z 폴드6"
       ]
@@ -373,10 +373,10 @@
       "search_word": "갤럭시 Z 폴드7",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20Z%20%ED%8F%B4%EB%93%9C7",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 112,
-      "sample_size": 112,
-      "average_price_krw": 1310089,
-      "alert_max_price_krw": 1110000,
+      "raw_sample_size": 95,
+      "sample_size": 95,
+      "average_price_krw": 1237389,
+      "alert_max_price_krw": 1050000,
       "alert_keywords": [
         "갤럭시 z 폴드7"
       ]
@@ -386,9 +386,9 @@
       "search_word": "아이폰 15 프로",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8F%B0%2015%20%ED%94%84%EB%A1%9C",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 18,
-      "sample_size": 18,
-      "average_price_krw": 711111,
+      "raw_sample_size": 54,
+      "sample_size": 53,
+      "average_price_krw": 710528,
       "alert_max_price_krw": 600000,
       "alert_keywords": [
         "아이폰 15 프로"
@@ -399,10 +399,10 @@
       "search_word": "아이폰 16",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8F%B0%2016",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 5,
-      "sample_size": 5,
-      "average_price_krw": 722000,
-      "alert_max_price_krw": 610000,
+      "raw_sample_size": 11,
+      "sample_size": 11,
+      "average_price_krw": 746909,
+      "alert_max_price_krw": 630000,
       "alert_keywords": [
         "아이폰 16"
       ]
@@ -412,10 +412,10 @@
       "search_word": "아이폰 16 플러스",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8F%B0%2016%20%ED%94%8C%EB%9F%AC%EC%8A%A4",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 30,
-      "sample_size": 27,
-      "average_price_krw": 838333,
-      "alert_max_price_krw": 710000,
+      "raw_sample_size": 33,
+      "sample_size": 30,
+      "average_price_krw": 822000,
+      "alert_max_price_krw": 690000,
       "alert_keywords": [
         "아이폰 16 플러스"
       ]
@@ -425,10 +425,10 @@
       "search_word": "아이폰 16 프로",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8F%B0%2016%20%ED%94%84%EB%A1%9C",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 26,
-      "sample_size": 26,
-      "average_price_krw": 870423,
-      "alert_max_price_krw": 730000,
+      "raw_sample_size": 63,
+      "sample_size": 62,
+      "average_price_krw": 814500,
+      "alert_max_price_krw": 690000,
       "alert_keywords": [
         "아이폰 16 프로"
       ]
@@ -438,10 +438,10 @@
       "search_word": "아이폰 17",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8F%B0%2017",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 10,
-      "sample_size": 10,
-      "average_price_krw": 989000,
-      "alert_max_price_krw": 840000,
+      "raw_sample_size": 32,
+      "sample_size": 32,
+      "average_price_krw": 1037344,
+      "alert_max_price_krw": 880000,
       "alert_keywords": [
         "아이폰 17"
       ]
@@ -451,10 +451,10 @@
       "search_word": "아이폰 17 프로",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8F%B0%2017%20%ED%94%84%EB%A1%9C",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 20,
-      "sample_size": 20,
-      "average_price_krw": 1415450,
-      "alert_max_price_krw": 1200000,
+      "raw_sample_size": 34,
+      "sample_size": 34,
+      "average_price_krw": 1389297,
+      "alert_max_price_krw": 1180000,
       "alert_keywords": [
         "아이폰 17 프로"
       ]
@@ -464,10 +464,10 @@
       "search_word": "아이폰 에어",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8F%B0%20%EC%97%90%EC%96%B4",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 131,
-      "sample_size": 123,
-      "average_price_krw": 952974,
-      "alert_max_price_krw": 810000,
+      "raw_sample_size": 145,
+      "sample_size": 132,
+      "average_price_krw": 913778,
+      "alert_max_price_krw": 770000,
       "alert_keywords": [
         "아이폰 에어"
       ]
@@ -477,10 +477,10 @@
       "search_word": "소니 a6400",
       "source_url": "https://web.joongna.com/search-price/%EC%86%8C%EB%8B%88%20a6400",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 45,
-      "sample_size": 45,
-      "average_price_krw": 819444,
-      "alert_max_price_krw": 690000,
+      "raw_sample_size": 44,
+      "sample_size": 44,
+      "average_price_krw": 802500,
+      "alert_max_price_krw": 680000,
       "alert_keywords": [
         "소니 a6400"
       ]
@@ -490,10 +490,10 @@
       "search_word": "소니 a6700",
       "source_url": "https://web.joongna.com/search-price/%EC%86%8C%EB%8B%88%20a6700",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 33,
-      "sample_size": 33,
-      "average_price_krw": 1544091,
-      "alert_max_price_krw": 1310000,
+      "raw_sample_size": 29,
+      "sample_size": 29,
+      "average_price_krw": 1599138,
+      "alert_max_price_krw": 1350000,
       "alert_keywords": [
         "소니 a6700"
       ]
@@ -503,10 +503,10 @@
       "search_word": "소니 a7c2",
       "source_url": "https://web.joongna.com/search-price/%EC%86%8C%EB%8B%88%20a7c2",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 103,
-      "sample_size": 103,
-      "average_price_krw": 1807961,
-      "alert_max_price_krw": 1530000,
+      "raw_sample_size": 102,
+      "sample_size": 102,
+      "average_price_krw": 1788039,
+      "alert_max_price_krw": 1510000,
       "alert_keywords": [
         "소니 a7c2"
       ]
@@ -516,10 +516,10 @@
       "search_word": "소니 a7m4",
       "source_url": "https://web.joongna.com/search-price/%EC%86%8C%EB%8B%88%20a7m4",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 72,
-      "sample_size": 72,
-      "average_price_krw": 1787750,
-      "alert_max_price_krw": 1510000,
+      "raw_sample_size": 61,
+      "sample_size": 61,
+      "average_price_krw": 1752262,
+      "alert_max_price_krw": 1480000,
       "alert_keywords": [
         "소니 a7m4"
       ]
@@ -529,10 +529,10 @@
       "search_word": "캐논 r6m2",
       "source_url": "https://web.joongna.com/search-price/%EC%BA%90%EB%85%BC%20r6m2",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 20,
-      "sample_size": 20,
-      "average_price_krw": 1837500,
-      "alert_max_price_krw": 1560000,
+      "raw_sample_size": 19,
+      "sample_size": 19,
+      "average_price_krw": 1808947,
+      "alert_max_price_krw": 1530000,
       "alert_keywords": [
         "캐논 r6m2"
       ]
@@ -542,10 +542,10 @@
       "search_word": "후지필름 X100V",
       "source_url": "https://web.joongna.com/search-price/%ED%9B%84%EC%A7%80%ED%95%84%EB%A6%84%20X100V",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 16,
-      "sample_size": 16,
-      "average_price_krw": 1539375,
-      "alert_max_price_krw": 1300000,
+      "raw_sample_size": 17,
+      "sample_size": 17,
+      "average_price_krw": 1528235,
+      "alert_max_price_krw": 1290000,
       "alert_keywords": [
         "후지필름 x100v"
       ]
@@ -555,10 +555,10 @@
       "search_word": "후지 x100vi",
       "source_url": "https://web.joongna.com/search-price/%ED%9B%84%EC%A7%80%20x100vi",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 23,
-      "sample_size": 23,
-      "average_price_krw": 2145217,
-      "alert_max_price_krw": 1820000,
+      "raw_sample_size": 29,
+      "sample_size": 29,
+      "average_price_krw": 2125862,
+      "alert_max_price_krw": 1800000,
       "alert_keywords": [
         "후지 x100vi"
       ]
@@ -568,10 +568,10 @@
       "search_word": "리코 gr3",
       "source_url": "https://web.joongna.com/search-price/%EB%A6%AC%EC%BD%94%20gr3",
       "minimum_comparable_price_krw": 500000,
-      "raw_sample_size": 81,
-      "sample_size": 81,
-      "average_price_krw": 1699753,
-      "alert_max_price_krw": 1440000,
+      "raw_sample_size": 66,
+      "sample_size": 66,
+      "average_price_krw": 1693182,
+      "alert_max_price_krw": 1430000,
       "alert_keywords": [
         "리코 gr3"
       ]
@@ -581,10 +581,10 @@
       "search_word": "리코 gr3x",
       "source_url": "https://web.joongna.com/search-price/%EB%A6%AC%EC%BD%94%20gr3x",
       "minimum_comparable_price_krw": 500000,
-      "raw_sample_size": 48,
-      "sample_size": 48,
-      "average_price_krw": 1796667,
-      "alert_max_price_krw": 1520000,
+      "raw_sample_size": 38,
+      "sample_size": 38,
+      "average_price_krw": 1809474,
+      "alert_max_price_krw": 1530000,
       "alert_keywords": [
         "리코 gr3x"
       ]
@@ -594,9 +594,9 @@
       "search_word": "RTX 5060",
       "source_url": "https://web.joongna.com/search-price/RTX%205060",
       "minimum_comparable_price_krw": 300000,
-      "raw_sample_size": 327,
-      "sample_size": 327,
-      "average_price_krw": 920104,
+      "raw_sample_size": 333,
+      "sample_size": 333,
+      "average_price_krw": 949529,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -605,9 +605,9 @@
       "search_word": "RTX 3080",
       "source_url": "https://web.joongna.com/search-price/RTX%203080",
       "minimum_comparable_price_krw": 300000,
-      "raw_sample_size": 228,
-      "sample_size": 228,
-      "average_price_krw": 481562,
+      "raw_sample_size": 243,
+      "sample_size": 243,
+      "average_price_krw": 526914,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -616,9 +616,9 @@
       "search_word": "RTX 3080 Ti",
       "source_url": "https://web.joongna.com/search-price/RTX%203080%20Ti",
       "minimum_comparable_price_krw": 400000,
-      "raw_sample_size": 83,
-      "sample_size": 83,
-      "average_price_krw": 555880,
+      "raw_sample_size": 84,
+      "sample_size": 84,
+      "average_price_krw": 596881,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -627,9 +627,9 @@
       "search_word": "RTX 5070",
       "source_url": "https://web.joongna.com/search-price/RTX%205070",
       "minimum_comparable_price_krw": 600000,
-      "raw_sample_size": 314,
-      "sample_size": 308,
-      "average_price_krw": 1553103,
+      "raw_sample_size": 316,
+      "sample_size": 316,
+      "average_price_krw": 1467506,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -638,9 +638,9 @@
       "search_word": "RTX 4080",
       "source_url": "https://web.joongna.com/search-price/RTX%204080",
       "minimum_comparable_price_krw": 800000,
-      "raw_sample_size": 102,
-      "sample_size": 102,
-      "average_price_krw": 1304794,
+      "raw_sample_size": 90,
+      "sample_size": 90,
+      "average_price_krw": 1356222,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -649,9 +649,9 @@
       "search_word": "RTX 5080",
       "source_url": "https://web.joongna.com/search-price/RTX%205080",
       "minimum_comparable_price_krw": 1200000,
-      "raw_sample_size": 308,
-      "sample_size": 296,
-      "average_price_krw": 2249139,
+      "raw_sample_size": 267,
+      "sample_size": 267,
+      "average_price_krw": 2367873,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -660,9 +660,9 @@
       "search_word": "RTX 3090",
       "source_url": "https://web.joongna.com/search-price/RTX%203090",
       "minimum_comparable_price_krw": 500000,
-      "raw_sample_size": 81,
-      "sample_size": 81,
-      "average_price_krw": 1444455,
+      "raw_sample_size": 113,
+      "sample_size": 113,
+      "average_price_krw": 1568835,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -673,7 +673,7 @@
       "minimum_comparable_price_krw": 1500000,
       "raw_sample_size": 59,
       "sample_size": 59,
-      "average_price_krw": 3689829,
+      "average_price_krw": 3821185,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -682,9 +682,9 @@
       "search_word": "RTX 5090",
       "source_url": "https://web.joongna.com/search-price/RTX%205090",
       "minimum_comparable_price_krw": 2000000,
-      "raw_sample_size": 118,
-      "sample_size": 118,
-      "average_price_krw": 6595911,
+      "raw_sample_size": 106,
+      "sample_size": 106,
+      "average_price_krw": 7339625,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -693,9 +693,9 @@
       "search_word": "오즈모 액션4",
       "source_url": "https://web.joongna.com/search-price/%EC%98%A4%EC%A6%88%EB%AA%A8%20%EC%95%A1%EC%85%984",
       "minimum_comparable_price_krw": 100000,
-      "raw_sample_size": 30,
-      "sample_size": 30,
-      "average_price_krw": 283467,
+      "raw_sample_size": 34,
+      "sample_size": 34,
+      "average_price_krw": 292647,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -704,9 +704,9 @@
       "search_word": "오즈모 액션5 프로",
       "source_url": "https://web.joongna.com/search-price/%EC%98%A4%EC%A6%88%EB%AA%A8%20%EC%95%A1%EC%85%985%20%ED%94%84%EB%A1%9C",
       "minimum_comparable_price_krw": 100000,
-      "raw_sample_size": 33,
-      "sample_size": 33,
-      "average_price_krw": 436212,
+      "raw_sample_size": 40,
+      "sample_size": 40,
+      "average_price_krw": 415000,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -715,9 +715,9 @@
       "search_word": "오즈모 액션6",
       "source_url": "https://web.joongna.com/search-price/%EC%98%A4%EC%A6%88%EB%AA%A8%20%EC%95%A1%EC%85%986",
       "minimum_comparable_price_krw": 100000,
-      "raw_sample_size": 43,
-      "sample_size": 43,
-      "average_price_krw": 559651,
+      "raw_sample_size": 41,
+      "sample_size": 41,
+      "average_price_krw": 565976,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -726,9 +726,9 @@
       "search_word": "Osmo Pocket 3",
       "source_url": "https://web.joongna.com/search-price/Osmo%20Pocket%203",
       "minimum_comparable_price_krw": 100000,
-      "raw_sample_size": 12,
-      "sample_size": 12,
-      "average_price_krw": 445833,
+      "raw_sample_size": 11,
+      "sample_size": 11,
+      "average_price_krw": 445455,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -737,9 +737,9 @@
       "search_word": "오즈모 포켓4",
       "source_url": "https://web.joongna.com/search-price/%EC%98%A4%EC%A6%88%EB%AA%A8%20%ED%8F%AC%EC%BC%934",
       "minimum_comparable_price_krw": 100000,
-      "raw_sample_size": 121,
-      "sample_size": 121,
-      "average_price_krw": 716678,
+      "raw_sample_size": 113,
+      "sample_size": 113,
+      "average_price_krw": 713124,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -748,9 +748,9 @@
       "search_word": "오즈모 포켓4p",
       "source_url": "https://web.joongna.com/search-price/%EC%98%A4%EC%A6%88%EB%AA%A8%20%ED%8F%AC%EC%BC%934p",
       "minimum_comparable_price_krw": 100000,
-      "raw_sample_size": 59,
-      "sample_size": 59,
-      "average_price_krw": 860337,
+      "raw_sample_size": 54,
+      "sample_size": 54,
+      "average_price_krw": 828019,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -759,9 +759,9 @@
       "search_word": "Galaxy S25 FE",
       "source_url": "https://web.joongna.com/search-price/Galaxy%20S25%20FE",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 19,
-      "sample_size": 19,
-      "average_price_krw": 580895,
+      "raw_sample_size": 18,
+      "sample_size": 18,
+      "average_price_krw": 571972,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -781,9 +781,9 @@
       "search_word": "Sony FX3",
       "source_url": "https://web.joongna.com/search-price/Sony%20FX3",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 34,
-      "sample_size": 34,
-      "average_price_krw": 3875000,
+      "raw_sample_size": 29,
+      "sample_size": 29,
+      "average_price_krw": 3848276,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -792,9 +792,9 @@
       "search_word": "소니 a7m3",
       "source_url": "https://web.joongna.com/search-price/%EC%86%8C%EB%8B%88%20a7m3",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 59,
-      "sample_size": 59,
-      "average_price_krw": 1058169,
+      "raw_sample_size": 58,
+      "sample_size": 58,
+      "average_price_krw": 1009448,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -805,7 +805,7 @@
       "minimum_comparable_price_krw": 150000,
       "raw_sample_size": 54,
       "sample_size": 54,
-      "average_price_krw": 2849444,
+      "average_price_krw": 2771296,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -814,9 +814,9 @@
       "search_word": "Sony a7CR",
       "source_url": "https://web.joongna.com/search-price/Sony%20a7CR",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 29,
-      "sample_size": 29,
-      "average_price_krw": 2350172,
+      "raw_sample_size": 31,
+      "sample_size": 31,
+      "average_price_krw": 2295890,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -825,9 +825,9 @@
       "search_word": "소니 a7r5",
       "source_url": "https://web.joongna.com/search-price/%EC%86%8C%EB%8B%88%20a7r5",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 27,
-      "sample_size": 27,
-      "average_price_krw": 3013704,
+      "raw_sample_size": 20,
+      "sample_size": 20,
+      "average_price_krw": 2958500,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -891,9 +891,9 @@
       "search_word": "Panasonic S9",
       "source_url": "https://web.joongna.com/search-price/Panasonic%20S9",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 43,
-      "sample_size": 43,
-      "average_price_krw": 1526512,
+      "raw_sample_size": 45,
+      "sample_size": 45,
+      "average_price_krw": 1551667,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -904,7 +904,7 @@
       "minimum_comparable_price_krw": 80000,
       "raw_sample_size": 12,
       "sample_size": 12,
-      "average_price_krw": 491667,
+      "average_price_krw": 460833,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -915,7 +915,7 @@
       "minimum_comparable_price_krw": 80000,
       "raw_sample_size": 14,
       "sample_size": 14,
-      "average_price_krw": 325836,
+      "average_price_krw": 333693,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -924,9 +924,9 @@
       "search_word": "Insta360 GO Ultra",
       "source_url": "https://web.joongna.com/search-price/Insta360%20GO%20Ultra",
       "minimum_comparable_price_krw": 80000,
-      "raw_sample_size": 28,
-      "sample_size": 28,
-      "average_price_krw": 480536,
+      "raw_sample_size": 25,
+      "sample_size": 25,
+      "average_price_krw": 481800,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -935,9 +935,9 @@
       "search_word": "캐논 파워샷 v1",
       "source_url": "https://web.joongna.com/search-price/%EC%BA%90%EB%85%BC%20%ED%8C%8C%EC%9B%8C%EC%83%B7%20v1",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 50,
-      "sample_size": 50,
-      "average_price_krw": 945060,
+      "raw_sample_size": 46,
+      "sample_size": 46,
+      "average_price_krw": 901957,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -957,9 +957,9 @@
       "search_word": "Canon R10",
       "source_url": "https://web.joongna.com/search-price/Canon%20R10",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 31,
-      "sample_size": 31,
-      "average_price_krw": 905774,
+      "raw_sample_size": 30,
+      "sample_size": 30,
+      "average_price_krw": 856000,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1001,9 +1001,9 @@
       "search_word": "Canon R7",
       "source_url": "https://web.joongna.com/search-price/Canon%20R7",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 19,
-      "sample_size": 19,
-      "average_price_krw": 1305263,
+      "raw_sample_size": 18,
+      "sample_size": 18,
+      "average_price_krw": 1223113,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1012,9 +1012,9 @@
       "search_word": "Canon R8",
       "source_url": "https://web.joongna.com/search-price/Canon%20R8",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 46,
-      "sample_size": 46,
-      "average_price_krw": 1418043,
+      "raw_sample_size": 43,
+      "sample_size": 43,
+      "average_price_krw": 1340233,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1023,9 +1023,9 @@
       "search_word": "니콘 zf",
       "source_url": "https://web.joongna.com/search-price/%EB%8B%88%EC%BD%98%20zf",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 59,
-      "sample_size": 59,
-      "average_price_krw": 1995763,
+      "raw_sample_size": 60,
+      "sample_size": 58,
+      "average_price_krw": 1921207,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1034,9 +1034,9 @@
       "search_word": "Fujifilm X-E5",
       "source_url": "https://web.joongna.com/search-price/Fujifilm%20X-E5",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 26,
-      "sample_size": 26,
-      "average_price_krw": 1894556,
+      "raw_sample_size": 31,
+      "sample_size": 31,
+      "average_price_krw": 1877097,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1056,9 +1056,9 @@
       "search_word": "Fujifilm X-M5",
       "source_url": "https://web.joongna.com/search-price/Fujifilm%20X-M5",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 26,
-      "sample_size": 26,
-      "average_price_krw": 1077692,
+      "raw_sample_size": 27,
+      "sample_size": 27,
+      "average_price_krw": 1068148,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1067,9 +1067,9 @@
       "search_word": "Fujifilm X-S20",
       "source_url": "https://web.joongna.com/search-price/Fujifilm%20X-S20",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 11,
-      "sample_size": 11,
-      "average_price_krw": 1551818,
+      "raw_sample_size": 0,
+      "sample_size": 0,
+      "average_price_krw": null,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1080,7 +1080,7 @@
       "minimum_comparable_price_krw": 150000,
       "raw_sample_size": 22,
       "sample_size": 22,
-      "average_price_krw": 1870909,
+      "average_price_krw": 1955909,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1091,7 +1091,7 @@
       "minimum_comparable_price_krw": 150000,
       "raw_sample_size": 15,
       "sample_size": 15,
-      "average_price_krw": 1640667,
+      "average_price_krw": 1595333,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1144,9 +1144,9 @@
       "search_word": "에어팟 4",
       "source_url": "https://web.joongna.com/search-price/%EC%97%90%EC%96%B4%ED%8C%9F%204",
       "minimum_comparable_price_krw": 50000,
-      "raw_sample_size": 273,
-      "sample_size": 238,
-      "average_price_krw": 124033,
+      "raw_sample_size": 244,
+      "sample_size": 215,
+      "average_price_krw": 112381,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1155,9 +1155,9 @@
       "search_word": "에어팟 4 노이즈캔슬링",
       "source_url": "https://web.joongna.com/search-price/%EC%97%90%EC%96%B4%ED%8C%9F%204%20%EB%85%B8%EC%9D%B4%EC%A6%88%EC%BA%94%EC%8A%AC%EB%A7%81",
       "minimum_comparable_price_krw": 50000,
-      "raw_sample_size": 57,
-      "sample_size": 57,
-      "average_price_krw": 171368,
+      "raw_sample_size": 59,
+      "sample_size": 59,
+      "average_price_krw": 164305,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1166,9 +1166,9 @@
       "search_word": "에어팟 프로 2",
       "source_url": "https://web.joongna.com/search-price/%EC%97%90%EC%96%B4%ED%8C%9F%20%ED%94%84%EB%A1%9C%202",
       "minimum_comparable_price_krw": 50000,
-      "raw_sample_size": 409,
-      "sample_size": 409,
-      "average_price_krw": 98562,
+      "raw_sample_size": 390,
+      "sample_size": 390,
+      "average_price_krw": 101636,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1177,9 +1177,9 @@
       "search_word": "에어팟 프로 3",
       "source_url": "https://web.joongna.com/search-price/%EC%97%90%EC%96%B4%ED%8C%9F%20%ED%94%84%EB%A1%9C%203",
       "minimum_comparable_price_krw": 50000,
-      "raw_sample_size": 319,
-      "sample_size": 319,
-      "average_price_krw": 240370,
+      "raw_sample_size": 301,
+      "sample_size": 301,
+      "average_price_krw": 229395,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1188,9 +1188,9 @@
       "search_word": "에어팟 맥스",
       "source_url": "https://web.joongna.com/search-price/%EC%97%90%EC%96%B4%ED%8C%9F%20%EB%A7%A5%EC%8A%A4",
       "minimum_comparable_price_krw": 50000,
-      "raw_sample_size": 185,
-      "sample_size": 185,
-      "average_price_krw": 321935,
+      "raw_sample_size": 181,
+      "sample_size": 181,
+      "average_price_krw": 312680,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1199,9 +1199,9 @@
       "search_word": "아이패드 프로 M4",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C%20%ED%94%84%EB%A1%9C%20M4",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 220,
-      "sample_size": 207,
-      "average_price_krw": 1185743,
+      "raw_sample_size": 224,
+      "sample_size": 210,
+      "average_price_krw": 1182328,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1212,7 +1212,7 @@
       "minimum_comparable_price_krw": 150000,
       "raw_sample_size": 63,
       "sample_size": 63,
-      "average_price_krw": 783302,
+      "average_price_krw": 801079,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1221,9 +1221,9 @@
       "search_word": "아이패드 미니 7",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C%20%EB%AF%B8%EB%8B%88%207",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 161,
-      "sample_size": 161,
-      "average_price_krw": 635357,
+      "raw_sample_size": 151,
+      "sample_size": 151,
+      "average_price_krw": 623295,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1232,9 +1232,9 @@
       "search_word": "애플워치 11",
       "source_url": "https://web.joongna.com/search-price/%EC%95%A0%ED%94%8C%EC%9B%8C%EC%B9%98%2011",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 124,
-      "sample_size": 124,
-      "average_price_krw": 472100,
+      "raw_sample_size": 104,
+      "sample_size": 104,
+      "average_price_krw": 462456,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1243,9 +1243,9 @@
       "search_word": "애플워치 울트라 3",
       "source_url": "https://web.joongna.com/search-price/%EC%95%A0%ED%94%8C%EC%9B%8C%EC%B9%98%20%EC%9A%B8%ED%8A%B8%EB%9D%BC%203",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 109,
-      "sample_size": 109,
-      "average_price_krw": 782615,
+      "raw_sample_size": 87,
+      "sample_size": 87,
+      "average_price_krw": 760747,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1254,9 +1254,9 @@
       "search_word": "맥미니 M4",
       "source_url": "https://web.joongna.com/search-price/%EB%A7%A5%EB%AF%B8%EB%8B%88%20M4",
       "minimum_comparable_price_krw": 300000,
-      "raw_sample_size": 173,
-      "sample_size": 170,
-      "average_price_krw": 1164608,
+      "raw_sample_size": 161,
+      "sample_size": 161,
+      "average_price_krw": 1177014,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1265,9 +1265,9 @@
       "search_word": "갤럭시 워치8",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20%EC%9B%8C%EC%B9%988",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 183,
-      "sample_size": 183,
-      "average_price_krw": 257974,
+      "raw_sample_size": 166,
+      "sample_size": 166,
+      "average_price_krw": 260753,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1276,9 +1276,9 @@
       "search_word": "갤럭시 워치8 클래식",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20%EC%9B%8C%EC%B9%988%20%ED%81%B4%EB%9E%98%EC%8B%9D",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 46,
-      "sample_size": 46,
-      "average_price_krw": 334239,
+      "raw_sample_size": 43,
+      "sample_size": 43,
+      "average_price_krw": 328256,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1287,9 +1287,9 @@
       "search_word": "갤럭시 탭 S10",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20%ED%83%AD%20S10",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 191,
-      "sample_size": 191,
-      "average_price_krw": 760660,
+      "raw_sample_size": 194,
+      "sample_size": 194,
+      "average_price_krw": 734299,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1298,9 +1298,9 @@
       "search_word": "갤럭시 탭 S10 플러스",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20%ED%83%AD%20S10%20%ED%94%8C%EB%9F%AC%EC%8A%A4",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 43,
-      "sample_size": 43,
-      "average_price_krw": 792093,
+      "raw_sample_size": 51,
+      "sample_size": 51,
+      "average_price_krw": 764706,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1309,9 +1309,9 @@
       "search_word": "갤럭시 탭 S10 울트라",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20%ED%83%AD%20S10%20%EC%9A%B8%ED%8A%B8%EB%9D%BC",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 84,
-      "sample_size": 78,
-      "average_price_krw": 946808,
+      "raw_sample_size": 77,
+      "sample_size": 71,
+      "average_price_krw": 942676,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1320,9 +1320,9 @@
       "search_word": "소니 WH-1000XM5",
       "source_url": "https://web.joongna.com/search-price/%EC%86%8C%EB%8B%88%20WH-1000XM5",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 52,
-      "sample_size": 52,
-      "average_price_krw": 193269,
+      "raw_sample_size": 40,
+      "sample_size": 40,
+      "average_price_krw": 214175,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1331,9 +1331,9 @@
       "search_word": "소니 WH-1000XM6",
       "source_url": "https://web.joongna.com/search-price/%EC%86%8C%EB%8B%88%20WH-1000XM6",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 45,
-      "sample_size": 45,
-      "average_price_krw": 334933,
+      "raw_sample_size": 46,
+      "sample_size": 46,
+      "average_price_krw": 338152,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1342,9 +1342,9 @@
       "search_word": "소니 WF-1000XM5",
       "source_url": "https://web.joongna.com/search-price/%EC%86%8C%EB%8B%88%20WF-1000XM5",
       "minimum_comparable_price_krw": 100000,
-      "raw_sample_size": 24,
-      "sample_size": 22,
-      "average_price_krw": 137000,
+      "raw_sample_size": 28,
+      "sample_size": 24,
+      "average_price_krw": 130125,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1353,9 +1353,9 @@
       "search_word": "보스 QC 울트라 헤드폰",
       "source_url": "https://web.joongna.com/search-price/%EB%B3%B4%EC%8A%A4%20QC%20%EC%9A%B8%ED%8A%B8%EB%9D%BC%20%ED%97%A4%EB%93%9C%ED%8F%B0",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 38,
-      "sample_size": 38,
-      "average_price_krw": 298316,
+      "raw_sample_size": 49,
+      "sample_size": 49,
+      "average_price_krw": 308592,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1364,9 +1364,9 @@
       "search_word": "닌텐도 스위치 2",
       "source_url": "https://web.joongna.com/search-price/%EB%8B%8C%ED%85%90%EB%8F%84%20%EC%8A%A4%EC%9C%84%EC%B9%98%202",
       "minimum_comparable_price_krw": 300000,
-      "raw_sample_size": 705,
-      "sample_size": 81,
-      "average_price_krw": 566865,
+      "raw_sample_size": 736,
+      "sample_size": 99,
+      "average_price_krw": 552233,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1375,7 +1375,7 @@
       "search_word": "플스5",
       "source_url": "https://web.joongna.com/search-price/%ED%94%8C%EC%8A%A45",
       "minimum_comparable_price_krw": 300000,
-      "raw_sample_size": 1976,
+      "raw_sample_size": 2018,
       "sample_size": 0,
       "average_price_krw": null,
       "alert_max_price_krw": null,
@@ -1386,9 +1386,9 @@
       "search_word": "플스5 프로",
       "source_url": "https://web.joongna.com/search-price/%ED%94%8C%EC%8A%A45%20%ED%94%84%EB%A1%9C",
       "minimum_comparable_price_krw": 500000,
-      "raw_sample_size": 228,
-      "sample_size": 196,
-      "average_price_krw": 1226005,
+      "raw_sample_size": 230,
+      "sample_size": 199,
+      "average_price_krw": 1268191,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1397,9 +1397,9 @@
       "search_word": "스팀덱 OLED",
       "source_url": "https://web.joongna.com/search-price/%EC%8A%A4%ED%8C%80%EB%8D%B1%20OLED",
       "minimum_comparable_price_krw": 300000,
-      "raw_sample_size": 72,
-      "sample_size": 72,
-      "average_price_krw": 761583,
+      "raw_sample_size": 70,
+      "sample_size": 70,
+      "average_price_krw": 744629,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1408,9 +1408,9 @@
       "search_word": "메타 퀘스트3",
       "source_url": "https://web.joongna.com/search-price/%EB%A9%94%ED%83%80%20%ED%80%98%EC%8A%A4%ED%8A%B83",
       "minimum_comparable_price_krw": 100000,
-      "raw_sample_size": 121,
-      "sample_size": 121,
-      "average_price_krw": 574331,
+      "raw_sample_size": 126,
+      "sample_size": 126,
+      "average_price_krw": 564952,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1419,9 +1419,9 @@
       "search_word": "RTX 4070",
       "source_url": "https://web.joongna.com/search-price/RTX%204070",
       "minimum_comparable_price_krw": 400000,
-      "raw_sample_size": 214,
+      "raw_sample_size": 224,
       "sample_size": 205,
-      "average_price_krw": 869385,
+      "average_price_krw": 901059,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1430,9 +1430,9 @@
       "search_word": "RTX 4070 SUPER",
       "source_url": "https://web.joongna.com/search-price/RTX%204070%20SUPER",
       "minimum_comparable_price_krw": 500000,
-      "raw_sample_size": 93,
-      "sample_size": 93,
-      "average_price_krw": 875731,
+      "raw_sample_size": 91,
+      "sample_size": 91,
+      "average_price_krw": 966188,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1441,9 +1441,9 @@
       "search_word": "RTX 4070 Ti SUPER",
       "source_url": "https://web.joongna.com/search-price/RTX%204070%20Ti%20SUPER",
       "minimum_comparable_price_krw": 650000,
-      "raw_sample_size": 40,
-      "sample_size": 40,
-      "average_price_krw": 1015000,
+      "raw_sample_size": 36,
+      "sample_size": 36,
+      "average_price_krw": 1049531,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1452,9 +1452,9 @@
       "search_word": "RTX 5070 Ti",
       "source_url": "https://web.joongna.com/search-price/RTX%205070%20Ti",
       "minimum_comparable_price_krw": 800000,
-      "raw_sample_size": 167,
-      "sample_size": 144,
-      "average_price_krw": 1683812,
+      "raw_sample_size": 160,
+      "sample_size": 160,
+      "average_price_krw": 1696066,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1463,9 +1463,9 @@
       "search_word": "갤럭시 S24",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20S24",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 17,
-      "sample_size": 17,
-      "average_price_krw": 443647,
+      "raw_sample_size": 43,
+      "sample_size": 43,
+      "average_price_krw": 417800,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1474,9 +1474,9 @@
       "search_word": "갤럭시 S24 플러스",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20S24%20%ED%94%8C%EB%9F%AC%EC%8A%A4",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 84,
-      "sample_size": 84,
-      "average_price_krw": 459786,
+      "raw_sample_size": 73,
+      "sample_size": 73,
+      "average_price_krw": 460753,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1485,9 +1485,9 @@
       "search_word": "갤럭시 S24 FE",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20S24%20FE",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 32,
-      "sample_size": 32,
-      "average_price_krw": 398906,
+      "raw_sample_size": 35,
+      "sample_size": 35,
+      "average_price_krw": 392000,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1496,9 +1496,9 @@
       "search_word": "갤럭시 S23 플러스",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20S23%20%ED%94%8C%EB%9F%AC%EC%8A%A4",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 66,
-      "sample_size": 66,
-      "average_price_krw": 346182,
+      "raw_sample_size": 57,
+      "sample_size": 57,
+      "average_price_krw": 351912,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1507,9 +1507,9 @@
       "search_word": "갤럭시 S23 FE",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20S23%20FE",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 38,
-      "sample_size": 38,
-      "average_price_krw": 275289,
+      "raw_sample_size": 31,
+      "sample_size": 31,
+      "average_price_krw": 282419,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1518,9 +1518,9 @@
       "search_word": "갤럭시 Z 플립6",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20Z%20%ED%94%8C%EB%A6%BD6",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 93,
-      "sample_size": 93,
-      "average_price_krw": 354161,
+      "raw_sample_size": 102,
+      "sample_size": 102,
+      "average_price_krw": 348925,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1540,9 +1540,9 @@
       "search_word": "갤럭시 Z 플립5",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20Z%20%ED%94%8C%EB%A6%BD5",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 76,
-      "sample_size": 68,
-      "average_price_krw": 205162,
+      "raw_sample_size": 73,
+      "sample_size": 65,
+      "average_price_krw": 209969,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1551,9 +1551,9 @@
       "search_word": "갤럭시 Z 폴드5",
       "source_url": "https://web.joongna.com/search-price/%EA%B0%A4%EB%9F%AD%EC%8B%9C%20Z%20%ED%8F%B4%EB%93%9C5",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 65,
-      "sample_size": 65,
-      "average_price_krw": 467538,
+      "raw_sample_size": 61,
+      "sample_size": 61,
+      "average_price_krw": 451721,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1562,9 +1562,9 @@
       "search_word": "아이폰 15 프로 맥스",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8F%B0%2015%20%ED%94%84%EB%A1%9C%20%EB%A7%A5%EC%8A%A4",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 140,
-      "sample_size": 140,
-      "average_price_krw": 919057,
+      "raw_sample_size": 154,
+      "sample_size": 154,
+      "average_price_krw": 897455,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1573,9 +1573,9 @@
       "search_word": "아이폰 16 프로 맥스",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8F%B0%2016%20%ED%94%84%EB%A1%9C%20%EB%A7%A5%EC%8A%A4",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 166,
-      "sample_size": 166,
-      "average_price_krw": 1156258,
+      "raw_sample_size": 179,
+      "sample_size": 179,
+      "average_price_krw": 1127351,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1584,9 +1584,9 @@
       "search_word": "아이폰 17 프로 맥스",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8F%B0%2017%20%ED%94%84%EB%A1%9C%20%EB%A7%A5%EC%8A%A4",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 193,
-      "sample_size": 182,
-      "average_price_krw": 1629231,
+      "raw_sample_size": 221,
+      "sample_size": 216,
+      "average_price_krw": 1535532,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1595,9 +1595,9 @@
       "search_word": "아이폰 15",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8F%B0%2015",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 4,
-      "sample_size": 4,
-      "average_price_krw": 514000,
+      "raw_sample_size": 12,
+      "sample_size": 11,
+      "average_price_krw": 512909,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1608,7 +1608,7 @@
       "minimum_comparable_price_krw": 150000,
       "raw_sample_size": 22,
       "sample_size": 21,
-      "average_price_krw": 600714,
+      "average_price_krw": 593524,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1617,9 +1617,9 @@
       "search_word": "아이폰 16e",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8F%B0%2016e",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 31,
-      "sample_size": 31,
-      "average_price_krw": 556742,
+      "raw_sample_size": 28,
+      "sample_size": 28,
+      "average_price_krw": 548143,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1628,9 +1628,9 @@
       "search_word": "아이폰 13",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8F%B0%2013",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 8,
-      "sample_size": 8,
-      "average_price_krw": 340375,
+      "raw_sample_size": 12,
+      "sample_size": 12,
+      "average_price_krw": 365250,
       "alert_max_price_krw": null,
       "alert_keywords": []
     },
@@ -1639,9 +1639,9 @@
       "search_word": "아이폰 13 프로",
       "source_url": "https://web.joongna.com/search-price/%EC%95%84%EC%9D%B4%ED%8F%B0%2013%20%ED%94%84%EB%A1%9C",
       "minimum_comparable_price_krw": 150000,
-      "raw_sample_size": 178,
-      "sample_size": 178,
-      "average_price_krw": 437885,
+      "raw_sample_size": 196,
+      "sample_size": 196,
+      "average_price_krw": 463652,
       "alert_max_price_krw": null,
       "alert_keywords": []
     }
